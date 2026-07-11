@@ -1,0 +1,179 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../../core/database/database_provider.dart';
+import '../../domain/entities/occurrence.dart';
+
+/// Bottom sheet for logging or editing a date/time entry.
+class LogEntrySheet extends ConsumerStatefulWidget {
+  const LogEntrySheet({
+    super.key,
+    required this.activityId,
+    this.initialDate,
+    this.occurrenceToEdit,
+  });
+
+  final int activityId;
+  final DateTime? initialDate;
+  final Occurrence? occurrenceToEdit;
+
+  bool get isEditing => occurrenceToEdit != null;
+
+  static Future<void> show(
+    BuildContext context, {
+    required int activityId,
+    DateTime? initialDate,
+    Occurrence? occurrenceToEdit,
+  }) {
+    return showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.viewInsetsOf(context).bottom,
+        ),
+        child: LogEntrySheet(
+          activityId: activityId,
+          initialDate: initialDate,
+          occurrenceToEdit: occurrenceToEdit,
+        ),
+      ),
+    );
+  }
+
+  @override
+  ConsumerState<LogEntrySheet> createState() => _LogEntrySheetState();
+}
+
+class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
+  late DateTime _selectedDateTime;
+  late final TextEditingController _noteController;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedDateTime =
+        widget.occurrenceToEdit?.doneAt ?? widget.initialDate ?? DateTime.now();
+    _noteController = TextEditingController(text: widget.occurrenceToEdit?.note ?? '');
+  }
+
+  @override
+  void dispose() {
+    _noteController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            widget.isEditing ? 'Edit Entry' : 'Add Entry',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 16),
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.calendar_today),
+            title: const Text('Date'),
+            subtitle: Text(
+              '${_selectedDateTime.year}-${_selectedDateTime.month.toString().padLeft(2, '0')}-${_selectedDateTime.day.toString().padLeft(2, '0')}',
+            ),
+            onTap: _pickDate,
+          ),
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.access_time),
+            title: const Text('Time'),
+            subtitle: Text(
+              '${_selectedDateTime.hour.toString().padLeft(2, '0')}:${_selectedDateTime.minute.toString().padLeft(2, '0')}',
+            ),
+            onTap: _pickTime,
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: _noteController,
+            decoration: const InputDecoration(
+              labelText: 'Note (optional)',
+            ),
+            maxLines: 2,
+          ),
+          const SizedBox(height: 24),
+          FilledButton(
+            onPressed: _save,
+            child: Text(widget.isEditing ? 'Save Changes' : 'Save Entry'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _pickDate() async {
+    final date = await showDatePicker(
+      context: context,
+      initialDate: _selectedDateTime,
+      firstDate: DateTime(2000),
+      lastDate: DateTime.now().add(const Duration(days: 1)),
+    );
+    if (date != null && mounted) {
+      setState(() {
+        _selectedDateTime = DateTime(
+          date.year,
+          date.month,
+          date.day,
+          _selectedDateTime.hour,
+          _selectedDateTime.minute,
+        );
+      });
+    }
+  }
+
+  Future<void> _pickTime() async {
+    final time = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.fromDateTime(_selectedDateTime),
+    );
+    if (time != null && mounted) {
+      setState(() {
+        _selectedDateTime = DateTime(
+          _selectedDateTime.year,
+          _selectedDateTime.month,
+          _selectedDateTime.day,
+          time.hour,
+          time.minute,
+        );
+      });
+    }
+  }
+
+  Future<void> _save() async {
+    final repo = ref.read(occurrenceRepositoryProvider);
+    final note = _noteController.text.trim().isEmpty
+        ? null
+        : _noteController.text.trim();
+
+    if (widget.isEditing) {
+      await repo.update(
+        widget.occurrenceToEdit!.copyWith(
+          doneAt: _selectedDateTime,
+          note: note,
+        ),
+      );
+    } else {
+      await repo.insert(
+        Occurrence(
+          id: 0,
+          activityId: widget.activityId,
+          doneAt: _selectedDateTime,
+          note: note,
+        ),
+      );
+    }
+    if (mounted) Navigator.pop(context);
+  }
+}

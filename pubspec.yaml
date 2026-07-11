@@ -1,0 +1,33 @@
+name: remember_last
+description: "Offline-first Last Done Tracker — remember when you last did anything."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_riverpod: ^2.6.1
+  drift: ^2.25.0
+  drift_flutter: ^0.2.4
+  path_provider: ^2.1.5
+  path: ^1.9.1
+  intl: ^0.20.2
+  go_router: ^15.1.2
+  fl_chart: ^0.70.2
+  file_picker: ^9.2.1
+  share_plus: ^11.0.0
+  uuid: ^4.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  drift_dev: ^2.25.0
+  build_runner: ^2.4.15
+
+flutter:
+  uses-material-design: true
