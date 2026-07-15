@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../domain/backup_service.dart';
 import '../../../core/widgets/confirm_dialog.dart';
+import '../domain/backup_service.dart';
 
 /// UI actions for exporting and importing JSON backups.
 class BackupActions {
@@ -82,7 +82,7 @@ class BackupActions {
     }
 
     try {
-      final result = await FilePicker.platform.pickFiles(
+      final result = await FilePicker.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['json'],
         withData: true,
