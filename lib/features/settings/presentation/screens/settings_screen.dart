@@ -4,7 +4,10 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/providers/package_info_provider.dart';
+import '../../../../core/providers/theme_mode_provider.dart';
+import '../../../../core/router/app_routes.dart';
 import '../../../backup/presentation/backup_actions.dart';
+import '../widgets/settings_tile.dart';
 
 /// Main settings hub for backup, categories, and app info.
 class SettingsScreen extends ConsumerWidget {
@@ -13,6 +16,7 @@ class SettingsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
+    final themeMode = ref.watch(themeModeProvider);
     final versionLabel = ref.watch(packageInfoProvider).when(
           data: (info) => AppConstants.versionLabel(
             version: info.version,
@@ -29,41 +33,71 @@ class SettingsScreen extends ConsumerWidget {
           Expanded(
             child: ListView(
               children: [
+                _SectionHeader(title: 'Appearance', theme: theme),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                  child: SegmentedButton<ThemeMode>(
+                    segments: const [
+                      ButtonSegment(
+                        value: ThemeMode.system,
+                        label: Text('System'),
+                        icon: Icon(Icons.brightness_auto_outlined, size: 18),
+                      ),
+                      ButtonSegment(
+                        value: ThemeMode.light,
+                        label: Text('Light'),
+                        icon: Icon(Icons.light_mode_outlined, size: 18),
+                      ),
+                      ButtonSegment(
+                        value: ThemeMode.dark,
+                        label: Text('Dark'),
+                        icon: Icon(Icons.dark_mode_outlined, size: 18),
+                      ),
+                    ],
+                    selected: {themeMode},
+                    onSelectionChanged: (selected) {
+                      ref
+                          .read(themeModeProvider.notifier)
+                          .setThemeMode(selected.single);
+                    },
+                  ),
+                ),
+                const Divider(height: 1),
                 _SectionHeader(title: 'Data', theme: theme),
-                ListTile(
-                  leading: const Icon(Icons.upload_outlined),
-                  title: const Text('Export backup'),
-                  subtitle: const Text('Save your data as JSON'),
+                SettingsTile(
+                  icon: Icons.upload_outlined,
+                  title: 'Export backup',
+                  subtitle: 'Save your data as JSON',
                   onTap: () => BackupActions(ref).exportBackup(context),
                 ),
-                ListTile(
-                  leading: const Icon(Icons.download_outlined),
-                  title: const Text('Import backup'),
-                  subtitle: const Text('Restore from a JSON file'),
+                SettingsTile(
+                  icon: Icons.download_outlined,
+                  title: 'Import backup',
+                  subtitle: 'Restore from a JSON file',
                   onTap: () => BackupActions(ref).importBackup(context),
                 ),
                 const Divider(height: 1),
                 _SectionHeader(title: 'Organize', theme: theme),
-                ListTile(
-                  leading: const Icon(Icons.category_outlined),
-                  title: const Text('Manage categories'),
-                  subtitle: const Text('Add or remove activity categories'),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: () => context.push('/settings/categories'),
+                SettingsTile(
+                  icon: Icons.category_outlined,
+                  title: 'Manage categories',
+                  subtitle: 'Add or remove activity categories',
+                  showChevron: true,
+                  onTap: () => context.push(AppRoutes.categories),
                 ),
                 const Divider(height: 1),
                 _SectionHeader(title: 'About', theme: theme),
-                ListTile(
-                  leading: const Icon(Icons.info_outline),
-                  title: Text('About ${AppConstants.appName}'),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: () => context.push('/settings/about'),
+                SettingsTile(
+                  icon: Icons.info_outline,
+                  title: 'About ${AppConstants.appName}',
+                  showChevron: true,
+                  onTap: () => context.push(AppRoutes.about),
                 ),
-                ListTile(
-                  leading: const Icon(Icons.privacy_tip_outlined),
-                  title: const Text('Privacy policy'),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: () => context.push('/settings/privacy'),
+                SettingsTile(
+                  icon: Icons.privacy_tip_outlined,
+                  title: 'Privacy policy',
+                  showChevron: true,
+                  onTap: () => context.push(AppRoutes.privacy),
                 ),
               ],
             ),

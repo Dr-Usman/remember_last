@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../../core/database/database_provider.dart';
+import '../../../../core/router/app_routes.dart';
 import '../../../categories/presentation/providers/categories_providers.dart';
 import '../../domain/entities/activity.dart';
 import '../../domain/enums/reminder_type.dart';
@@ -127,7 +128,7 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                             icon: const Icon(Icons.settings_outlined, size: 20),
                             tooltip: 'Manage categories',
                             onPressed: () =>
-                                context.push('/settings/categories'),
+                                context.push(AppRoutes.categories),
                           ),
                         ),
                         onChanged: (v) => _categoryController.text = v,

@@ -588,6 +588,9 @@ class $OccurrencesTable extends Occurrences
     false,
     type: DriftSqlType.int,
     requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES activities (id) ON DELETE CASCADE',
+    ),
   );
   static const VerificationMeta _doneAtMeta = const VerificationMeta('doneAt');
   @override
@@ -885,6 +888,15 @@ class $CategoriesTable extends Categories
     requiredDuringInsert: true,
     defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
   );
+  static const VerificationMeta _colorMeta = const VerificationMeta('color');
+  @override
+  late final GeneratedColumn<int> color = GeneratedColumn<int>(
+    'color',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _createdAtMeta = const VerificationMeta(
     'createdAt',
   );
@@ -897,7 +909,7 @@ class $CategoriesTable extends Categories
     requiredDuringInsert: true,
   );
   @override
-  List<GeneratedColumn> get $columns => [id, name, createdAt];
+  List<GeneratedColumn> get $columns => [id, name, color, createdAt];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -920,6 +932,14 @@ class $CategoriesTable extends Categories
       );
     } else if (isInserting) {
       context.missing(_nameMeta);
+    }
+    if (data.containsKey('color')) {
+      context.handle(
+        _colorMeta,
+        color.isAcceptableOrUnknown(data['color']!, _colorMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_colorMeta);
     }
     if (data.containsKey('created_at')) {
       context.handle(
@@ -946,6 +966,10 @@ class $CategoriesTable extends Categories
         DriftSqlType.string,
         data['${effectivePrefix}name'],
       )!,
+      color: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}color'],
+      )!,
       createdAt: attachedDatabase.typeMapping.read(
         DriftSqlType.dateTime,
         data['${effectivePrefix}created_at'],
@@ -962,10 +986,12 @@ class $CategoriesTable extends Categories
 class CategoryRow extends DataClass implements Insertable<CategoryRow> {
   final int id;
   final String name;
+  final int color;
   final DateTime createdAt;
   const CategoryRow({
     required this.id,
     required this.name,
+    required this.color,
     required this.createdAt,
   });
   @override
@@ -973,6 +999,7 @@ class CategoryRow extends DataClass implements Insertable<CategoryRow> {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     map['name'] = Variable<String>(name);
+    map['color'] = Variable<int>(color);
     map['created_at'] = Variable<DateTime>(createdAt);
     return map;
   }
@@ -981,6 +1008,7 @@ class CategoryRow extends DataClass implements Insertable<CategoryRow> {
     return CategoriesCompanion(
       id: Value(id),
       name: Value(name),
+      color: Value(color),
       createdAt: Value(createdAt),
     );
   }
@@ -993,6 +1021,7 @@ class CategoryRow extends DataClass implements Insertable<CategoryRow> {
     return CategoryRow(
       id: serializer.fromJson<int>(json['id']),
       name: serializer.fromJson<String>(json['name']),
+      color: serializer.fromJson<int>(json['color']),
       createdAt: serializer.fromJson<DateTime>(json['createdAt']),
     );
   }
@@ -1002,20 +1031,27 @@ class CategoryRow extends DataClass implements Insertable<CategoryRow> {
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
       'name': serializer.toJson<String>(name),
+      'color': serializer.toJson<int>(color),
       'createdAt': serializer.toJson<DateTime>(createdAt),
     };
   }
 
-  CategoryRow copyWith({int? id, String? name, DateTime? createdAt}) =>
-      CategoryRow(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        createdAt: createdAt ?? this.createdAt,
-      );
+  CategoryRow copyWith({
+    int? id,
+    String? name,
+    int? color,
+    DateTime? createdAt,
+  }) => CategoryRow(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    color: color ?? this.color,
+    createdAt: createdAt ?? this.createdAt,
+  );
   CategoryRow copyWithCompanion(CategoriesCompanion data) {
     return CategoryRow(
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
+      color: data.color.present ? data.color.value : this.color,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
     );
   }
@@ -1025,45 +1061,53 @@ class CategoryRow extends DataClass implements Insertable<CategoryRow> {
     return (StringBuffer('CategoryRow(')
           ..write('id: $id, ')
           ..write('name: $name, ')
+          ..write('color: $color, ')
           ..write('createdAt: $createdAt')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, name, createdAt);
+  int get hashCode => Object.hash(id, name, color, createdAt);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is CategoryRow &&
           other.id == this.id &&
           other.name == this.name &&
+          other.color == this.color &&
           other.createdAt == this.createdAt);
 }
 
 class CategoriesCompanion extends UpdateCompanion<CategoryRow> {
   final Value<int> id;
   final Value<String> name;
+  final Value<int> color;
   final Value<DateTime> createdAt;
   const CategoriesCompanion({
     this.id = const Value.absent(),
     this.name = const Value.absent(),
+    this.color = const Value.absent(),
     this.createdAt = const Value.absent(),
   });
   CategoriesCompanion.insert({
     this.id = const Value.absent(),
     required String name,
+    required int color,
     required DateTime createdAt,
   }) : name = Value(name),
+       color = Value(color),
        createdAt = Value(createdAt);
   static Insertable<CategoryRow> custom({
     Expression<int>? id,
     Expression<String>? name,
+    Expression<int>? color,
     Expression<DateTime>? createdAt,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (name != null) 'name': name,
+      if (color != null) 'color': color,
       if (createdAt != null) 'created_at': createdAt,
     });
   }
@@ -1071,11 +1115,13 @@ class CategoriesCompanion extends UpdateCompanion<CategoryRow> {
   CategoriesCompanion copyWith({
     Value<int>? id,
     Value<String>? name,
+    Value<int>? color,
     Value<DateTime>? createdAt,
   }) {
     return CategoriesCompanion(
       id: id ?? this.id,
       name: name ?? this.name,
+      color: color ?? this.color,
       createdAt: createdAt ?? this.createdAt,
     );
   }
@@ -1089,6 +1135,9 @@ class CategoriesCompanion extends UpdateCompanion<CategoryRow> {
     if (name.present) {
       map['name'] = Variable<String>(name.value);
     }
+    if (color.present) {
+      map['color'] = Variable<int>(color.value);
+    }
     if (createdAt.present) {
       map['created_at'] = Variable<DateTime>(createdAt.value);
     }
@@ -1100,6 +1149,7 @@ class CategoriesCompanion extends UpdateCompanion<CategoryRow> {
     return (StringBuffer('CategoriesCompanion(')
           ..write('id: $id, ')
           ..write('name: $name, ')
+          ..write('color: $color, ')
           ..write('createdAt: $createdAt')
           ..write(')'))
         .toString();
@@ -1121,6 +1171,16 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     occurrences,
     categories,
   ];
+  @override
+  StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'activities',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('occurrences', kind: UpdateKind.delete)],
+    ),
+  ]);
 }
 
 typedef $$ActivitiesTableCreateCompanionBuilder =
@@ -1147,6 +1207,29 @@ typedef $$ActivitiesTableUpdateCompanionBuilder =
       Value<DateTime> createdAt,
       Value<DateTime> updatedAt,
     });
+
+final class $$ActivitiesTableReferences
+    extends BaseReferences<_$AppDatabase, $ActivitiesTable, ActivityRow> {
+  $$ActivitiesTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<$OccurrencesTable, List<OccurrenceRow>>
+  _occurrencesRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.occurrences,
+    aliasName: 'activities__id__occurrences__activity_id',
+  );
+
+  $$OccurrencesTableProcessedTableManager get occurrencesRefs {
+    final manager = $$OccurrencesTableTableManager(
+      $_db,
+      $_db.occurrences,
+    ).filter((f) => f.activityId.id.sqlEquals($_itemColumn<int>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_occurrencesRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
 
 class $$ActivitiesTableFilterComposer
     extends Composer<_$AppDatabase, $ActivitiesTable> {
@@ -1201,6 +1284,31 @@ class $$ActivitiesTableFilterComposer
     column: $table.updatedAt,
     builder: (column) => ColumnFilters(column),
   );
+
+  Expression<bool> occurrencesRefs(
+    Expression<bool> Function($$OccurrencesTableFilterComposer f) f,
+  ) {
+    final $$OccurrencesTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.occurrences,
+      getReferencedColumn: (t) => t.activityId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OccurrencesTableFilterComposer(
+            $db: $db,
+            $table: $db.occurrences,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
 }
 
 class $$ActivitiesTableOrderingComposer
@@ -1297,6 +1405,31 @@ class $$ActivitiesTableAnnotationComposer
 
   GeneratedColumn<DateTime> get updatedAt =>
       $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  Expression<T> occurrencesRefs<T extends Object>(
+    Expression<T> Function($$OccurrencesTableAnnotationComposer a) f,
+  ) {
+    final $$OccurrencesTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.occurrences,
+      getReferencedColumn: (t) => t.activityId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OccurrencesTableAnnotationComposer(
+            $db: $db,
+            $table: $db.occurrences,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
 }
 
 class $$ActivitiesTableTableManager
@@ -1310,12 +1443,9 @@ class $$ActivitiesTableTableManager
           $$ActivitiesTableAnnotationComposer,
           $$ActivitiesTableCreateCompanionBuilder,
           $$ActivitiesTableUpdateCompanionBuilder,
-          (
-            ActivityRow,
-            BaseReferences<_$AppDatabase, $ActivitiesTable, ActivityRow>,
-          ),
+          (ActivityRow, $$ActivitiesTableReferences),
           ActivityRow,
-          PrefetchHooks Function()
+          PrefetchHooks Function({bool occurrencesRefs})
         > {
   $$ActivitiesTableTableManager(_$AppDatabase db, $ActivitiesTable table)
     : super(
@@ -1373,9 +1503,43 @@ class $$ActivitiesTableTableManager
                 updatedAt: updatedAt,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$ActivitiesTableReferences(db, table, e),
+                ),
+              )
               .toList(),
-          prefetchHooksCallback: null,
+          prefetchHooksCallback: ({occurrencesRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [if (occurrencesRefs) db.occurrences],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (occurrencesRefs)
+                    await $_getPrefetchedData<
+                      ActivityRow,
+                      $ActivitiesTable,
+                      OccurrenceRow
+                    >(
+                      currentTable: table,
+                      referencedTable: $$ActivitiesTableReferences
+                          ._occurrencesRefsTable(db),
+                      managerFromTypedResult: (p0) =>
+                          $$ActivitiesTableReferences(
+                            db,
+                            table,
+                            p0,
+                          ).occurrencesRefs,
+                      referencedItemsForCurrentItem: (item, referencedItems) =>
+                          referencedItems.where((e) => e.activityId == item.id),
+                      typedResults: items,
+                    ),
+                ];
+              },
+            );
+          },
         ),
       );
 }
@@ -1390,12 +1554,9 @@ typedef $$ActivitiesTableProcessedTableManager =
       $$ActivitiesTableAnnotationComposer,
       $$ActivitiesTableCreateCompanionBuilder,
       $$ActivitiesTableUpdateCompanionBuilder,
-      (
-        ActivityRow,
-        BaseReferences<_$AppDatabase, $ActivitiesTable, ActivityRow>,
-      ),
+      (ActivityRow, $$ActivitiesTableReferences),
       ActivityRow,
-      PrefetchHooks Function()
+      PrefetchHooks Function({bool occurrencesRefs})
     >;
 typedef $$OccurrencesTableCreateCompanionBuilder =
     OccurrencesCompanion Function({
@@ -1412,6 +1573,28 @@ typedef $$OccurrencesTableUpdateCompanionBuilder =
       Value<String?> note,
     });
 
+final class $$OccurrencesTableReferences
+    extends BaseReferences<_$AppDatabase, $OccurrencesTable, OccurrenceRow> {
+  $$OccurrencesTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static $ActivitiesTable _activityIdTable(_$AppDatabase db) =>
+      db.activities.createAlias('occurrences__activity_id__activities__id');
+
+  $$ActivitiesTableProcessedTableManager get activityId {
+    final $_column = $_itemColumn<int>('activity_id')!;
+
+    final manager = $$ActivitiesTableTableManager(
+      $_db,
+      $_db.activities,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_activityIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
 class $$OccurrencesTableFilterComposer
     extends Composer<_$AppDatabase, $OccurrencesTable> {
   $$OccurrencesTableFilterComposer({
@@ -1426,11 +1609,6 @@ class $$OccurrencesTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get activityId => $composableBuilder(
-    column: $table.activityId,
-    builder: (column) => ColumnFilters(column),
-  );
-
   ColumnFilters<DateTime> get doneAt => $composableBuilder(
     column: $table.doneAt,
     builder: (column) => ColumnFilters(column),
@@ -1440,6 +1618,29 @@ class $$OccurrencesTableFilterComposer
     column: $table.note,
     builder: (column) => ColumnFilters(column),
   );
+
+  $$ActivitiesTableFilterComposer get activityId {
+    final $$ActivitiesTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.activityId,
+      referencedTable: $db.activities,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ActivitiesTableFilterComposer(
+            $db: $db,
+            $table: $db.activities,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
 }
 
 class $$OccurrencesTableOrderingComposer
@@ -1456,11 +1657,6 @@ class $$OccurrencesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get activityId => $composableBuilder(
-    column: $table.activityId,
-    builder: (column) => ColumnOrderings(column),
-  );
-
   ColumnOrderings<DateTime> get doneAt => $composableBuilder(
     column: $table.doneAt,
     builder: (column) => ColumnOrderings(column),
@@ -1470,6 +1666,29 @@ class $$OccurrencesTableOrderingComposer
     column: $table.note,
     builder: (column) => ColumnOrderings(column),
   );
+
+  $$ActivitiesTableOrderingComposer get activityId {
+    final $$ActivitiesTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.activityId,
+      referencedTable: $db.activities,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ActivitiesTableOrderingComposer(
+            $db: $db,
+            $table: $db.activities,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
 }
 
 class $$OccurrencesTableAnnotationComposer
@@ -1484,16 +1703,34 @@ class $$OccurrencesTableAnnotationComposer
   GeneratedColumn<int> get id =>
       $composableBuilder(column: $table.id, builder: (column) => column);
 
-  GeneratedColumn<int> get activityId => $composableBuilder(
-    column: $table.activityId,
-    builder: (column) => column,
-  );
-
   GeneratedColumn<DateTime> get doneAt =>
       $composableBuilder(column: $table.doneAt, builder: (column) => column);
 
   GeneratedColumn<String> get note =>
       $composableBuilder(column: $table.note, builder: (column) => column);
+
+  $$ActivitiesTableAnnotationComposer get activityId {
+    final $$ActivitiesTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.activityId,
+      referencedTable: $db.activities,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ActivitiesTableAnnotationComposer(
+            $db: $db,
+            $table: $db.activities,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
 }
 
 class $$OccurrencesTableTableManager
@@ -1507,12 +1744,9 @@ class $$OccurrencesTableTableManager
           $$OccurrencesTableAnnotationComposer,
           $$OccurrencesTableCreateCompanionBuilder,
           $$OccurrencesTableUpdateCompanionBuilder,
-          (
-            OccurrenceRow,
-            BaseReferences<_$AppDatabase, $OccurrencesTable, OccurrenceRow>,
-          ),
+          (OccurrenceRow, $$OccurrencesTableReferences),
           OccurrenceRow,
-          PrefetchHooks Function()
+          PrefetchHooks Function({bool activityId})
         > {
   $$OccurrencesTableTableManager(_$AppDatabase db, $OccurrencesTable table)
     : super(
@@ -1550,9 +1784,54 @@ class $$OccurrencesTableTableManager
                 note: note,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$OccurrencesTableReferences(db, table, e),
+                ),
+              )
               .toList(),
-          prefetchHooksCallback: null,
+          prefetchHooksCallback: ({activityId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (activityId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.activityId,
+                                referencedTable: $$OccurrencesTableReferences
+                                    ._activityIdTable(db),
+                                referencedColumn: $$OccurrencesTableReferences
+                                    ._activityIdTable(db)
+                                    .id,
+                              )
+                              as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
         ),
       );
 }
@@ -1567,23 +1846,22 @@ typedef $$OccurrencesTableProcessedTableManager =
       $$OccurrencesTableAnnotationComposer,
       $$OccurrencesTableCreateCompanionBuilder,
       $$OccurrencesTableUpdateCompanionBuilder,
-      (
-        OccurrenceRow,
-        BaseReferences<_$AppDatabase, $OccurrencesTable, OccurrenceRow>,
-      ),
+      (OccurrenceRow, $$OccurrencesTableReferences),
       OccurrenceRow,
-      PrefetchHooks Function()
+      PrefetchHooks Function({bool activityId})
     >;
 typedef $$CategoriesTableCreateCompanionBuilder =
     CategoriesCompanion Function({
       Value<int> id,
       required String name,
+      required int color,
       required DateTime createdAt,
     });
 typedef $$CategoriesTableUpdateCompanionBuilder =
     CategoriesCompanion Function({
       Value<int> id,
       Value<String> name,
+      Value<int> color,
       Value<DateTime> createdAt,
     });
 
@@ -1603,6 +1881,11 @@ class $$CategoriesTableFilterComposer
 
   ColumnFilters<String> get name => $composableBuilder(
     column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get color => $composableBuilder(
+    column: $table.color,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -1631,6 +1914,11 @@ class $$CategoriesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<int> get color => $composableBuilder(
+    column: $table.color,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
     column: $table.createdAt,
     builder: (column) => ColumnOrderings(column),
@@ -1651,6 +1939,9 @@ class $$CategoriesTableAnnotationComposer
 
   GeneratedColumn<String> get name =>
       $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<int> get color =>
+      $composableBuilder(column: $table.color, builder: (column) => column);
 
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
@@ -1689,17 +1980,24 @@ class $$CategoriesTableTableManager
               ({
                 Value<int> id = const Value.absent(),
                 Value<String> name = const Value.absent(),
+                Value<int> color = const Value.absent(),
                 Value<DateTime> createdAt = const Value.absent(),
-              }) =>
-                  CategoriesCompanion(id: id, name: name, createdAt: createdAt),
+              }) => CategoriesCompanion(
+                id: id,
+                name: name,
+                color: color,
+                createdAt: createdAt,
+              ),
           createCompanionCallback:
               ({
                 Value<int> id = const Value.absent(),
                 required String name,
+                required int color,
                 required DateTime createdAt,
               }) => CategoriesCompanion.insert(
                 id: id,
                 name: name,
+                color: color,
                 createdAt: createdAt,
               ),
           withReferenceMapper: (p0) => p0

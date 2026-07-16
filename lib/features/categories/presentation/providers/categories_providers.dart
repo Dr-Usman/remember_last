@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/database/database_provider.dart';
+import '../../../../core/theme/category_colors.dart';
 import '../../data/repositories/category_repository_impl.dart';
 import '../../domain/repositories/category_repository.dart';
 
@@ -21,3 +23,16 @@ final mergedCategoriesProvider = StreamProvider<List<String>>((ref) {
       .watch(categoryListRepositoryProvider)
       .watchMergedCategoryNames();
 });
+
+/// Name → color for activity chips (DB color when managed; hash fallback otherwise).
+final categoryColorMapProvider = StreamProvider<Map<String, Color>>((ref) {
+  return ref.watch(databaseProvider).watchCategories().map((rows) {
+    return {
+      for (final row in rows) row.name: CategoryColors.fromArgb(row.color),
+    };
+  });
+});
+
+Color resolveCategoryColor(String name, Map<String, Color>? map) {
+  return map?[name] ?? CategoryColors.pickForName(name);
+}

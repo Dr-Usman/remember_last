@@ -9,18 +9,19 @@ import '../../features/occurrences/presentation/screens/activity_detail_screen.d
 import '../../features/settings/presentation/screens/about_screen.dart';
 import '../../features/settings/presentation/screens/privacy_policy_screen.dart';
 import '../../features/settings/presentation/screens/settings_screen.dart';
+import 'app_routes.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/',
+    initialLocation: AppRoutes.home,
     routes: [
       GoRoute(
-        path: '/',
+        path: AppRoutes.home,
         name: 'home',
         builder: (context, state) => const HomeScreen(),
       ),
       GoRoute(
-        path: '/activity/new',
+        path: AppRoutes.activityNew,
         name: 'activityNew',
         builder: (context, state) => const ActivityFormScreen(),
       ),
@@ -41,25 +42,25 @@ final routerProvider = Provider<GoRouter>((ref) {
         },
       ),
       GoRoute(
-        path: '/insights',
+        path: AppRoutes.insights,
         name: 'insights',
         builder: (context, state) => const InsightsScreen(),
       ),
       GoRoute(
-        path: '/settings',
+        path: AppRoutes.settings,
         name: 'settings',
         builder: (context, state) => const SettingsScreen(),
         routes: [
           GoRoute(
-            path: 'categories',
+            path: AppRoutes.categoriesSegment,
             builder: (context, state) => const CategoriesManagementScreen(),
           ),
           GoRoute(
-            path: 'about',
+            path: AppRoutes.aboutSegment,
             builder: (context, state) => const AboutScreen(),
           ),
           GoRoute(
-            path: 'privacy',
+            path: AppRoutes.privacySegment,
             builder: (context, state) => const PrivacyPolicyScreen(),
           ),
         ],

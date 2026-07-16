@@ -1,7 +1,11 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
+import 'package:flutter/foundation.dart';
+import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
 
 import '../../features/activities/data/mappers/activity_mapper.dart';
+import '../theme/category_colors.dart';
 import 'tables.dart';
 
 part 'app_database.g.dart';
@@ -11,24 +15,22 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? _openConnection());
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 1;
 
   static const defaultCategoryNames = ['Home', 'Health', 'Vehicle', 'Personal'];
+  static const databaseName = 'remember_last.db';
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
-        onCreate: (m) async {
-          await m.createAll();
-          await _createIndexes();
-          await _seedDefaultCategories();
-        },
-        onUpgrade: (m, from, to) async {
-          if (from < 2) {
-            await m.createTable(categories);
-            await _seedDefaultCategories();
-          }
-        },
-      );
+    onCreate: (m) async {
+      await m.createAll();
+      await _createIndexes();
+      await _seedDefaultCategories();
+    },
+    onUpgrade: (m, from, to) async {
+      // Squashed to schemaVersion 1 — no stepwise upgrades.
+    },
+  );
 
   Future<void> _createIndexes() async {
     await customStatement(
@@ -46,7 +48,11 @@ class AppDatabase extends _$AppDatabase {
     final now = DateTime.now();
     for (final name in defaultCategoryNames) {
       await into(categories).insert(
-        CategoriesCompanion.insert(name: name, createdAt: now),
+        CategoriesCompanion.insert(
+          name: name,
+          color: CategoryColors.argbForName(name),
+          createdAt: now,
+        ),
         mode: InsertMode.insertOrIgnore,
       );
     }
@@ -103,9 +109,8 @@ class AppDatabase extends _$AppDatabase {
   Stream<ActivityRow?> watchActivityById(int id) =>
       (select(activities)..where((t) => t.id.equals(id))).watchSingleOrNull();
 
-  Future<ActivityRow?> getActivityByUuid(String uuid) => (select(activities)
-        ..where((t) => t.uuid.equals(uuid)))
-      .getSingleOrNull();
+  Future<ActivityRow?> getActivityByUuid(String uuid) =>
+      (select(activities)..where((t) => t.uuid.equals(uuid))).getSingleOrNull();
 
   Future<int> insertActivity(ActivitiesCompanion companion) =>
       into(activities).insert(companion);
@@ -168,9 +173,9 @@ class AppDatabase extends _$AppDatabase {
       (select(occurrences)..where((t) => t.id.equals(id))).getSingleOrNull();
 
   Future<int> countOccurrencesForActivity(int activityId) async {
-    final rows = await (select(occurrences)
-          ..where((t) => t.activityId.equals(activityId)))
-        .get();
+    final rows = await (select(
+      occurrences,
+    )..where((t) => t.activityId.equals(activityId))).get();
     return rows.length;
   }
 
@@ -182,7 +187,9 @@ class AppDatabase extends _$AppDatabase {
   // --- Categories ---
 
   Stream<List<CategoryRow>> watchCategories() {
-    return (select(categories)..orderBy([(t) => OrderingTerm.asc(t.name)])).watch();
+    return (select(
+      categories,
+    )..orderBy([(t) => OrderingTerm.asc(t.name)])).watch();
   }
 
   Future<List<CategoryRow>> getAllCategories() =>
@@ -195,8 +202,18 @@ class AppDatabase extends _$AppDatabase {
       (delete(categories)..where((t) => t.id.equals(id))).go();
 
   Future<void> renameCategory(int id, String newName) =>
-      (update(categories)..where((t) => t.id.equals(id)))
-          .write(CategoriesCompanion(name: Value(newName)));
+      (update(categories)..where((t) => t.id.equals(id))).write(
+        CategoriesCompanion(name: Value(newName)),
+      );
 }
 
-QueryExecutor _openConnection() => driftDatabase(name: 'remember_last.db');
+QueryExecutor _openConnection() {
+  if (kDebugMode) {
+    // drift_flutter stores the file as `$name.sqlite` under documents.
+    getApplicationDocumentsDirectory().then((dir) {
+      final path = p.join(dir.path, '${AppDatabase.databaseName}.sqlite');
+      debugPrint('Drift DB path: $path');
+    });
+  }
+  return driftDatabase(name: AppDatabase.databaseName);
+}

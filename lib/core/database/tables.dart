@@ -26,5 +26,6 @@ class Occurrences extends Table {
 class Categories extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get name => text().unique()();
+  IntColumn get color => integer()();
   DateTimeColumn get createdAt => dateTime()();
 }

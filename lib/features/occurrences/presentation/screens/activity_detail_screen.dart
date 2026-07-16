@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../activities/presentation/providers/activities_providers.dart';
 import '../../../../core/database/database_provider.dart';
+import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/activity_status.dart';
 import '../../../../core/utils/date_formatter.dart';
 import '../../../../core/widgets/confirm_dialog.dart';
@@ -52,7 +53,7 @@ class ActivityDetailScreen extends ConsumerWidget {
                   IconButton(
                     icon: const Icon(Icons.edit_outlined),
                     onPressed: () =>
-                        context.push('/activity/$activityId/edit'),
+                        context.push(AppRoutes.activityEdit(activityId)),
                   ),
                   IconButton(
                     icon: const Icon(Icons.delete_outline),

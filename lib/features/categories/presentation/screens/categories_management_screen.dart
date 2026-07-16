@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/database/database_provider.dart';
+import '../../../../core/theme/category_colors.dart';
 import '../../../../core/widgets/confirm_dialog.dart';
 import '../providers/categories_providers.dart';
 
@@ -60,6 +61,9 @@ class CategoriesManagementScreen extends ConsumerWidget {
                 },
                 child: ListTile(
                   leading: CircleAvatar(
+                    backgroundColor: CategoryColors.fromArgb(category.color)
+                        .withValues(alpha: 0.2),
+                    foregroundColor: CategoryColors.fromArgb(category.color),
                     child: Text(category.name[0].toUpperCase()),
                   ),
                   title: Text(category.name),

@@ -3,10 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/database/database_provider.dart';
+import '../../../../core/router/app_routes.dart';
 import '../../../../core/widgets/activity_card.dart';
 import '../../../../core/widgets/app_brand_title.dart';
 import '../../../../core/widgets/confirm_dialog.dart';
 import '../../../../core/widgets/empty_state.dart';
+import '../../../categories/presentation/providers/categories_providers.dart';
 import '../../../occurrences/domain/entities/occurrence.dart';
 import '../providers/activities_providers.dart';
 import '../widgets/home_filters_bar.dart';
@@ -50,12 +52,12 @@ class HomeScreen extends ConsumerWidget {
           IconButton(
             icon: const Icon(Icons.insights_outlined),
             tooltip: 'Insights',
-            onPressed: () => context.push('/insights'),
+            onPressed: () => context.push(AppRoutes.insights),
           ),
           IconButton(
             icon: const Icon(Icons.settings_outlined),
             tooltip: 'Settings',
-            onPressed: () => context.push('/settings'),
+            onPressed: () => context.push(AppRoutes.settings),
           ),
         ],
       ),
@@ -84,7 +86,7 @@ class HomeScreen extends ConsumerWidget {
                         message:
                             'Track when you last did anything — water plants, car wash, call family.',
                         actionLabel: 'Add activity',
-                        onAction: () => context.push('/activity/new'),
+                        onAction: () => context.push(AppRoutes.activityNew),
                       );
                     }
                     return EmptyState(
@@ -114,7 +116,7 @@ class HomeScreen extends ConsumerWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.push('/activity/new'),
+        onPressed: () => context.push(AppRoutes.activityNew),
         icon: const Icon(Icons.add),
         label: const Text('Add Activity'),
       ),
@@ -184,6 +186,11 @@ class _ActivityList extends ConsumerWidget {
     DateTime? elapsedNow,
   ) {
     final activity = listItem.item.activity;
+    final colorMap = ref.watch(categoryColorMapProvider).valueOrNull;
+    final categoryName = activity.category;
+    final categoryColor = (categoryName != null && categoryName.isNotEmpty)
+        ? resolveCategoryColor(categoryName, colorMap)
+        : null;
 
     return Dismissible(
       key: ValueKey(activity.id),
@@ -220,7 +227,8 @@ class _ActivityList extends ConsumerWidget {
         item: listItem.item,
         status: listItem.status,
         elapsedNow: elapsedNow,
-        onTap: () => context.push('/activity/${activity.id}'),
+        categoryColor: categoryColor,
+        onTap: () => context.push(AppRoutes.activityDetail(activity.id)),
         onQuickLog: () => _quickLog(context, ref, activity.id, activity.title),
       ),
     );

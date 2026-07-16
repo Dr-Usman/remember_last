@@ -1,4 +1,5 @@
 import '../../../../core/database/app_database.dart';
+import '../../../../core/theme/category_colors.dart';
 import '../../domain/repositories/category_repository.dart';
 
 class CategoryRepositoryImpl implements CategoryRepository {
@@ -19,9 +20,11 @@ class CategoryRepositoryImpl implements CategoryRepository {
 
   @override
   Future<int> addCategory(String name) async {
+    final trimmed = name.trim();
     return _db.insertCategory(
       CategoriesCompanion.insert(
-        name: name.trim(),
+        name: trimmed,
+        color: CategoryColors.argbForName(trimmed),
         createdAt: DateTime.now(),
       ),
     );

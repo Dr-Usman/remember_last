@@ -15,6 +15,7 @@ class ActivityCard extends StatelessWidget {
     required this.onTap,
     required this.onQuickLog,
     this.elapsedNow,
+    this.categoryColor,
   });
 
   final ActivityWithLastDone item;
@@ -22,6 +23,7 @@ class ActivityCard extends StatelessWidget {
   final VoidCallback onTap;
   final VoidCallback onQuickLog;
   final DateTime? elapsedNow;
+  final Color? categoryColor;
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +92,10 @@ class ActivityCard extends StatelessWidget {
                             children: [
                               if (activity.category != null &&
                                   activity.category!.isNotEmpty)
-                                _CategoryChip(label: activity.category!),
+                                _CategoryChip(
+                                  label: activity.category!,
+                                  color: categoryColor,
+                                ),
                               StatusIndicator(status: status),
                             ],
                           ),
@@ -170,34 +175,42 @@ class _QuickLogButton extends StatelessWidget {
 }
 
 class _CategoryChip extends StatelessWidget {
-  const _CategoryChip({required this.label});
+  const _CategoryChip({required this.label, this.color});
 
   final String label;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final isDark = theme.brightness == Brightness.dark;
+    final accent = color;
+
+    final fill = accent != null
+        ? accent.withValues(alpha: isDark ? 0.28 : 0.16)
+        : (isDark ? scheme.surfaceContainerHighest : const Color(0xFFDBE3EE));
+    final border = accent != null
+        ? accent.withValues(alpha: isDark ? 0.55 : 0.4)
+        : (isDark
+            ? scheme.outlineVariant.withValues(alpha: 0.7)
+            : scheme.outline.withValues(alpha: 0.35));
+    final textColor = accent != null
+        ? (isDark ? Color.lerp(accent, Colors.white, 0.35)! : accent)
+        : (isDark ? scheme.onSurfaceVariant : scheme.onSurface);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
-        color: isDark
-            ? scheme.surfaceContainerHighest
-            : const Color(0xFFDBE3EE),
+        color: fill,
         borderRadius: BorderRadius.circular(999),
-        border: Border.all(
-          color: isDark
-              ? scheme.outlineVariant.withValues(alpha: 0.7)
-              : scheme.outline.withValues(alpha: 0.35),
-        ),
+        border: Border.all(color: border),
       ),
       child: Text(
         label,
         style: theme.textTheme.labelSmall?.copyWith(
           fontWeight: FontWeight.w600,
-          color: isDark ? scheme.onSurfaceVariant : scheme.onSurface,
+          color: textColor,
         ),
       ),
     );
