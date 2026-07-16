@@ -37,33 +37,59 @@ class CategoriesManagementScreen extends ConsumerWidget {
             separatorBuilder: (_, _) => const Divider(height: 1, indent: 72),
             itemBuilder: (context, index) {
               final category = categories[index];
-              return ListTile(
-                leading: CircleAvatar(
-                  child: Text(category.name[0].toUpperCase()),
+              return Dismissible(
+                key: ValueKey(category.id),
+                direction: DismissDirection.endToStart,
+                background: Container(
+                  alignment: Alignment.centerRight,
+                  padding: const EdgeInsets.only(right: 20),
+                  color: Theme.of(context).colorScheme.errorContainer,
+                  child: Icon(
+                    Icons.delete_outline,
+                    color: Theme.of(context).colorScheme.onErrorContainer,
+                  ),
                 ),
-                title: Text(category.name),
-                trailing: PopupMenuButton<String>(
-                  itemBuilder: (context) => const [
-                    PopupMenuItem(value: 'rename', child: Text('Rename')),
-                    PopupMenuItem(value: 'delete', child: Text('Delete')),
-                  ],
-                  onSelected: (value) async {
-                    if (value == 'rename') {
-                      await _showRenameDialog(context, ref, category.id, category.name);
-                    } else if (value == 'delete') {
-                      final confirmed = await showConfirmDialog(
-                        context,
-                        title: 'Delete category?',
-                        message:
-                            'Remove "${category.name}" from suggestions? Activities using it will keep their category.',
-                      );
-                      if (confirmed) {
-                        await ref
-                            .read(categoryRepositoryProvider)
-                            .deleteCategory(category.id);
+                confirmDismiss: (_) => _confirmDeleteCategory(
+                  context,
+                  category.name,
+                ),
+                onDismissed: (_) {
+                  ref
+                      .read(categoryRepositoryProvider)
+                      .deleteCategory(category.id);
+                },
+                child: ListTile(
+                  leading: CircleAvatar(
+                    child: Text(category.name[0].toUpperCase()),
+                  ),
+                  title: Text(category.name),
+                  trailing: PopupMenuButton<String>(
+                    icon: const Icon(Icons.more_vert),
+                    itemBuilder: (context) => const [
+                      PopupMenuItem(value: 'rename', child: Text('Rename')),
+                      PopupMenuItem(value: 'delete', child: Text('Delete')),
+                    ],
+                    onSelected: (value) async {
+                      if (value == 'rename') {
+                        await _showRenameDialog(
+                          context,
+                          ref,
+                          category.id,
+                          category.name,
+                        );
+                      } else if (value == 'delete') {
+                        final confirmed = await _confirmDeleteCategory(
+                          context,
+                          category.name,
+                        );
+                        if (confirmed) {
+                          await ref
+                              .read(categoryRepositoryProvider)
+                              .deleteCategory(category.id);
+                        }
                       }
-                    }
-                  },
+                    },
+                  ),
                 ),
               );
             },
@@ -72,6 +98,15 @@ class CategoriesManagementScreen extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
       ),
+    );
+  }
+
+  Future<bool> _confirmDeleteCategory(BuildContext context, String name) {
+    return showConfirmDialog(
+      context,
+      title: 'Delete category?',
+      message:
+          'Remove "$name" from suggestions? Activities using it will keep their category.',
     );
   }
 

@@ -70,25 +70,9 @@ class ActivityDetailScreen extends ConsumerWidget {
                     elapsedNow: elapsedNow,
                   ),
                   const SizedBox(height: 16),
-                  FilledButton.icon(
-                    onPressed: () => _logNow(ref),
-                    icon: const Icon(Icons.add),
-                    label: const Text('Log Now'),
-                    style: FilledButton.styleFrom(
-                      minimumSize: const Size.fromHeight(52),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  OutlinedButton.icon(
-                    onPressed: () => LogEntrySheet.show(
-                      context,
-                      activityId: activityId,
-                    ),
-                    icon: const Icon(Icons.edit_calendar_outlined),
-                    label: const Text('Add Custom Entry'),
-                    style: OutlinedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(52),
-                    ),
+                  _ActionButtons(
+                    activityId: activityId,
+                    onLogNow: () => _logNow(ref),
                   ),
                   if (activity.notes != null && activity.notes!.isNotEmpty) ...[
                     const SizedBox(height: 24),
@@ -163,6 +147,63 @@ class ActivityDetailScreen extends ConsumerWidget {
   }
 }
 
+class _ActionButtons extends StatelessWidget {
+  const _ActionButtons({
+    required this.activityId,
+    required this.onLogNow,
+  });
+
+  final int activityId;
+  final VoidCallback onLogNow;
+
+  static const _buttonStyle = Size.fromHeight(52);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isWide = constraints.maxWidth >= 600;
+
+        final logNowButton = FilledButton.icon(
+          onPressed: onLogNow,
+          icon: const Icon(Icons.add),
+          label: const Text('Log Now'),
+          style: FilledButton.styleFrom(minimumSize: _buttonStyle),
+        );
+
+        final customEntryButton = OutlinedButton.icon(
+          onPressed: () => LogEntrySheet.show(
+            context,
+            activityId: activityId,
+          ),
+          icon: const Icon(Icons.edit_calendar_outlined),
+          label: const Text('Add Custom Entry'),
+          style: OutlinedButton.styleFrom(minimumSize: _buttonStyle),
+        );
+
+        if (isWide) {
+          return Row(
+            children: [
+              Expanded(child: logNowButton),
+              const SizedBox(width: 8),
+              Expanded(child: customEntryButton),
+            ],
+          );
+        }
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            logNowButton,
+            const SizedBox(height: 8),
+            customEntryButton,
+          ],
+        );
+      },
+    );
+  }
+}
+
 class _HeaderCard extends StatelessWidget {
   const _HeaderCard({
     required this.lastDone,
@@ -233,40 +274,73 @@ class _HistoryTile extends ConsumerWidget {
   final Occurrence occurrence;
   final int activityId;
 
+  Future<void> _deleteOccurrence(WidgetRef ref) async {
+    await ref.read(occurrenceRepositoryProvider).delete(occurrence.id);
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 8),
-      child: ListTile(
-        leading: const Icon(Icons.history),
-        title: Text(DateFormatter.formatAbsoluteDateTime(occurrence.doneAt)),
-        subtitle: occurrence.note != null ? Text(occurrence.note!) : null,
-        trailing: PopupMenuButton<String>(
-          icon: const Icon(Icons.more_vert),
-          itemBuilder: (context) => const [
-            PopupMenuItem(value: 'edit', child: Text('Edit')),
-            PopupMenuItem(value: 'delete', child: Text('Delete')),
-          ],
-          onSelected: (value) async {
-            if (value == 'edit') {
-              await LogEntrySheet.show(
-                context,
-                activityId: activityId,
-                occurrenceToEdit: occurrence,
-              );
-            } else if (value == 'delete') {
-              final confirmed = await showConfirmDialog(
-                context,
-                title: 'Delete entry?',
-                message: 'Remove this log entry permanently?',
-              );
-              if (confirmed) {
-                await ref
-                    .read(occurrenceRepositoryProvider)
-                    .delete(occurrence.id);
+    return Dismissible(
+      key: ValueKey(occurrence.id),
+      direction: DismissDirection.endToStart,
+      background: Container(
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.only(right: 20),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.errorContainer,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Icon(
+          Icons.delete_outline,
+          color: Theme.of(context).colorScheme.onErrorContainer,
+        ),
+      ),
+      confirmDismiss: (_) async {
+        return showConfirmDialog(
+          context,
+          title: 'Delete entry?',
+          message: 'Remove this log entry permanently?',
+        );
+      },
+      onDismissed: (_) => _deleteOccurrence(ref),
+      child: Card(
+        margin: const EdgeInsets.only(bottom: 8),
+        child: ListTile(
+          visualDensity: VisualDensity.compact,
+          contentPadding: const EdgeInsets.fromLTRB(16, 4, 4, 4),
+          leading: Icon(
+            Icons.check_circle_outline,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          title: Text(DateFormatter.formatAbsoluteDateTime(occurrence.doneAt)),
+          subtitle: occurrence.note != null ? Text(occurrence.note!) : null,
+          trailing: PopupMenuButton<String>(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(minWidth: 40),
+            icon: const Icon(Icons.more_vert),
+            itemBuilder: (context) => const [
+              PopupMenuItem(value: 'edit', child: Text('Edit')),
+              PopupMenuItem(value: 'delete', child: Text('Delete')),
+            ],
+            onSelected: (value) async {
+              if (value == 'edit') {
+                await LogEntrySheet.show(
+                  context,
+                  activityId: activityId,
+                  occurrenceToEdit: occurrence,
+                );
+              } else if (value == 'delete') {
+                final confirmed = await showConfirmDialog(
+                  context,
+                  title: 'Delete entry?',
+                  message: 'Remove this log entry permanently?',
+                );
+                if (confirmed) {
+                  await _deleteOccurrence(ref);
+                }
               }
-            }
-          },
+            },
+          ),
         ),
       ),
     );

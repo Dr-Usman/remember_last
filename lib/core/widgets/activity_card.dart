@@ -41,7 +41,7 @@ class ActivityCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             color: scheme.surfaceContainerLow,
             border: Border.all(
-              color: accent.withValues(alpha: 0.25),
+              color: accent.withValues(alpha: 0.18),
               width: 1,
             ),
             boxShadow: [
@@ -54,91 +54,114 @@ class ActivityCard extends StatelessWidget {
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Row(
-              children: [
-                Container(width: 4, height: 108, color: accent),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(14, 14, 8, 14),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                activity.title,
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: -0.2,
+            child: IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ColoredBox(color: accent, child: const SizedBox(width: 4)),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(14, 14, 12, 14),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  activity.title,
+                                  style: theme.textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: -0.2,
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
+                              ),
+                              const SizedBox(width: 8),
+                              _QuickLogButton(onPressed: onQuickLog),
+                            ],
+                          ),
+                          const SizedBox(height: 6),
+                          Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            spacing: 8,
+                            runSpacing: 6,
+                            children: [
+                              if (activity.category != null &&
+                                  activity.category!.isNotEmpty)
+                                _CategoryChip(label: activity.category!),
+                              StatusIndicator(status: status),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          if (lastDone != null)
+                            Text(
+                              DateFormatter.formatElapsed(
+                                lastDone,
+                                now: elapsedNow,
+                              ),
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                color: accent,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                              ),
+                            )
+                          else
+                            Text(
+                              'Never logged',
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                color: AppColors.neutral,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
                               ),
                             ),
-                            StatusIndicator(status: status, compact: true),
+                          if (lastDone != null) ...[
+                            const SizedBox(height: 2),
+                            Text(
+                              DateFormatter.formatAbsoluteDateTime(lastDone),
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                              ),
+                            ),
                           ],
-                        ),
-                        if (activity.category != null &&
-                            activity.category!.isNotEmpty) ...[
-                          const SizedBox(height: 6),
-                          _CategoryChip(label: activity.category!),
                         ],
-                        const SizedBox(height: 10),
-                        if (lastDone != null)
-                          Text(
-                            DateFormatter.formatElapsed(lastDone, now: elapsedNow),
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              color: accent,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          )
-                        else
-                          Text(
-                            'Never logged',
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              color: AppColors.neutral,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        if (lastDone != null) ...[
-                          const SizedBox(height: 2),
-                          Text(
-                            DateFormatter.formatAbsoluteDateTime(lastDone),
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: scheme.onSurfaceVariant,
-                            ),
-                          ),
-                        ],
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 12),
-                  child: Material(
-                    color: scheme.primaryContainer,
-                    shape: const CircleBorder(),
-                    clipBehavior: Clip.antiAlias,
-                    child: InkWell(
-                      onTap: onQuickLog,
-                      customBorder: const CircleBorder(),
-                      child: SizedBox(
-                        width: 44,
-                        height: 44,
-                        child: Icon(
-                          Icons.add_rounded,
-                          color: scheme.onPrimaryContainer,
-                          size: 26,
-                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _QuickLogButton extends StatelessWidget {
+  const _QuickLogButton({required this.onPressed});
+
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
+    return Material(
+      color: scheme.primaryContainer,
+      shape: const CircleBorder(),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onPressed,
+        customBorder: const CircleBorder(),
+        child: SizedBox(
+          width: 40,
+          height: 40,
+          child: Icon(
+            Icons.add_rounded,
+            color: scheme.onPrimaryContainer,
+            size: 24,
           ),
         ),
       ),

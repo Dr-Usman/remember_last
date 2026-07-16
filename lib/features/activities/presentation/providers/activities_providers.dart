@@ -134,6 +134,6 @@ class ActivityListItem {
 final categoriesProvider = mergedCategoriesProvider;
 
 final activityByIdProvider =
-    FutureProvider.family<Activity?, int>((ref, id) async {
-  return ref.watch(activityRepositoryProvider).getById(id);
+    StreamProvider.family<Activity?, int>((ref, id) {
+  return ref.watch(activityRepositoryProvider).watchById(id);
 });

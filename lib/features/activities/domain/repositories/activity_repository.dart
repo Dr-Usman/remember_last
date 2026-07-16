@@ -7,6 +7,8 @@ abstract class ActivityRepository {
 
   Future<Activity?> getById(int id);
 
+  Stream<Activity?> watchById(int id);
+
   Future<Activity?> getByUuid(String uuid);
 
   Future<int> insert(Activity activity);

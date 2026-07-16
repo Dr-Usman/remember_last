@@ -66,7 +66,7 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
           onChanged: (value) =>
               ref.read(activityFilterProvider.notifier).setSearch(value),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 12),
         categoriesAsync.when(
           data: (categories) {
             if (categories.isEmpty) return const SizedBox.shrink();

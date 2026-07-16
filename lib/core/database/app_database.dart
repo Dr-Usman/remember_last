@@ -100,6 +100,9 @@ class AppDatabase extends _$AppDatabase {
   Future<ActivityRow?> getActivityById(int id) =>
       (select(activities)..where((t) => t.id.equals(id))).getSingleOrNull();
 
+  Stream<ActivityRow?> watchActivityById(int id) =>
+      (select(activities)..where((t) => t.id.equals(id))).watchSingleOrNull();
+
   Future<ActivityRow?> getActivityByUuid(String uuid) => (select(activities)
         ..where((t) => t.uuid.equals(uuid)))
       .getSingleOrNull();

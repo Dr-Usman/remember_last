@@ -29,6 +29,13 @@ class ActivityRepositoryImpl implements ActivityRepository {
   }
 
   @override
+  Stream<domain.Activity?> watchById(int id) {
+    return _db.watchActivityById(id).map(
+          (row) => row == null ? null : _mapper.toDomain(row),
+        );
+  }
+
+  @override
   Future<domain.Activity?> getByUuid(String uuid) async {
     final row = await _db.getActivityByUuid(uuid);
     return row == null ? null : _mapper.toDomain(row);

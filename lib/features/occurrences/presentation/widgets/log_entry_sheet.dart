@@ -77,25 +77,22 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 16),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            leading: const Icon(Icons.calendar_today),
-            title: const Text('Date'),
-            subtitle: Text(
-              '${_selectedDateTime.year}-${_selectedDateTime.month.toString().padLeft(2, '0')}-${_selectedDateTime.day.toString().padLeft(2, '0')}',
-            ),
+          _PickerField(
+            label: 'Date',
+            icon: Icons.calendar_today,
+            value:
+                '${_selectedDateTime.year}-${_selectedDateTime.month.toString().padLeft(2, '0')}-${_selectedDateTime.day.toString().padLeft(2, '0')}',
             onTap: _pickDate,
           ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            leading: const Icon(Icons.access_time),
-            title: const Text('Time'),
-            subtitle: Text(
-              '${_selectedDateTime.hour.toString().padLeft(2, '0')}:${_selectedDateTime.minute.toString().padLeft(2, '0')}',
-            ),
+          const SizedBox(height: 16),
+          _PickerField(
+            label: 'Time',
+            icon: Icons.access_time,
+            value:
+                '${_selectedDateTime.hour.toString().padLeft(2, '0')}:${_selectedDateTime.minute.toString().padLeft(2, '0')}',
             onTap: _pickTime,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
           TextField(
             controller: _noteController,
             decoration: const InputDecoration(
@@ -106,6 +103,10 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
           const SizedBox(height: 24),
           FilledButton(
             onPressed: _save,
+            style: FilledButton.styleFrom(
+              minimumSize: const Size.fromHeight(56),
+              padding: const EdgeInsets.symmetric(vertical: 16),
+            ),
             child: Text(widget.isEditing ? 'Save Changes' : 'Save Entry'),
           ),
         ],
@@ -175,5 +176,42 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
       );
     }
     if (mounted) Navigator.pop(context);
+  }
+}
+
+class _PickerField extends StatelessWidget {
+  const _PickerField({
+    required this.label,
+    required this.icon,
+    required this.value,
+    required this.onTap,
+  });
+
+  final String label;
+  final IconData icon;
+  final String value;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final borderRadius = BorderRadius.circular(12);
+
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: borderRadius,
+        child: InputDecorator(
+          decoration: InputDecoration(
+            labelText: label,
+            prefixIcon: Icon(icon),
+          ),
+          child: Text(
+            value,
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+        ),
+      ),
+    );
   }
 }

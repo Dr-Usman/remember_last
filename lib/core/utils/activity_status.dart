@@ -1,4 +1,5 @@
 import '../../features/activities/domain/entities/activity.dart' show Activity;
+import '../../features/activities/domain/enums/reminder_type.dart';
 
 /// Visual status for an activity based on reminder configuration.
 enum ActivityStatus {
@@ -41,6 +42,14 @@ extension ActivityStatusX on ActivityStatus {
   }
 }
 
+/// Whether the activity has an active reminder configured.
+bool activityHasActiveReminder(Activity activity) {
+  final reminderDays = activity.reminderDays;
+  return reminderDays != null &&
+      reminderDays > 0 &&
+      activity.reminderType != ReminderType.none;
+}
+
 /// Computes due status from last done date and reminder interval.
 class ActivityStatusCalculator {
   const ActivityStatusCalculator();
@@ -56,10 +65,11 @@ class ActivityStatusCalculator {
       return ActivityStatus.neverLogged;
     }
 
-    final reminderDays = activity.reminderDays;
-    if (reminderDays == null || reminderDays <= 0) {
+    if (!activityHasActiveReminder(activity)) {
       return ActivityStatus.noReminder;
     }
+
+    final reminderDays = activity.reminderDays!;
 
     final dueDate = lastDoneAt.add(Duration(days: reminderDays));
     final bufferDays = _bufferDays(reminderDays);
@@ -79,9 +89,8 @@ class ActivityStatusCalculator {
     DateTime? lastDoneAt,
   }) {
     if (lastDoneAt == null) return null;
-    final reminderDays = activity.reminderDays;
-    if (reminderDays == null || reminderDays <= 0) return null;
-    return lastDoneAt.add(Duration(days: reminderDays));
+    if (!activityHasActiveReminder(activity)) return null;
+    return lastDoneAt.add(Duration(days: activity.reminderDays!));
   }
 
   int _bufferDays(int reminderDays) {

@@ -92,6 +92,7 @@ class HomeScreen extends ConsumerWidget {
                           ? 'No activities match your search or filter.'
                           : 'Nothing to show right now.',
                       actionLabel: hasActiveFilters ? 'Clear filters' : null,
+                      actionIcon: Icons.filter_alt_off,
                       onAction: hasActiveFilters
                           ? () => ref
                               .read(activityFilterProvider.notifier)
@@ -142,7 +143,7 @@ class _ActivityList extends ConsumerWidget {
             constraints: BoxConstraints(maxWidth: maxWidth),
             child: isWide
                 ? GridView.builder(
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 56),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
@@ -159,7 +160,7 @@ class _ActivityList extends ConsumerWidget {
                     ),
                   )
                 : ListView.separated(
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 56),
                     itemCount: items.length,
                     separatorBuilder: (_, _) => const SizedBox(height: 10),
                     itemBuilder: (context, index) => _buildDismissibleItem(

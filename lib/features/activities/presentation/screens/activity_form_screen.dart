@@ -98,6 +98,9 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                   ),
                   const SizedBox(height: 16),
                   Autocomplete<String>(
+                    // Remount when categories change — Autocomplete only refreshes
+                    // options when field text changes, so new categories would stay hidden.
+                    key: ValueKey(categoryOptions.join('\u0001')),
                     optionsBuilder: (textEditingValue) {
                       if (textEditingValue.text.isEmpty) {
                         return categoryOptions;
@@ -123,7 +126,8 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                           suffixIcon: IconButton(
                             icon: const Icon(Icons.settings_outlined, size: 20),
                             tooltip: 'Manage categories',
-                            onPressed: () => context.push('/settings/categories'),
+                            onPressed: () =>
+                                context.push('/settings/categories'),
                           ),
                         ),
                         onChanged: (v) => _categoryController.text = v,
