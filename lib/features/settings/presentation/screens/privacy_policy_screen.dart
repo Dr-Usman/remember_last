@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_constants.dart';
+
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});
 
@@ -17,7 +19,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
           _Section(
             title: 'Your data stays on your device',
             body:
-                'RememberLast stores all your activities and logs locally on your device. We do not collect, transmit, or store any of your personal data on external servers.',
+                '${AppConstants.appName} stores all your activities and logs locally on your device. We do not collect, transmit, or store any of your personal data on external servers.',
           ),
           _Section(
             title: 'No account required',

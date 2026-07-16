@@ -114,7 +114,7 @@ class _InsightsScreenState extends ConsumerState<InsightsScreen> {
                                 barRods: [
                                   BarChartRodData(
                                     toY: selected.intervals[i],
-                                    color: AppColors.seed,
+                                    color: AppColors.primary,
                                     width: 16,
                                     borderRadius: const BorderRadius.vertical(
                                       top: Radius.circular(4),

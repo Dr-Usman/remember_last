@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/database/database_provider.dart';
 import '../../../../core/widgets/activity_card.dart';
+import '../../../../core/widgets/app_brand_title.dart';
 import '../../../../core/widgets/confirm_dialog.dart';
 import '../../../../core/widgets/empty_state.dart';
 import '../../../occurrences/domain/entities/occurrence.dart';
@@ -24,7 +25,7 @@ class HomeScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('RememberLast'),
+        title: const AppBrandTitle(),
         actions: [
           PopupMenuButton<ActivitySort>(
             icon: const Icon(Icons.sort),

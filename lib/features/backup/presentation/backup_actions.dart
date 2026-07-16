@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../../core/constants/app_constants.dart';
 import '../../../core/widgets/confirm_dialog.dart';
 import '../domain/backup_service.dart';
 
@@ -31,14 +32,14 @@ class BackupActions {
                 mimeType: 'application/json',
               ),
             ],
-            subject: 'RememberLast Backup',
+            subject: '${AppConstants.appName} Backup',
           ),
         );
       } else {
         await SharePlus.instance.share(
           ShareParams(
             text: json,
-            subject: 'RememberLast Backup',
+            subject: '${AppConstants.appName} Backup',
           ),
         );
       }

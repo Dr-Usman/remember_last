@@ -11,11 +11,12 @@ Not a habit tracker. No streaks, no pressure. Just log when you did something an
 - Status indicators: Recent / Due soon / Overdue (when reminder is set)
 - Quick log from home screen
 - Full history per activity with custom backdated entries
+- Custom categories (manage from Settings)
 - Search, filter by category, sort (recently done, overdue, A–Z)
 - Swipe to delete with confirmation
 - Insights with average intervals and bar chart
 - JSON export/import backup
-- Dark mode support
+- Light and dark brand themes (follows system)
 - Fully offline — no auth, no analytics
 
 ## Tech Stack
@@ -25,6 +26,7 @@ Not a habit tracker. No streaks, no pressure. Just log when you did something an
 - Drift (local SQLite database)
 - go_router (navigation)
 - fl_chart (insights)
+- package_info_plus (app version)
 
 ## Getting Started
 
@@ -38,14 +40,19 @@ flutter run
 
 ```
 lib/
-├── core/           # Database, theme, router, utils, shared widgets
+├── core/           # Constants, database, theme, router, providers, shared widgets
 ├── features/
 │   ├── activities/ # CRUD, home screen, form
+│   ├── categories/ # Category management
 │   ├── occurrences/# Logging, detail screen, history
 │   ├── insights/   # Stats and charts
+│   ├── settings/   # Settings, About, privacy policy
 │   └── backup/     # JSON export/import
 └── bootstrap/      # Seed data on first launch
 ```
+
+Brand name, store URLs, and privacy URL live in `lib/core/constants/app_constants.dart`
+(store / hosted privacy links are placeholders until listings are live).
 
 ## Regenerate Drift Code
 

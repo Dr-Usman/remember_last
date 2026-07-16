@@ -3,10 +3,10 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/activities/presentation/screens/activity_form_screen.dart';
 import '../../features/activities/presentation/screens/home_screen.dart';
+import '../../features/categories/presentation/screens/categories_management_screen.dart';
 import '../../features/insights/presentation/screens/insights_screen.dart';
 import '../../features/occurrences/presentation/screens/activity_detail_screen.dart';
 import '../../features/settings/presentation/screens/about_screen.dart';
-import '../../features/settings/presentation/screens/categories_management_screen.dart';
 import '../../features/settings/presentation/screens/privacy_policy_screen.dart';
 import '../../features/settings/presentation/screens/settings_screen.dart';
 
