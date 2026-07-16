@@ -38,7 +38,7 @@ abstract final class AppConstants {
 
   /// Google Play Store listing.
   static const playStoreUrl =
-      'https://play.google.com/store/apps/details?id=com.example.remember_last'; // TODO: replace
+      'https://play.google.com/store/apps/details?id=com.avenzor.remember_last'; // TODO: replace
 
   /// Contact Us email
   static const contactUsEmail = 'dr.usman7860@gmail.com';

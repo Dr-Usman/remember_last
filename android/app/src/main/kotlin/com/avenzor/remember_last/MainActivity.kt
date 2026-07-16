@@ -1,4 +1,4 @@
-package com.example.remember_last
+package com.avenzor.remember_last
 
 import io.flutter.embedding.android.FlutterActivity
 
