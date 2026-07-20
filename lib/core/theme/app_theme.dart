@@ -7,30 +7,34 @@ abstract final class AppTheme {
     const scheme = ColorScheme(
       brightness: Brightness.light,
       primary: AppColors.primary,
-      onPrimary: Colors.white,
+      onPrimary: AppColors.onAccent,
       primaryContainer: AppColors.primaryDark,
-      onPrimaryContainer: Colors.white,
+      onPrimaryContainer: AppColors.onAccent,
       secondary: AppColors.dueSoon,
-      onSecondary: Colors.white,
-      secondaryContainer: Color(0xFFFFE8D1),
+      onSecondary: AppColors.onAccent,
+      secondaryContainer: AppColors.dueSoonContainerLight,
       onSecondaryContainer: AppColors.textDark,
       tertiary: AppColors.recent,
-      onTertiary: Colors.white,
+      onTertiary: AppColors.onAccent,
       error: AppColors.overdue,
-      onError: Colors.white,
+      onError: AppColors.onAccent,
       surface: AppColors.bgLight,
       onSurface: AppColors.textDark,
       onSurfaceVariant: AppColors.neutral,
       outline: AppColors.neutral,
-      outlineVariant: Color(0xFFD1D5DB),
+      outlineVariant: AppColors.outlineVariantLight,
       // Scaffold → card → chip hierarchy (must differ so chips read on cards)
-      surfaceContainerLowest: Colors.white,
-      surfaceContainerLow: Colors.white,
-      surfaceContainer: Color(0xFFF0F3F7),
-      surfaceContainerHigh: Color(0xFFE8ECF2),
-      surfaceContainerHighest: Color(0xFFE2E8F0),
+      surfaceContainerLowest: AppColors.cardLight,
+      surfaceContainerLow: AppColors.cardLight,
+      surfaceContainer: AppColors.surfaceContainerLight,
+      surfaceContainerHigh: AppColors.surfaceContainerHighLight,
+      surfaceContainerHighest: AppColors.surfaceContainerHighestLight,
     );
-    return _build(scheme, scaffoldBg: AppColors.bgLight, cardColor: Colors.white);
+    return _build(
+      scheme,
+      scaffoldBg: AppColors.bgLight,
+      cardColor: AppColors.cardLight,
+    );
   }
 
   static ThemeData get dark {
@@ -42,23 +46,23 @@ abstract final class AppTheme {
       onPrimaryContainer: AppColors.textLight,
       secondary: AppColors.dueSoon,
       onSecondary: AppColors.bgDark,
-      secondaryContainer: Color(0xFF3D2A14),
+      secondaryContainer: AppColors.dueSoonContainerDark,
       onSecondaryContainer: AppColors.textLight,
       tertiary: AppColors.recent,
       onTertiary: AppColors.bgDark,
       error: AppColors.overdue,
-      onError: Colors.white,
+      onError: AppColors.onAccent,
       surface: AppColors.bgDark,
       onSurface: AppColors.textLight,
       onSurfaceVariant: AppColors.neutral,
       outline: AppColors.neutral,
-      outlineVariant: Color(0xFF374151),
+      outlineVariant: AppColors.outlineVariantDark,
       // Scaffold → card → chip hierarchy (must differ so chips read on cards)
       surfaceContainerLowest: AppColors.cardDark,
       surfaceContainerLow: AppColors.cardDark,
-      surfaceContainer: Color(0xFF151C2C),
-      surfaceContainerHigh: Color(0xFF1A2332),
-      surfaceContainerHighest: Color(0xFF1F2937),
+      surfaceContainer: AppColors.surfaceContainerDark,
+      surfaceContainerHigh: AppColors.surfaceContainerHighDark,
+      surfaceContainerHighest: AppColors.surfaceContainerHighestDark,
     );
     return _build(
       scheme,
@@ -87,6 +91,43 @@ abstract final class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
         filled: true,
+        // Light: card surface so fields don't look disabled on the grey scaffold.
+        // Dark: highest container for contrast on dark surfaces.
+        fillColor: scheme.brightness == Brightness.light
+            ? scheme.surfaceContainerLowest
+            : scheme.surfaceContainerHighest,
+      ),
+      // Filter chips: brand primary when selected (not secondary/due-soon orange).
+      chipTheme: ChipThemeData(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        side: BorderSide.none,
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        labelPadding: const EdgeInsets.symmetric(horizontal: 4),
+        showCheckmark: true,
+        checkmarkColor: scheme.primary,
+        labelStyle: TextStyle(
+          color: scheme.onSurface,
+          fontSize: 13,
+          fontWeight: FontWeight.w500,
+        ),
+        secondaryLabelStyle: TextStyle(
+          color: scheme.primary,
+          fontSize: 13,
+          fontWeight: FontWeight.w600,
+        ),
+        color: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            final alpha =
+                scheme.brightness == Brightness.light ? 0.14 : 0.28;
+            return Color.alphaBlend(
+              scheme.primary.withValues(alpha: alpha),
+              scheme.surface,
+            );
+          }
+          return scheme.surfaceContainerHigh;
+        }),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: scheme.primary,

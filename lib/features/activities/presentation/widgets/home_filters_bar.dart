@@ -56,12 +56,7 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
                     },
                   )
                 : null,
-            filled: true,
-            fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide.none,
-            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
           ),
           onChanged: (value) =>
               ref.read(activityFilterProvider.notifier).setSearch(value),
@@ -74,10 +69,10 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  FilterChip(
-                    label: const Text('All'),
+                  _CategoryChip(
+                    label: 'All',
                     selected: filter.category == null,
-                    onSelected: (_) => ref
+                    onSelected: () => ref
                         .read(activityFilterProvider.notifier)
                         .setCategory(null),
                   ),
@@ -85,10 +80,10 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
                   ...categories.map(
                     (cat) => Padding(
                       padding: const EdgeInsets.only(right: 8),
-                      child: FilterChip(
-                        label: Text(cat),
+                      child: _CategoryChip(
+                        label: cat,
                         selected: filter.category == cat,
-                        onSelected: (_) => ref
+                        onSelected: () => ref
                             .read(activityFilterProvider.notifier)
                             .setCategory(cat),
                       ),
@@ -102,6 +97,35 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
           error: (_, _) => const SizedBox.shrink(),
         ),
       ],
+    );
+  }
+}
+
+class _CategoryChip extends StatelessWidget {
+  const _CategoryChip({
+    required this.label,
+    required this.selected,
+    required this.onSelected,
+  });
+
+  final String label;
+  final bool selected;
+  final VoidCallback onSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
+    return FilterChip(
+      label: Text(label),
+      selected: selected,
+      showCheckmark: true,
+      onSelected: (_) => onSelected(),
+      labelStyle: TextStyle(
+        fontSize: 14,
+        color: selected ? scheme.primary : scheme.onSurface,
+        fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
+      ),
     );
   }
 }

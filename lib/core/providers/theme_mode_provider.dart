@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-const _themeModeKey = 'theme_mode';
+import '../services/shared_prefs_service.dart';
 
 /// Persisted [ThemeMode] preference (system / light / dark).
 final themeModeProvider =
     StateNotifierProvider<ThemeModeNotifier, ThemeMode>((ref) {
-  return ThemeModeNotifier();
+  return ThemeModeNotifier(ref.watch(sharedPrefsServiceProvider));
 });
 
 class ThemeModeNotifier extends StateNotifier<ThemeMode> {
-  ThemeModeNotifier() : super(ThemeMode.system) {
+  ThemeModeNotifier(this._prefs) : super(ThemeMode.system) {
     _load();
   }
 
+  final SharedPrefsService _prefs;
+
   Future<void> _load() async {
-    final prefs = await SharedPreferences.getInstance();
-    state = _fromStorage(prefs.getString(_themeModeKey));
+    state = _fromStorage(await _prefs.getString(PrefsKeys.themeMode));
   }
 
   Future<void> setThemeMode(ThemeMode mode) async {
     state = mode;
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_themeModeKey, _toStorage(mode));
+    await _prefs.setString(PrefsKeys.themeMode, _toStorage(mode));
   }
 
   static ThemeMode _fromStorage(String? value) {

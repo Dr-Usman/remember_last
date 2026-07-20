@@ -45,18 +45,24 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
   }
 
   Future<void> _loadActivity() async {
-    final activity =
-        await ref.read(activityRepositoryProvider).getById(widget.activityId!);
+    final activity = await ref
+        .read(activityRepositoryProvider)
+        .getById(widget.activityId!);
     if (activity != null && mounted) {
       _existing = activity;
       _titleController.text = activity.title;
       _categoryController.text = activity.category ?? '';
       _notesController.text = activity.notes ?? '';
-      _reminderType = activity.reminderType;
       _reminderEnabled =
           activity.reminderDays != null && activity.reminderDays! > 0;
+      _reminderType = activity.reminderType;
+      // Enabled + none is invalid; treat as custom so their day count is kept.
+      if (_reminderEnabled && _reminderType == ReminderType.none) {
+        _reminderType = ReminderType.custom;
+      }
       if (_reminderEnabled) {
-        _reminderDaysController.text = '${activity.reminderDays}';
+        _reminderDaysController.text =
+            '${_reminderType.defaultDays ?? activity.reminderDays}';
       }
     }
     if (mounted) setState(() => _loading = false);
@@ -94,8 +100,9 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                       hintText: 'e.g. Water plants',
                     ),
                     textCapitalization: TextCapitalization.sentences,
-                    validator: (v) =>
-                        v == null || v.trim().isEmpty ? 'Title is required' : null,
+                    validator: (v) => v == null || v.trim().isEmpty
+                        ? 'Title is required'
+                        : null,
                   ),
                   const SizedBox(height: 16),
                   Autocomplete<String>(
@@ -107,33 +114,37 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                         return categoryOptions;
                       }
                       return categoryOptions.where(
-                        (c) => c
-                            .toLowerCase()
-                            .contains(textEditingValue.text.toLowerCase()),
+                        (c) => c.toLowerCase().contains(
+                          textEditingValue.text.toLowerCase(),
+                        ),
                       );
                     },
                     onSelected: (value) => _categoryController.text = value,
-                    fieldViewBuilder: (context, controller, focusNode, onSubmitted) {
-                      if (_categoryController.text.isNotEmpty &&
-                          controller.text != _categoryController.text) {
-                        controller.text = _categoryController.text;
-                      }
-                      return TextFormField(
-                        controller: controller,
-                        focusNode: focusNode,
-                        decoration: InputDecoration(
-                          labelText: 'Category',
-                          hintText: 'Home, Vehicle, Personal...',
-                          suffixIcon: IconButton(
-                            icon: const Icon(Icons.settings_outlined, size: 20),
-                            tooltip: 'Manage categories',
-                            onPressed: () =>
-                                context.push(AppRoutes.categories),
-                          ),
-                        ),
-                        onChanged: (v) => _categoryController.text = v,
-                      );
-                    },
+                    fieldViewBuilder:
+                        (context, controller, focusNode, onSubmitted) {
+                          if (_categoryController.text.isNotEmpty &&
+                              controller.text != _categoryController.text) {
+                            controller.text = _categoryController.text;
+                          }
+                          return TextFormField(
+                            controller: controller,
+                            focusNode: focusNode,
+                            decoration: InputDecoration(
+                              labelText: 'Category',
+                              hintText: 'Home, Vehicle, Personal...',
+                              suffixIcon: IconButton(
+                                icon: const Icon(
+                                  Icons.settings_outlined,
+                                  size: 20,
+                                ),
+                                tooltip: 'Manage categories',
+                                onPressed: () =>
+                                    context.push(AppRoutes.categories),
+                              ),
+                            ),
+                            onChanged: (v) => _categoryController.text = v,
+                          );
+                        },
                   ),
                   const SizedBox(height: 16),
                   TextFormField(
@@ -147,58 +158,66 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                   ),
                   const SizedBox(height: 24),
                   Text(
-                    'Reminder',
+                    'Due interval',
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(height: 8),
                   SwitchListTile(
                     contentPadding: EdgeInsets.zero,
-                    title: const Text('Remind if not done in X days'),
+                    title: const Text('Mark due every X days'),
                     subtitle: const Text('Shows due soon / overdue status'),
                     value: _reminderEnabled,
                     onChanged: (v) {
                       setState(() {
                         _reminderEnabled = v;
-                        if (v && _reminderDaysController.text.isEmpty) {
-                          _reminderDaysController.text =
-                              '${_reminderType.defaultDays ?? 7}';
+                        if (!v) return;
+                        // Switch is on/off; preset should never stay on "None".
+                        if (_reminderType == ReminderType.none) {
+                          _reminderType = ReminderType.weekly;
                         }
-                      });
-                    },
-                  ),
-                  DropdownButtonFormField<ReminderType>(
-                    initialValue: _reminderType,
-                    decoration: const InputDecoration(labelText: 'Frequency preset'),
-                    items: ReminderType.values
-                        .map(
-                          (t) => DropdownMenuItem(
-                            value: t,
-                            child: Text(t.label),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (value) {
-                      if (value == null) return;
-                      setState(() {
-                        _reminderType = value;
-                        if (_reminderEnabled && value.defaultDays != null) {
-                          _reminderDaysController.text = '${value.defaultDays}';
-                        }
+                        _syncReminderDaysFromType();
                       });
                     },
                   ),
                   if (_reminderEnabled) ...[
+                    const SizedBox(height: 4),
+                    DropdownButtonFormField<ReminderType>(
+                      initialValue: _reminderType,
+                      decoration: const InputDecoration(
+                        labelText: 'Frequency preset',
+                      ),
+                      items: ReminderType.selectable
+                          .map(
+                            (t) => DropdownMenuItem(
+                              value: t,
+                              child: Text(t.label),
+                            ),
+                          )
+                          .toList(),
+                      onChanged: (value) {
+                        if (value == null) return;
+                        setState(() {
+                          _reminderType = value;
+                          _syncReminderDaysFromType();
+                        });
+                      },
+                    ),
                     const SizedBox(height: 16),
                     TextFormField(
                       controller: _reminderDaysController,
-                      decoration: const InputDecoration(
+                      enabled: _reminderType == ReminderType.custom,
+                      decoration: InputDecoration(
                         labelText: 'Days until due',
                         suffixText: 'days',
+                        helperText: _reminderType == ReminderType.custom
+                            ? null
+                            : 'Fixed by ${_reminderType.label.toLowerCase()} preset',
                       ),
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       validator: (v) {
                         if (!_reminderEnabled) return null;
+                        if (_reminderType.hasFixedDays) return null;
                         final days = int.tryParse(v ?? '');
                         if (days == null || days <= 0) {
                           return 'Enter a valid number of days';
@@ -226,11 +245,22 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                           height: 22,
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
-                      : Text(widget.isEditing ? 'Save Changes' : 'Create Activity'),
+                      : Text(
+                          widget.isEditing ? 'Save Changes' : 'Create Activity',
+                        ),
                 ),
               ),
             ),
     );
+  }
+
+  void _syncReminderDaysFromType() {
+    final days = _reminderType.defaultDays;
+    if (days != null) {
+      _reminderDaysController.text = '$days';
+    } else if (_reminderDaysController.text.isEmpty) {
+      _reminderDaysController.text = '7';
+    }
   }
 
   Future<void> _save() async {
@@ -241,8 +271,11 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
     final repo = ref.read(activityRepositoryProvider);
     final now = DateTime.now();
     final category = _categoryController.text.trim();
+    final reminderType =
+        _reminderEnabled ? _reminderType : ReminderType.none;
     final reminderDays = _reminderEnabled
-        ? int.parse(_reminderDaysController.text.trim())
+        ? (reminderType.defaultDays ??
+            int.parse(_reminderDaysController.text.trim()))
         : null;
 
     if (widget.isEditing && _existing != null) {
@@ -255,7 +288,7 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
               : _notesController.text.trim(),
           reminderDays: reminderDays,
           clearReminderDays: reminderDays == null,
-          reminderType: _reminderEnabled ? _reminderType : ReminderType.none,
+          reminderType: reminderType,
           updatedAt: now,
         ),
       );
@@ -270,7 +303,7 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
               ? null
               : _notesController.text.trim(),
           reminderDays: reminderDays,
-          reminderType: _reminderEnabled ? _reminderType : ReminderType.none,
+          reminderType: reminderType,
           createdAt: now,
           updatedAt: now,
         ),

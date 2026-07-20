@@ -5,11 +5,22 @@ import '../features/activities/domain/entities/activity.dart';
 import '../features/activities/domain/enums/reminder_type.dart';
 import '../features/occurrences/domain/entities/occurrence.dart';
 import '../core/database/database_provider.dart';
+import '../core/services/shared_prefs_service.dart';
 
-/// Inserts sample activities on first launch so the app isn't empty.
+/// Inserts sample activities once on first launch so the app isn't empty.
+///
+/// After the first seed (or if the user already has activities), this never
+/// runs again — deleting every activity will leave the list empty on restart.
 Future<void> seedDatabaseIfEmpty(WidgetRef ref) async {
+  final prefs = ref.read(sharedPrefsServiceProvider);
+  if (await prefs.getBool(PrefsKeys.hasSeededSamples) == true) return;
+
   final activityRepo = ref.read(activityRepositoryProvider);
-  if (!await activityRepo.isEmpty()) return;
+  if (!await activityRepo.isEmpty()) {
+    // Existing install with data — don't reseed later if they clear everything.
+    await prefs.setBool(PrefsKeys.hasSeededSamples, true);
+    return;
+  }
 
   const uuid = Uuid();
   final now = DateTime.now();
@@ -69,6 +80,8 @@ Future<void> seedDatabaseIfEmpty(WidgetRef ref) async {
       ),
     );
   }
+
+  await prefs.setBool(PrefsKeys.hasSeededSamples, true);
 }
 
 class _Sample {

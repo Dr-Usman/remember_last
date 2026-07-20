@@ -57,7 +57,9 @@ class AboutScreen extends ConsumerWidget {
           const SizedBox(height: 24),
           Text('Features', style: theme.textTheme.titleMedium),
           const SizedBox(height: 8),
-          const _Bullet('Track unlimited activities with optional reminders'),
+          const _Bullet(
+            'Track unlimited activities with optional due intervals',
+          ),
           const _Bullet(
             'See time elapsed since last done, with Recent / Due soon / Overdue status',
           ),

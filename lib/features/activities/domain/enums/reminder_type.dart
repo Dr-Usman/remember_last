@@ -6,6 +6,10 @@ enum ReminderType {
   monthly,
   custom;
 
+  /// Presets shown when due intervals are enabled (`none` is the switch-off state).
+  static const selectable = [daily, weekly, monthly, custom];
+
+  /// Fixed day count for daily / weekly / monthly; null for none / custom.
   int? get defaultDays {
     switch (this) {
       case ReminderType.none:
@@ -20,6 +24,8 @@ enum ReminderType {
         return null;
     }
   }
+
+  bool get hasFixedDays => defaultDays != null;
 
   String get label {
     switch (this) {

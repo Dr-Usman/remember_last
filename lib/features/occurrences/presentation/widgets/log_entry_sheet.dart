@@ -88,8 +88,7 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
           _PickerField(
             label: 'Time',
             icon: Icons.access_time,
-            value:
-                '${_selectedDateTime.hour.toString().padLeft(2, '0')}:${_selectedDateTime.minute.toString().padLeft(2, '0')}',
+            value: TimeOfDay.fromDateTime(_selectedDateTime).format(context),
             onTap: _pickTime,
           ),
           const SizedBox(height: 16),
