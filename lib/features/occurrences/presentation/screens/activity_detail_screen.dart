@@ -36,7 +36,9 @@ class ActivityDetailScreen extends ConsumerWidget {
 
         return occurrencesAsync.when(
           data: (occurrences) {
-            final lastDone = occurrences.isNotEmpty ? occurrences.first.doneAt : null;
+            final lastDone = occurrences.isNotEmpty
+                ? occurrences.first.doneAt
+                : null;
             final status = calculator.compute(
               activity: activity,
               lastDoneAt: lastDone,
@@ -77,7 +79,10 @@ class ActivityDetailScreen extends ConsumerWidget {
                   ),
                   if (activity.notes != null && activity.notes!.isNotEmpty) ...[
                     const SizedBox(height: 24),
-                    Text('Notes', style: Theme.of(context).textTheme.titleSmall),
+                    Text(
+                      'Notes',
+                      style: Theme.of(context).textTheme.titleSmall,
+                    ),
                     const SizedBox(height: 4),
                     Text(activity.notes!),
                   ],
@@ -94,10 +99,8 @@ class ActivityDetailScreen extends ConsumerWidget {
                     )
                   else
                     ...occurrences.map(
-                      (o) => _HistoryTile(
-                        occurrence: o,
-                        activityId: activityId,
-                      ),
+                      (o) =>
+                          _HistoryTile(occurrence: o, activityId: activityId),
                     ),
                 ],
               ),
@@ -113,22 +116,17 @@ class ActivityDetailScreen extends ConsumerWidget {
           ),
         );
       },
-      loading: () => const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      ),
-      error: (e, _) => Scaffold(
-        body: Center(child: Text('Error: $e')),
-      ),
+      loading: () =>
+          const Scaffold(body: Center(child: CircularProgressIndicator())),
+      error: (e, _) => Scaffold(body: Center(child: Text('Error: $e'))),
     );
   }
 
   Future<void> _logNow(WidgetRef ref) async {
-    await ref.read(occurrenceRepositoryProvider).insert(
-          Occurrence(
-            id: 0,
-            activityId: activityId,
-            doneAt: DateTime.now(),
-          ),
+    await ref
+        .read(occurrenceRepositoryProvider)
+        .insert(
+          Occurrence(id: 0, activityId: activityId, doneAt: DateTime.now()),
         );
   }
 
@@ -149,10 +147,7 @@ class ActivityDetailScreen extends ConsumerWidget {
 }
 
 class _ActionButtons extends StatelessWidget {
-  const _ActionButtons({
-    required this.activityId,
-    required this.onLogNow,
-  });
+  const _ActionButtons({required this.activityId, required this.onLogNow});
 
   final int activityId;
   final VoidCallback onLogNow;
@@ -173,10 +168,7 @@ class _ActionButtons extends StatelessWidget {
         );
 
         final customEntryButton = OutlinedButton.icon(
-          onPressed: () => LogEntrySheet.show(
-            context,
-            activityId: activityId,
-          ),
+          onPressed: () => LogEntrySheet.show(context, activityId: activityId),
           icon: const Icon(Icons.edit_calendar_outlined),
           label: const Text('Add Custom Entry'),
           style: OutlinedButton.styleFrom(minimumSize: _buttonStyle),
@@ -267,10 +259,7 @@ class _HeaderCard extends StatelessWidget {
 }
 
 class _HistoryTile extends ConsumerWidget {
-  const _HistoryTile({
-    required this.occurrence,
-    required this.activityId,
-  });
+  const _HistoryTile({required this.occurrence, required this.activityId});
 
   final Occurrence occurrence;
   final int activityId;

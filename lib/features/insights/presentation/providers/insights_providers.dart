@@ -51,7 +51,9 @@ final insightsProvider = FutureProvider<GlobalInsight>((ref) async {
       item.activity.id,
       limit: 10000,
     );
-    final intervals = _computeIntervals(occurrences.map((o) => o.doneAt).toList());
+    final intervals = _computeIntervals(
+      occurrences.map((o) => o.doneAt).toList(),
+    );
     final status = calculator.compute(
       activity: item.activity,
       lastDoneAt: item.lastDoneAt,
@@ -77,10 +79,12 @@ final insightsProvider = FutureProvider<GlobalInsight>((ref) async {
       .where((i) => i.status == ActivityStatus.overdue)
       .cast<ActivityInsight?>()
       .fold<ActivityInsight?>(null, (prev, curr) {
-    if (curr == null) return prev;
-    if (prev == null) return curr;
-    return curr.activity.title.compareTo(prev.activity.title) < 0 ? curr : prev;
-  });
+        if (curr == null) return prev;
+        if (prev == null) return curr;
+        return curr.activity.title.compareTo(prev.activity.title) < 0
+            ? curr
+            : prev;
+      });
 
   final totalLogs = await occurrenceRepo.countAll();
 

@@ -9,7 +9,9 @@ class CategoryRepositoryImpl implements CategoryRepository {
 
   @override
   Stream<List<String>> watchCategoryNames() {
-    return _db.watchCategories().map((rows) => rows.map((r) => r.name).toList());
+    return _db.watchCategories().map(
+      (rows) => rows.map((r) => r.name).toList(),
+    );
   }
 
   @override
@@ -51,10 +53,7 @@ class CategoryListRepository {
   Future<List<String>> getMergedCategoryNames() async {
     final managed = await _db.getAllCategories();
     final fromActivities = await _db.getDistinctCategories();
-    final merged = <String>{
-      ...managed.map((c) => c.name),
-      ...fromActivities,
-    };
+    final merged = <String>{...managed.map((c) => c.name), ...fromActivities};
     final sorted = merged.toList()..sort();
     return sorted;
   }

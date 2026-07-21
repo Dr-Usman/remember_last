@@ -35,7 +35,9 @@ class _InsightsScreenState extends ConsumerState<InsightsScreen> {
       body: insightsAsync.when(
         data: (insights) {
           if (insights.activityInsights.isEmpty) {
-            return const Center(child: Text('No data yet. Log some activities!'));
+            return const Center(
+              child: Text('No data yet. Log some activities!'),
+            );
           }
 
           final selected = _selectedActivityId == null
@@ -64,7 +66,10 @@ class _InsightsScreenState extends ConsumerState<InsightsScreen> {
                       '${item.totalLogs} logs'
                       '${item.averageIntervalDays != null ? ' • avg ${item.averageIntervalDays!.toStringAsFixed(1)} days' : ''}',
                     ),
-                    trailing: StatusIndicator(status: item.status, compact: true),
+                    trailing: StatusIndicator(
+                      status: item.status,
+                      compact: true,
+                    ),
                     selected: selected.activity.id == item.activity.id,
                     onTap: () =>
                         setState(() => _selectedActivityId = item.activity.id),
@@ -105,10 +110,7 @@ class _GlobalStatsCard extends StatelessWidget {
                   value: '${insights.totalActivities}',
                 ),
                 const SizedBox(width: 12),
-                _StatChip(
-                  label: 'Total logs',
-                  value: '${insights.totalLogs}',
-                ),
+                _StatChip(label: 'Total logs', value: '${insights.totalLogs}'),
               ],
             ),
             if (insights.mostOverdue != null) ...[
@@ -146,9 +148,9 @@ class _StatChip extends StatelessWidget {
             Text(label, style: Theme.of(context).textTheme.labelSmall),
             Text(
               value,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -268,11 +270,7 @@ class _IntervalsSection extends StatelessWidget {
     final avgDays = insight.averageIntervalDays;
 
     final maxBar = insight.intervals.reduce((a, b) => a > b ? a : b);
-    final referenceValues = [
-      maxBar,
-      if (avgDays != null) avgDays,
-      if (reminderDays != null) reminderDays,
-    ];
+    final referenceValues = [maxBar, ?avgDays, ?reminderDays];
     final maxY = referenceValues.reduce((a, b) => a > b ? a : b) * 1.25;
 
     final horizontalLines = <HorizontalLine>[
@@ -285,7 +283,9 @@ class _IntervalsSection extends StatelessWidget {
           label: HorizontalLineLabel(
             show: true,
             labelResolver: (_) => 'Avg ${avgDays.toStringAsFixed(0)}d',
-            style: theme.textTheme.labelSmall?.copyWith(color: AppColors.neutral),
+            style: theme.textTheme.labelSmall?.copyWith(
+              color: AppColors.neutral,
+            ),
             alignment: Alignment.topRight,
             padding: const EdgeInsets.only(left: 4),
           ),
@@ -299,7 +299,9 @@ class _IntervalsSection extends StatelessWidget {
           label: HorizontalLineLabel(
             show: true,
             labelResolver: (_) => 'Reminder ${reminderDays.toInt()}d',
-            style: theme.textTheme.labelSmall?.copyWith(color: AppColors.dueSoon),
+            style: theme.textTheme.labelSmall?.copyWith(
+              color: AppColors.dueSoon,
+            ),
             alignment: Alignment.bottomRight,
             padding: const EdgeInsets.only(left: 4),
           ),
@@ -314,7 +316,9 @@ class _IntervalsSection extends StatelessWidget {
         touchTooltipData: BarTouchTooltipData(
           getTooltipItem: (group, groupIndex, rod, rodIndex) {
             final days = rod.toY;
-            final label = groupIndex == 0 ? 'Latest gap' : 'Gap ${groupIndex + 1}';
+            final label = groupIndex == 0
+                ? 'Latest gap'
+                : 'Gap ${groupIndex + 1}';
             return BarTooltipItem(
               '$label\n${days.toStringAsFixed(1)} days',
               theme.textTheme.labelSmall!.copyWith(color: AppColors.onAccent),
@@ -356,7 +360,9 @@ class _IntervalsSection extends StatelessWidget {
           ),
         ),
         topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-        rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+        rightTitles: const AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
       ),
       gridData: const FlGridData(show: true, drawVerticalLine: false),
       borderData: FlBorderData(show: false),
@@ -370,7 +376,9 @@ class _IntervalsSection extends StatelessWidget {
                 toY: insight.intervals[i],
                 color: AppColors.primary,
                 width: 16,
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(4),
+                ),
               ),
             ],
           ),
@@ -380,11 +388,7 @@ class _IntervalsSection extends StatelessWidget {
 }
 
 class _MetricChip extends StatelessWidget {
-  const _MetricChip({
-    required this.label,
-    required this.value,
-    this.accent,
-  });
+  const _MetricChip({required this.label, required this.value, this.accent});
 
   final String label;
   final String value;
@@ -398,7 +402,9 @@ class _MetricChip extends StatelessWidget {
       decoration: BoxDecoration(
         color: theme.colorScheme.surfaceContainer,
         borderRadius: BorderRadius.circular(12),
-        border: accent != null ? Border.all(color: accent!.withValues(alpha: 0.4)) : null,
+        border: accent != null
+            ? Border.all(color: accent!.withValues(alpha: 0.4))
+            : null,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

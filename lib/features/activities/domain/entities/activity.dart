@@ -42,8 +42,9 @@ class Activity {
       title: title ?? this.title,
       category: category ?? this.category,
       notes: notes ?? this.notes,
-      reminderDays:
-          clearReminderDays ? null : (reminderDays ?? this.reminderDays),
+      reminderDays: clearReminderDays
+          ? null
+          : (reminderDays ?? this.reminderDays),
       reminderType: reminderType ?? this.reminderType,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
@@ -53,10 +54,7 @@ class Activity {
 
 /// Activity paired with its most recent occurrence timestamp.
 class ActivityWithLastDone {
-  const ActivityWithLastDone({
-    required this.activity,
-    this.lastDoneAt,
-  });
+  const ActivityWithLastDone({required this.activity, this.lastDoneAt});
 
   final Activity activity;
   final DateTime? lastDoneAt;

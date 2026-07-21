@@ -17,7 +17,9 @@ class SettingsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final themeMode = ref.watch(themeModeProvider);
-    final versionLabel = ref.watch(packageInfoProvider).when(
+    final versionLabel = ref
+        .watch(packageInfoProvider)
+        .when(
           data: (info) => AppConstants.versionLabel(
             version: info.version,
             buildNumber: info.buildNumber,

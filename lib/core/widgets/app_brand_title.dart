@@ -5,11 +5,7 @@ import '../constants/app_constants.dart';
 /// Two-tone [AppConstants.appName] wordmark — prefix uses ambient text color,
 /// suffix uses the brand primary.
 class AppBrandTitle extends StatelessWidget {
-  const AppBrandTitle({
-    super.key,
-    this.style,
-    this.textAlign,
-  });
+  const AppBrandTitle({super.key, this.style, this.textAlign});
 
   /// Base style for both spans (weight, size, letterSpacing). Color is applied
   /// per span; only non-color properties from [style] are shared.

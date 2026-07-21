@@ -37,10 +37,7 @@ class BackupActions {
         );
       } else {
         await SharePlus.instance.share(
-          ShareParams(
-            text: json,
-            subject: '${AppConstants.appName} Backup',
-          ),
+          ShareParams(text: json, subject: '${AppConstants.appName} Backup'),
         );
       }
 
@@ -51,9 +48,9 @@ class BackupActions {
       }
     } catch (e) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Export failed: $e')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Export failed: $e')));
       }
     }
   }
@@ -92,8 +89,10 @@ class BackupActions {
       final bytes = await result.files.single.readAsBytes();
       final json = String.fromCharCodes(bytes);
       final service = _ref.read(backupServiceProvider);
-      final importResult =
-          await service.importFromJson(json, merge: shouldMerge);
+      final importResult = await service.importFromJson(
+        json,
+        merge: shouldMerge,
+      );
 
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -107,9 +106,9 @@ class BackupActions {
       }
     } catch (e) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Import failed: $e')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Import failed: $e')));
       }
     }
   }

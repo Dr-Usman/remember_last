@@ -55,7 +55,9 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
     super.initState();
     _selectedDateTime =
         widget.occurrenceToEdit?.doneAt ?? widget.initialDate ?? DateTime.now();
-    _noteController = TextEditingController(text: widget.occurrenceToEdit?.note ?? '');
+    _noteController = TextEditingController(
+      text: widget.occurrenceToEdit?.note ?? '',
+    );
   }
 
   @override
@@ -94,9 +96,7 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
           const SizedBox(height: 16),
           TextField(
             controller: _noteController,
-            decoration: const InputDecoration(
-              labelText: 'Note (optional)',
-            ),
+            decoration: const InputDecoration(labelText: 'Note (optional)'),
             maxLines: 2,
           ),
           const SizedBox(height: 24),
@@ -201,14 +201,8 @@ class _PickerField extends StatelessWidget {
         onTap: onTap,
         borderRadius: borderRadius,
         child: InputDecorator(
-          decoration: InputDecoration(
-            labelText: label,
-            prefixIcon: Icon(icon),
-          ),
-          child: Text(
-            value,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
+          decoration: InputDecoration(labelText: label, prefixIcon: Icon(icon)),
+          child: Text(value, style: Theme.of(context).textTheme.bodyLarge),
         ),
       ),
     );

@@ -42,10 +42,7 @@ class ActivityCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: scheme.surfaceContainerLow,
-            border: Border.all(
-              color: accent.withValues(alpha: 0.18),
-              width: 1,
-            ),
+            border: Border.all(color: accent.withValues(alpha: 0.18), width: 1),
             boxShadow: [
               BoxShadow(
                 color: scheme.shadow.withValues(alpha: 0.06),
@@ -193,8 +190,8 @@ class _CategoryChip extends StatelessWidget {
     final border = accent != null
         ? accent.withValues(alpha: isDark ? 0.55 : 0.4)
         : (isDark
-            ? scheme.outlineVariant.withValues(alpha: 0.7)
-            : scheme.outline.withValues(alpha: 0.35));
+              ? scheme.outlineVariant.withValues(alpha: 0.7)
+              : scheme.outline.withValues(alpha: 0.35));
     final textColor = accent != null
         ? (isDark ? Color.lerp(accent, Colors.white, 0.35)! : accent)
         : (isDark ? scheme.onSurfaceVariant : scheme.onSurface);

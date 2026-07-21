@@ -271,11 +271,10 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
     final repo = ref.read(activityRepositoryProvider);
     final now = DateTime.now();
     final category = _categoryController.text.trim();
-    final reminderType =
-        _reminderEnabled ? _reminderType : ReminderType.none;
+    final reminderType = _reminderEnabled ? _reminderType : ReminderType.none;
     final reminderDays = _reminderEnabled
         ? (reminderType.defaultDays ??
-            int.parse(_reminderDaysController.text.trim()))
+              int.parse(_reminderDaysController.text.trim()))
         : null;
 
     if (widget.isEditing && _existing != null) {

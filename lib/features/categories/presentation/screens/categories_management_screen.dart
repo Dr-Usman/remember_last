@@ -50,10 +50,8 @@ class CategoriesManagementScreen extends ConsumerWidget {
                     color: Theme.of(context).colorScheme.onErrorContainer,
                   ),
                 ),
-                confirmDismiss: (_) => _confirmDeleteCategory(
-                  context,
-                  category.name,
-                ),
+                confirmDismiss: (_) =>
+                    _confirmDeleteCategory(context, category.name),
                 onDismissed: (_) {
                   ref
                       .read(categoryRepositoryProvider)
@@ -61,8 +59,9 @@ class CategoriesManagementScreen extends ConsumerWidget {
                 },
                 child: ListTile(
                   leading: CircleAvatar(
-                    backgroundColor: CategoryColors.fromArgb(category.color)
-                        .withValues(alpha: 0.2),
+                    backgroundColor: CategoryColors.fromArgb(
+                      category.color,
+                    ).withValues(alpha: 0.2),
                     foregroundColor: CategoryColors.fromArgb(category.color),
                     child: Text(category.name[0].toUpperCase()),
                   ),

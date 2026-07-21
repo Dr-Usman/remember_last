@@ -22,7 +22,10 @@ class ActivityMapper {
     );
   }
 
-  ActivitiesCompanion toCompanion(domain.Activity activity, {bool isInsert = false}) {
+  ActivitiesCompanion toCompanion(
+    domain.Activity activity, {
+    bool isInsert = false,
+  }) {
     return ActivitiesCompanion(
       id: isInsert ? const Value.absent() : Value(activity.id),
       uuid: Value(activity.uuid),
@@ -39,10 +42,7 @@ class ActivityMapper {
 
 /// Result row from the activities-with-last-done join query.
 class ActivityWithLastDoneRow {
-  ActivityWithLastDoneRow({
-    required this.activity,
-    this.lastDoneAt,
-  });
+  ActivityWithLastDoneRow({required this.activity, this.lastDoneAt});
 
   final ActivityRow activity;
   final DateTime? lastDoneAt;

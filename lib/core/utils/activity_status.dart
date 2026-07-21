@@ -2,13 +2,7 @@ import '../../features/activities/domain/entities/activity.dart' show Activity;
 import '../../features/activities/domain/enums/reminder_type.dart';
 
 /// Visual status for an activity based on reminder configuration.
-enum ActivityStatus {
-  neverLogged,
-  noReminder,
-  recent,
-  dueSoon,
-  overdue,
-}
+enum ActivityStatus { neverLogged, noReminder, recent, dueSoon, overdue }
 
 extension ActivityStatusX on ActivityStatus {
   String get label {
@@ -84,10 +78,7 @@ class ActivityStatusCalculator {
     return ActivityStatus.overdue;
   }
 
-  DateTime? nextDueDate({
-    required Activity activity,
-    DateTime? lastDoneAt,
-  }) {
+  DateTime? nextDueDate({required Activity activity, DateTime? lastDoneAt}) {
     if (lastDoneAt == null) return null;
     if (!activityHasActiveReminder(activity)) return null;
     return lastDoneAt.add(Duration(days: activity.reminderDays!));

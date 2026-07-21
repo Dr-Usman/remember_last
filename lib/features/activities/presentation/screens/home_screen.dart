@@ -72,10 +72,7 @@ class HomeScreen extends ConsumerWidget {
             child: activitiesAsync.when(
               data: (items) {
                 if (items.isNotEmpty) {
-                  return _ActivityList(
-                    items: items,
-                    elapsedNow: elapsedNow,
-                  );
+                  return _ActivityList(items: items, elapsedNow: elapsedNow);
                 }
 
                 return allActivitiesAsync.when(
@@ -98,8 +95,8 @@ class HomeScreen extends ConsumerWidget {
                       actionIcon: Icons.filter_alt_off,
                       onAction: hasActiveFilters
                           ? () => ref
-                              .read(activityFilterProvider.notifier)
-                              .clearFilters()
+                                .read(activityFilterProvider.notifier)
+                                .clearFilters()
                           : null,
                       icon: Icons.search_off_outlined,
                     );
@@ -125,10 +122,7 @@ class HomeScreen extends ConsumerWidget {
 }
 
 class _ActivityList extends ConsumerWidget {
-  const _ActivityList({
-    required this.items,
-    this.elapsedNow,
-  });
+  const _ActivityList({required this.items, this.elapsedNow});
 
   final List<ActivityListItem> items;
   final DateTime? elapsedNow;
@@ -149,11 +143,11 @@ class _ActivityList extends ConsumerWidget {
                     padding: const EdgeInsets.fromLTRB(16, 16, 16, 56),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12,
-                      childAspectRatio: 2.1,
-                    ),
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 12,
+                          mainAxisSpacing: 12,
+                          childAspectRatio: 2.1,
+                        ),
                     itemCount: items.length,
                     itemBuilder: (context, index) => _buildDismissibleItem(
                       context,
@@ -240,17 +234,15 @@ class _ActivityList extends ConsumerWidget {
     int activityId,
     String title,
   ) async {
-    await ref.read(occurrenceRepositoryProvider).insert(
-          Occurrence(
-            id: 0,
-            activityId: activityId,
-            doneAt: DateTime.now(),
-          ),
+    await ref
+        .read(occurrenceRepositoryProvider)
+        .insert(
+          Occurrence(id: 0, activityId: activityId, doneAt: DateTime.now()),
         );
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Logged "$title" now')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Logged "$title" now')));
     }
   }
 }

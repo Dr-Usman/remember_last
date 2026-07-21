@@ -16,8 +16,10 @@ class OccurrenceMapper {
     );
   }
 
-  OccurrencesCompanion toCompanion(domain.Occurrence occurrence,
-      {bool isInsert = false}) {
+  OccurrencesCompanion toCompanion(
+    domain.Occurrence occurrence, {
+    bool isInsert = false,
+  }) {
     return OccurrencesCompanion(
       id: isInsert ? const Value.absent() : Value(occurrence.id),
       activityId: Value(occurrence.activityId),

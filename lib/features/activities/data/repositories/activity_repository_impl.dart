@@ -12,8 +12,8 @@ class ActivityRepositoryImpl implements ActivityRepository {
   @override
   Stream<List<domain.ActivityWithLastDone>> watchAllWithLastDone() {
     return _db.watchActivitiesWithLastDone().map(
-          (rows) => rows.map((r) => r.toDomain(_mapper)).toList(),
-        );
+      (rows) => rows.map((r) => r.toDomain(_mapper)).toList(),
+    );
   }
 
   @override
@@ -30,9 +30,9 @@ class ActivityRepositoryImpl implements ActivityRepository {
 
   @override
   Stream<domain.Activity?> watchById(int id) {
-    return _db.watchActivityById(id).map(
-          (row) => row == null ? null : _mapper.toDomain(row),
-        );
+    return _db
+        .watchActivityById(id)
+        .map((row) => row == null ? null : _mapper.toDomain(row));
   }
 
   @override

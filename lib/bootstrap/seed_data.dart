@@ -73,11 +73,7 @@ Future<void> seedDatabaseIfEmpty(WidgetRef ref) async {
     );
 
     await occurrenceRepo.insert(
-      Occurrence(
-        id: 0,
-        activityId: activityId,
-        doneAt: sample.lastDone,
-      ),
+      Occurrence(id: 0, activityId: activityId, doneAt: sample.lastDone),
     );
   }
 

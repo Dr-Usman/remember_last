@@ -19,9 +19,7 @@ final managedCategoriesProvider = StreamProvider<List<String>>((ref) {
 });
 
 final mergedCategoriesProvider = StreamProvider<List<String>>((ref) {
-  return ref
-      .watch(categoryListRepositoryProvider)
-      .watchMergedCategoryNames();
+  return ref.watch(categoryListRepositoryProvider).watchMergedCategoryNames();
 });
 
 /// Name → color for activity chips (DB color when managed; hash fallback otherwise).

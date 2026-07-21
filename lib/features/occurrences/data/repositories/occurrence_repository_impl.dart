@@ -11,9 +11,9 @@ class OccurrenceRepositoryImpl implements OccurrenceRepository {
 
   @override
   Stream<List<domain.Occurrence>> watchByActivityId(int activityId) {
-    return _db.watchOccurrencesForActivity(activityId).map(
-          (rows) => rows.map(_mapper.toDomain).toList(),
-        );
+    return _db
+        .watchOccurrencesForActivity(activityId)
+        .map((rows) => rows.map(_mapper.toDomain).toList());
   }
 
   @override

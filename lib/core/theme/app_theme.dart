@@ -99,9 +99,7 @@ abstract final class AppTheme {
       ),
       // Filter chips: brand primary when selected (not secondary/due-soon orange).
       chipTheme: ChipThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         side: BorderSide.none,
         padding: const EdgeInsets.symmetric(horizontal: 8),
         labelPadding: const EdgeInsets.symmetric(horizontal: 4),
@@ -119,8 +117,7 @@ abstract final class AppTheme {
         ),
         color: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            final alpha =
-                scheme.brightness == Brightness.light ? 0.14 : 0.28;
+            final alpha = scheme.brightness == Brightness.light ? 0.14 : 0.28;
             return Color.alphaBlend(
               scheme.primary.withValues(alpha: alpha),
               scheme.surface,

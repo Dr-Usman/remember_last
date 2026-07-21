@@ -34,8 +34,10 @@ class BackupService {
         'updatedAt': activity.updatedAt.toIso8601String(),
       });
 
-      final occurrences =
-          await occurrenceRepo.getByActivityId(activity.id, limit: 10000);
+      final occurrences = await occurrenceRepo.getByActivityId(
+        activity.id,
+        limit: 10000,
+      );
       for (final occurrence in occurrences) {
         exportOccurrences.add({
           'activityUuid': activity.uuid,
@@ -97,9 +99,9 @@ class BackupService {
         category: map['category'] as String?,
         notes: map['notes'] as String?,
         reminderDays: map['reminderDays'] as int?,
-        reminderType:
-            ReminderType.fromIndex(map['reminderType'] as int? ?? 0),
-        createdAt: existing?.createdAt ??
+        reminderType: ReminderType.fromIndex(map['reminderType'] as int? ?? 0),
+        createdAt:
+            existing?.createdAt ??
             DateTime.tryParse(map['createdAt'] as String? ?? '') ??
             now,
         updatedAt: now,
