@@ -41,10 +41,12 @@ final insightsProvider = FutureProvider<GlobalInsight>((ref) async {
   final occurrenceRepo = ref.watch(occurrenceRepositoryProvider);
   final calculator = ActivityStatusCalculator();
 
+  // One-time snapshot of all activities and when each was last logged.
   final activitiesWithLast = await activityRepo.watchAllWithLastDone().first;
   final insights = <ActivityInsight>[];
 
   for (final item in activitiesWithLast) {
+    // Pull every log for this activity so we can count them and measure gaps.
     final occurrences = await occurrenceRepo.getByActivityId(
       item.activity.id,
       limit: 10000,
@@ -64,11 +66,13 @@ final insightsProvider = FutureProvider<GlobalInsight>((ref) async {
             : intervals.reduce((a, b) => a + b) / intervals.length,
         lastIntervalDays: intervals.isEmpty ? null : intervals.first,
         status: status,
+        // Chart only needs the most recent gaps — keep the payload small.
         intervals: intervals.take(10).toList(),
       ),
     );
   }
 
+  // Pick one overdue activity to highlight (alphabetically first if several).
   final mostOverdue = insights
       .where((i) => i.status == ActivityStatus.overdue)
       .cast<ActivityInsight?>()
@@ -90,6 +94,7 @@ final insightsProvider = FutureProvider<GlobalInsight>((ref) async {
 
 List<double> _computeIntervals(List<DateTime> dates) {
   if (dates.length < 2) return [];
+  // Newest log first — intervals[i] is days between log i and log i+1.
   final sorted = dates.toList()..sort((a, b) => b.compareTo(a));
   final intervals = <double>[];
   for (var i = 0; i < sorted.length - 1; i++) {
