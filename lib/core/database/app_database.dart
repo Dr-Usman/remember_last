@@ -208,12 +208,20 @@ class AppDatabase extends _$AppDatabase {
 }
 
 QueryExecutor _openConnection() {
-  if (kDebugMode) {
+  if (kDebugMode && !kIsWeb) {
     // drift_flutter stores the file as `$name.sqlite` under documents.
     getApplicationDocumentsDirectory().then((dir) {
       final path = p.join(dir.path, '${AppDatabase.databaseName}.sqlite');
       debugPrint('Drift DB path: $path');
     });
   }
-  return driftDatabase(name: AppDatabase.databaseName);
+  return driftDatabase(
+    name: AppDatabase.databaseName,
+    web: kIsWeb
+        ? DriftWebOptions(
+            sqlite3Wasm: Uri.parse('sqlite3.wasm'),
+            driftWorker: Uri.parse('drift_worker.js'),
+          )
+        : null,
+  );
 }
