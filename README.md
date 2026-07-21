@@ -51,8 +51,33 @@ lib/
 └── bootstrap/      # Seed data on first launch
 ```
 
-Brand name, store URLs, and privacy URL live in `lib/core/constants/app_constants.dart`
-(store / hosted privacy links are placeholders until listings are live).
+Brand name, store URLs, and privacy URL live in `lib/core/constants/app_constants.dart`.
+
+## Privacy Policy
+
+- **In-app source:** [`docs/privacy_policy.md`](docs/privacy_policy.md) (rendered in Settings → Privacy policy)
+- **Hosted page:** [`web/privacy/index.html`](web/privacy/index.html) at `/privacy/` when deployed with the web app
+- **Play Store URL:** `https://dr-usman.github.io/remember_last/privacy/` (after web deploy)
+- **Interim URL (before web deploy):** [GitHub blob for privacy_policy.md](https://github.com/Dr-Usman/remember_last/blob/main/docs/privacy_policy.md)
+
+When updating the policy, edit `docs/privacy_policy.md` and sync `web/privacy/index.html`.
+
+### Web deploy (GitHub Actions)
+
+After `flutter build web`, copy the static privacy page into the build output before deploying to GitHub Pages:
+
+```yaml
+- name: Build web
+  run: flutter build web --base-href /remember_last/
+
+- name: Include privacy policy static page
+  run: mkdir -p build/web/privacy && cp -r web/privacy/* build/web/privacy/
+
+- name: Deploy to GitHub Pages
+  uses: actions/deploy-pages@v4
+```
+
+GitHub Pages source should be **GitHub Actions** (not the `/docs` folder), so it does not conflict with the Flutter web deployment.
 
 ## Regenerate Drift Code
 

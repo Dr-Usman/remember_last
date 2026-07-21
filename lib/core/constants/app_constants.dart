@@ -28,9 +28,10 @@ abstract final class AppConstants {
 
   // --- URLs (replace placeholders when available) ---
 
-  /// Hosted privacy policy. In-app policy lives at Settings → Privacy policy.
+  /// Hosted privacy policy (deployed with Flutter web at /privacy/).
+  /// Interim URL before web deploy: GitHub blob for docs/privacy_policy.md.
   static const privacyPolicyUrl =
-      'https://example.com/remember-last/privacy'; // TODO: replace
+      'https://dr-usman.github.io/remember_last/privacy/';
 
   /// Apple App Store listing.
   static const appStoreUrl =
@@ -38,7 +39,7 @@ abstract final class AppConstants {
 
   /// Google Play Store listing.
   static const playStoreUrl =
-      'https://play.google.com/store/apps/details?id=com.avenzor.remember_last'; // TODO: replace
+      'https://play.google.com/store/apps/details?id=com.avenzor.remember_last';
 
   /// Contact Us email
   static const contactUsEmail = 'dr.usman7860@gmail.com';

@@ -1,76 +1,78 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/constants/app_constants.dart';
+
+const _privacyPolicyAsset = 'docs/privacy_policy.md';
 
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Scaffold(
-      appBar: AppBar(title: const Text('Privacy Policy')),
-      body: ListView(
-        padding: const EdgeInsets.all(24),
-        children: [
-          Text('Last updated: July 2026', style: theme.textTheme.labelMedium),
-          const SizedBox(height: 16),
-          _Section(
-            title: 'Your data stays on your device',
-            body:
-                '${AppConstants.appName} stores all your activities and logs locally on your device. We do not collect, transmit, or store any of your personal data on external servers.',
-          ),
-          _Section(
-            title: 'No account required',
-            body:
-                'There is no sign-up, login, or user account. The app works entirely offline without an internet connection.',
-          ),
-          _Section(
-            title: 'No analytics or tracking',
-            body:
-                'We do not use analytics, advertising SDKs, or any third-party tracking. Your usage patterns are never monitored or shared.',
-          ),
-          _Section(
-            title: 'Backup & export',
-            body:
-                'When you export a backup, the JSON file is created on your device and shared through your chosen app (email, cloud storage, etc.). We have no access to exported files.',
-          ),
-          _Section(
-            title: 'Data deletion',
-            body:
-                'You can delete individual activities, log entries, or all data by uninstalling the app. Deleted data cannot be recovered unless you have a backup.',
-          ),
-          _Section(
-            title: 'Contact',
-            body:
-                'If you have questions about this privacy policy, please contact the app developer through the app store listing.',
+      appBar: AppBar(
+        title: const Text('Privacy Policy'),
+        actions: [
+          IconButton(
+            tooltip: 'Open online',
+            icon: const Icon(Icons.open_in_new),
+            onPressed: () => _openOnlinePolicy(context),
           ),
         ],
+      ),
+      body: FutureBuilder<String>(
+        future: DefaultAssetBundle.of(context).loadString(_privacyPolicyAsset),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          if (snapshot.hasError || !snapshot.hasData) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Text(
+                  'Unable to load the privacy policy. '
+                  'You can view it online instead.',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            );
+          }
+
+          final theme = Theme.of(context);
+          return Markdown(
+            data: snapshot.data!,
+            padding: const EdgeInsets.all(24),
+            styleSheet: MarkdownStyleSheet.fromTheme(theme).copyWith(
+              h1: theme.textTheme.headlineSmall,
+              h2: theme.textTheme.titleMedium,
+              p: theme.textTheme.bodyMedium,
+              listBullet: theme.textTheme.bodyMedium,
+              strong: theme.textTheme.bodyMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            onTapLink: (text, href, title) {
+              if (href == null) return;
+              launchUrl(Uri.parse(href));
+            },
+          );
+        },
       ),
     );
   }
-}
 
-class _Section extends StatelessWidget {
-  const _Section({required this.title, required this.body});
-
-  final String title;
-  final String body;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title, style: theme.textTheme.titleMedium),
-          const SizedBox(height: 6),
-          Text(body, style: theme.textTheme.bodyMedium),
-        ],
-      ),
-    );
+  Future<void> _openOnlinePolicy(BuildContext context) async {
+    final uri = Uri.parse(AppConstants.privacyPolicyUrl);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Could not open privacy policy URL')),
+      );
+    }
   }
 }
