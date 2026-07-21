@@ -62,22 +62,7 @@ Brand name, store URLs, and privacy URL live in `lib/core/constants/app_constant
 
 When updating the policy, edit `docs/privacy_policy.md` and sync `web/privacy/index.html`.
 
-### Web deploy (GitHub Actions)
-
-After `flutter build web`, copy the static privacy page into the build output before deploying to GitHub Pages:
-
-```yaml
-- name: Build web
-  run: flutter build web --base-href /remember_last/
-
-- name: Include privacy policy static page
-  run: mkdir -p build/web/privacy && cp -r web/privacy/* build/web/privacy/
-
-- name: Deploy to GitHub Pages
-  uses: actions/deploy-pages@v4
-```
-
-GitHub Pages source should be **GitHub Actions** (not the `/docs` folder), so it does not conflict with the Flutter web deployment.
+CI, PR checks, releasing, GitHub secrets, and Pages setup are documented in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Regenerate Drift Code
 
