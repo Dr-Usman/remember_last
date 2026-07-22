@@ -224,7 +224,7 @@ class _IntervalsSection extends StatelessWidget {
         else
           Card(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(12, 16, 16, 12),
+              padding: const EdgeInsets.fromLTRB(8, 16, 8, 12),
               child: Column(
                 children: [
                   SizedBox(
@@ -273,6 +273,7 @@ class _IntervalsSection extends StatelessWidget {
     final referenceValues = [maxBar, ?avgDays, ?reminderDays];
     final maxY = referenceValues.reduce((a, b) => a > b ? a : b) * 1.25;
 
+    final axisColor = theme.colorScheme.outline.withValues(alpha: 0.55);
     final horizontalLines = <HorizontalLine>[
       if (avgDays != null)
         HorizontalLine(
@@ -282,12 +283,13 @@ class _IntervalsSection extends StatelessWidget {
           dashArray: const [6, 4],
           label: HorizontalLineLabel(
             show: true,
-            labelResolver: (_) => 'Avg ${avgDays.toStringAsFixed(0)}d',
+            labelResolver: (_) => 'Average ${avgDays.toStringAsFixed(0)}d',
             style: theme.textTheme.labelSmall?.copyWith(
               color: AppColors.neutral,
+              fontWeight: FontWeight.w600,
             ),
             alignment: Alignment.topRight,
-            padding: const EdgeInsets.only(left: 4),
+            padding: const EdgeInsets.only(right: 4, bottom: 2),
           ),
         ),
       if (reminderDays != null)
@@ -301,9 +303,10 @@ class _IntervalsSection extends StatelessWidget {
             labelResolver: (_) => 'Reminder ${reminderDays.toInt()}d',
             style: theme.textTheme.labelSmall?.copyWith(
               color: AppColors.dueSoon,
+              fontWeight: FontWeight.w600,
             ),
             alignment: Alignment.bottomRight,
-            padding: const EdgeInsets.only(left: 4),
+            padding: const EdgeInsets.only(right: 4, top: 2),
           ),
         ),
     ];
@@ -344,7 +347,15 @@ class _IntervalsSection extends StatelessWidget {
             },
           ),
         ),
+        // Day counts sit on the left; the Y-axis line is drawn beside them.
         leftTitles: AxisTitles(
+          // axisNameWidget: Text(
+          //   'Days',
+          //   style: theme.textTheme.labelSmall?.copyWith(
+          //     color: theme.colorScheme.onSurfaceVariant,
+          //   ),
+          // ),
+          // axisNameSize: 22,
           sideTitles: SideTitles(
             showTitles: true,
             reservedSize: 28,
@@ -352,20 +363,31 @@ class _IntervalsSection extends StatelessWidget {
               if (value == meta.max || value == meta.min) {
                 return const SizedBox.shrink();
               }
-              return Text(
-                value.toInt().toString(),
-                style: theme.textTheme.labelSmall,
+              return Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Text(
+                  value.toInt().toString(),
+                  style: theme.textTheme.labelSmall,
+                  textAlign: TextAlign.right,
+                ),
               );
             },
           ),
         ),
         topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+        // Space on the right so Average / Reminder line labels stay readable.
         rightTitles: const AxisTitles(
-          sideTitles: SideTitles(showTitles: false),
+          sideTitles: SideTitles(showTitles: false, reservedSize: 72),
         ),
       ),
       gridData: const FlGridData(show: true, drawVerticalLine: false),
-      borderData: FlBorderData(show: false),
+      borderData: FlBorderData(
+        show: true,
+        border: Border(
+          left: BorderSide(color: axisColor),
+          bottom: BorderSide(color: axisColor),
+        ),
+      ),
       extraLinesData: ExtraLinesData(horizontalLines: horizontalLines),
       barGroups: [
         for (var i = 0; i < insight.intervals.length; i++)
