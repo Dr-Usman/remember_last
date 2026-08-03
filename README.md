@@ -1,8 +1,37 @@
 # RememberLast
 
+<p style="text-align: center;">
+  <img src="assets/images/app_logo_light.png" alt="RememberLast logo" width="160" />
+</p>
+
 Offline-first **Last Done Tracker** — remember when you last did anything.
 
 Not a habit tracker. No streaks, no pressure. Just log when you did something and see how long ago it was.
+
+**[Try the live demo](https://dr-usman.github.io/remember_last/)**
+
+## Download
+
+Get RememberLast from Google Play, or download the latest builds for all
+supported platforms from GitHub Releases.
+
+<p>
+  <a href="https://play.google.com/store/apps/details?id=com.avenzor.remember_last">
+    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get RememberLast on Google Play" height="80" />
+  </a>
+  <a href="https://github.com/Dr-Usman/remember_last/releases/latest">
+    <img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get RememberLast on GitHub" height="80" />
+  </a>
+</p>
+
+## Screenshots
+
+<p>
+  <img src="docs/screenshots/home_light.png" alt="Home — light" width="180" />
+  <img src="docs/screenshots/home_dark.png" alt="Home — dark" width="180" />
+  <img src="docs/screenshots/detail_light.png" alt="Activity detail" width="180" />
+  <img src="docs/screenshots/insights_light.png" alt="Insights" width="180" />
+</p>
 
 ## Features
 
@@ -56,9 +85,8 @@ Brand name, store URLs, and privacy URL live in `lib/core/constants/app_constant
 ## Privacy Policy
 
 - **In-app source:** [`docs/privacy_policy.md`](docs/privacy_policy.md) (rendered in Settings → Privacy policy)
-- **Hosted page:** [`web/privacy/index.html`](web/privacy/index.html) at `/privacy/` when deployed with the web app
-- **Play Store URL:** `https://dr-usman.github.io/remember_last/privacy/` (after web deploy)
-- **Interim URL (before web deploy):** [GitHub blob for privacy_policy.md](https://github.com/Dr-Usman/remember_last/blob/main/docs/privacy_policy.md)
+- **Hosted page:** https://dr-usman.github.io/remember_last/privacy/
+- **Source for the hosted page:** [`web/privacy/index.html`](web/privacy/index.html)
 
 When updating the policy, edit `docs/privacy_policy.md` and sync `web/privacy/index.html`.
 
