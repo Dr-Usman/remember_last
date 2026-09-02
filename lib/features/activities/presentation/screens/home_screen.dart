@@ -30,26 +30,6 @@ class HomeScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const AppBrandTitle(),
         actions: [
-          PopupMenuButton<ActivitySort>(
-            icon: const Icon(Icons.sort),
-            tooltip: 'Sort',
-            onSelected: (sort) =>
-                ref.read(activityFilterProvider.notifier).setSort(sort),
-            itemBuilder: (context) => const [
-              PopupMenuItem(
-                value: ActivitySort.recentlyDone,
-                child: Text('Recently done'),
-              ),
-              PopupMenuItem(
-                value: ActivitySort.overdue,
-                child: Text('Overdue first'),
-              ),
-              PopupMenuItem(
-                value: ActivitySort.alphabetical,
-                child: Text('A–Z'),
-              ),
-            ],
-          ),
           IconButton(
             icon: const Icon(Icons.insights_outlined),
             tooltip: 'Insights',

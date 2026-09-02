@@ -100,6 +100,8 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                       hintText: 'e.g. Water plants',
                     ),
                     textCapitalization: TextCapitalization.sentences,
+                    onTapOutside: (_) =>
+                        FocusManager.instance.primaryFocus?.unfocus(),
                     validator: (v) => v == null || v.trim().isEmpty
                         ? 'Title is required'
                         : null,
@@ -142,6 +144,8 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                                     context.push(AppRoutes.categories),
                               ),
                             ),
+                            onTapOutside: (_) =>
+                                FocusManager.instance.primaryFocus?.unfocus(),
                             onChanged: (v) => _categoryController.text = v,
                           );
                         },
@@ -155,6 +159,8 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                     ),
                     maxLines: 3,
                     textCapitalization: TextCapitalization.sentences,
+                    onTapOutside: (_) =>
+                        FocusManager.instance.primaryFocus?.unfocus(),
                   ),
                   const SizedBox(height: 24),
                   Text(
@@ -215,6 +221,8 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                       ),
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      onTapOutside: (_) =>
+                          FocusManager.instance.primaryFocus?.unfocus(),
                       validator: (v) {
                         if (!_reminderEnabled) return null;
                         if (_reminderType.hasFixedDays) return null;

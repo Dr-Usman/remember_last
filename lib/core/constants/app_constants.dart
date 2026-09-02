@@ -41,6 +41,19 @@ abstract final class AppConstants {
   static const playStoreUrl =
       'https://play.google.com/store/apps/details?id=com.avenzor.remember_last';
 
+  /// Google Play developer profile (Avenzor House).
+  static const developerPageUrl =
+      'https://play.google.com/store/apps/dev?id=5809108425817759974';
+
   /// Contact Us email
   static const contactUsEmail = 'dr.usman7860@gmail.com';
+
+  /// Subject line for Contact us mailto links.
+  static const contactFeedbackSubject = 'RememberLast feedback';
+
+  /// Whether [url] is safe to open or share (not empty and not a placeholder).
+  static bool isUsableUrl(String url) {
+    if (url.isEmpty) return false;
+    return !url.contains('XXXXXXXXX');
+  }
 }
