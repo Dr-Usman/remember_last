@@ -52,6 +52,10 @@ void main() {
     test('canShowDeveloperPage is true with real developer URL', () {
       expect(SettingsActions.canShowDeveloperPage, isTrue);
     });
+
+    test('canRateApp matches usable store listing URL', () {
+      expect(SettingsActions.canRateApp, SettingsActions.canShareApp);
+    });
   });
 
   group('buildContactMailtoUri', () {

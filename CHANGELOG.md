@@ -17,12 +17,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Privacy policy updated to disclose optional Mixpanel analytics and how to opt out.
 - Contact us subtitle describes feedback instead of showing the email address.
+- Rate app opens the store listing directly (not the quota-limited in-app review sheet).
 
 ### Fixed
 
 - Crash when canceling the category rename or add dialog caused by disposing the text field controller too early.
 - Contact us mail subject used `+` instead of spaces in some mail apps.
 - Text fields dismiss the keyboard when tapping outside.
+- Rate app doing nothing on repeat taps after dismissing the in-app review prompt.
 
 ## [1.0.0] - 2026-07-21
 

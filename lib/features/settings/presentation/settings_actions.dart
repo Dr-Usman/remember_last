@@ -2,7 +2,6 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:in_app_review/in_app_review.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,8 +13,7 @@ class SettingsActions {
 
   static bool get canShareApp => storeListingUrl != null;
 
-  static bool get canRateApp =>
-      !kIsWeb && (Platform.isAndroid || Platform.isIOS);
+  static bool get canRateApp => storeListingUrl != null;
 
   static bool get canShowDeveloperPage =>
       AppConstants.isUsableUrl(AppConstants.developerPageUrl);
@@ -45,30 +43,14 @@ class SettingsActions {
   }
 
   Future<void> rateApp(BuildContext context) async {
-    if (!canRateApp) return;
-
-    try {
-      final review = InAppReview.instance;
-      if (await review.isAvailable()) {
-        await review.requestReview();
-        return;
-      }
-    } catch (_) {
-      // Fall through to store listing.
-    }
-
-    if (!context.mounted) return;
-
     final storeUrl = storeListingUrl;
-    if (storeUrl != null) {
-      await _launchExternalUrl(
-        context,
-        Uri.parse(storeUrl),
-        failureMessage: 'Could not open app store',
-      );
-    } else if (context.mounted) {
-      _showSnackBar(context, 'App store is not available');
-    }
+    if (storeUrl == null) return;
+
+    await _launchExternalUrl(
+      context,
+      Uri.parse(storeUrl),
+      failureMessage: 'Could not open app store',
+    );
   }
 
   Future<void> contactUs(BuildContext context) async {
