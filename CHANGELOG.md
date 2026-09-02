@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-09-02
+
 ### Added
 
 - Optional Mixpanel usage analytics with first-launch consent dialog and Settings toggle.
@@ -18,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Privacy policy updated to disclose optional Mixpanel analytics and how to opt out.
 - Contact us subtitle describes feedback instead of showing the email address.
 - Rate app opens the store listing directly (not the quota-limited in-app review sheet).
+- Home sort control moved into the search row for a denser filter bar.
 
 ### Fixed
 
