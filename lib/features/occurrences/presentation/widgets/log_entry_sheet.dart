@@ -174,11 +174,13 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
           note: note,
         ),
       );
-      await ref.read(analyticsServiceProvider).trackOccurrenceLogged(
-        source: 'entry_sheet',
-        hasNote: note != null,
-        doneAt: _selectedDateTime,
-      );
+      await ref
+          .read(analyticsServiceProvider)
+          .trackOccurrenceLogged(
+            source: 'entry_sheet',
+            hasNote: note != null,
+            doneAt: _selectedDateTime,
+          );
     }
     if (mounted) Navigator.pop(context);
   }

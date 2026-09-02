@@ -101,17 +101,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   ),
                 ),
                 const Divider(height: 1),
-                _SectionHeader(title: 'Privacy', theme: theme),
-                SwitchListTile(
-                  secondary: const Icon(Icons.analytics_outlined),
-                  title: const Text('Usage analytics'),
-                  subtitle: const Text(
-                    'Share anonymous screen and feature usage via Mixpanel',
-                  ),
-                  value: _analyticsEnabled ?? false,
-                  onChanged: _loadingAnalytics
-                      ? null
-                      : (value) => _setAnalyticsEnabled(value),
+                _SectionHeader(title: 'Organize', theme: theme),
+                SettingsTile(
+                  icon: Icons.category_outlined,
+                  title: 'Manage categories',
+                  subtitle: 'Add or remove activity categories',
+                  showChevron: true,
+                  onTap: () => context.push(AppRoutes.categories),
                 ),
                 const Divider(height: 1),
                 _SectionHeader(title: 'Data', theme: theme),
@@ -128,13 +124,17 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   onTap: () => BackupActions(ref).importBackup(context),
                 ),
                 const Divider(height: 1),
-                _SectionHeader(title: 'Organize', theme: theme),
-                SettingsTile(
-                  icon: Icons.category_outlined,
-                  title: 'Manage categories',
-                  subtitle: 'Add or remove activity categories',
-                  showChevron: true,
-                  onTap: () => context.push(AppRoutes.categories),
+                _SectionHeader(title: 'Privacy', theme: theme),
+                SwitchListTile(
+                  secondary: const Icon(Icons.analytics_outlined),
+                  title: const Text('Usage analytics'),
+                  subtitle: const Text(
+                    'Share anonymous screen and feature usage via Mixpanel',
+                  ),
+                  value: _analyticsEnabled ?? false,
+                  onChanged: _loadingAnalytics
+                      ? null
+                      : (value) => _setAnalyticsEnabled(value),
                 ),
                 const Divider(height: 1),
                 _SectionHeader(title: 'About', theme: theme),

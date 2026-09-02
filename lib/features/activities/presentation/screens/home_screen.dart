@@ -238,14 +238,14 @@ class _ActivityList extends ConsumerWidget {
     final doneAt = DateTime.now();
     await ref
         .read(occurrenceRepositoryProvider)
-        .insert(
-          Occurrence(id: 0, activityId: activityId, doneAt: doneAt),
+        .insert(Occurrence(id: 0, activityId: activityId, doneAt: doneAt));
+    await ref
+        .read(analyticsServiceProvider)
+        .trackOccurrenceLogged(
+          source: 'quick_log',
+          hasNote: false,
+          doneAt: doneAt,
         );
-    await ref.read(analyticsServiceProvider).trackOccurrenceLogged(
-      source: 'quick_log',
-      hasNote: false,
-      doneAt: doneAt,
-    );
     if (context.mounted) {
       ScaffoldMessenger.of(
         context,

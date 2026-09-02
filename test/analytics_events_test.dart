@@ -22,11 +22,14 @@ void main() {
       expect(properties['is_backdated'], false);
     });
 
-    test('isBackdatedEntry is true when doneAt is more than one minute ago', () {
-      final doneAt = DateTime.now().subtract(const Duration(minutes: 2));
+    test(
+      'isBackdatedEntry is true when doneAt is more than one minute ago',
+      () {
+        final doneAt = DateTime.now().subtract(const Duration(minutes: 2));
 
-      expect(AnalyticsEvents.isBackdatedEntry(doneAt), isTrue);
-    });
+        expect(AnalyticsEvents.isBackdatedEntry(doneAt), isTrue);
+      },
+    );
 
     test('isBackdatedEntry is false for recent timestamps', () {
       expect(AnalyticsEvents.isBackdatedEntry(DateTime.now()), isFalse);
