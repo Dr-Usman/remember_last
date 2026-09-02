@@ -89,7 +89,7 @@ class AnalyticsService {
     _mixpanel!.optInTracking();
     await _mixpanel!.registerSuperProperties({
       'platform': AnalyticsEvents.platformName,
-      if (appVersion != null) 'app_version': appVersion,
+      'app_version': ?appVersion,
     });
   }
 
