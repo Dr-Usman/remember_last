@@ -23,10 +23,7 @@ void main() {
         ],
         child: const MaterialApp(
           home: Scaffold(
-            body: Padding(
-              padding: EdgeInsets.all(16),
-              child: HomeFiltersBar(),
-            ),
+            body: Padding(padding: EdgeInsets.all(16), child: HomeFiltersBar()),
           ),
         ),
       ),

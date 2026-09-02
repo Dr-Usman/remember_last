@@ -1,0 +1,19 @@
+---
+description: Run local CI format/analyze/test before commits and PRs
+alwaysApply: true
+---
+
+# Pre-PR / pre-push CI checks (RememberLast)
+
+This repo’s GitHub Actions `analyze-and-test` job fails the PR if formatting or analyzer checks fail. **Never open or update a PR without running the same checks locally first.**
+
+Before creating a commit that will be pushed, and **always** before `gh pr create` or pushing a branch that already has a PR:
+
+1. `dart format .`
+2. `dart format --output=none --set-exit-if-changed .` (must exit 0)
+3. `flutter analyze --fatal-infos` (must exit 0; matches CI)
+4. `flutter test` (must exit 0)
+
+If format rewrites files, include those changes in the commit. Do not push “format later.”
+
+Match `.github/workflows/ci.yml` — if CI commands change, update this rule to match.
