@@ -53,6 +53,7 @@ class _CategoryNameDialogState extends State<_CategoryNameDialog> {
         autofocus: true,
         textCapitalization: TextCapitalization.words,
         decoration: InputDecoration(hintText: widget.hintText),
+        onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
         onSubmitted: (_) => _submit(),
       ),
       actions: [

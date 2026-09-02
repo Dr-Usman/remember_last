@@ -99,6 +99,7 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
             controller: _noteController,
             decoration: const InputDecoration(labelText: 'Note (optional)'),
             maxLines: 2,
+            onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
           ),
           const SizedBox(height: 24),
           FilledButton(

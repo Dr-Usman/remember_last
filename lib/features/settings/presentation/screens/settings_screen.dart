@@ -8,6 +8,7 @@ import '../../../../core/providers/package_info_provider.dart';
 import '../../../../core/providers/theme_mode_provider.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../backup/presentation/backup_actions.dart';
+import '../settings_actions.dart';
 import '../widgets/settings_tile.dart';
 
 /// Main settings hub for backup, categories, and app info.
@@ -63,6 +64,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           loading: () => '${AppConstants.appName} …',
           error: (_, _) => AppConstants.appName,
         );
+    const settingsActions = SettingsActions();
 
     return Scaffold(
       appBar: AppBar(title: const Text('Settings')),
@@ -144,6 +146,33 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   showChevron: true,
                   onTap: () => context.push(AppRoutes.about),
                 ),
+                if (SettingsActions.canShareApp)
+                  SettingsTile(
+                    icon: Icons.share_outlined,
+                    title: 'Share app',
+                    subtitle: 'Tell friends about ${AppConstants.appName}',
+                    onTap: () => settingsActions.shareApp(context),
+                  ),
+                if (SettingsActions.canRateApp)
+                  SettingsTile(
+                    icon: Icons.star_outline,
+                    title: 'Rate app',
+                    subtitle: 'Leave a review on the app store',
+                    onTap: () => settingsActions.rateApp(context),
+                  ),
+                SettingsTile(
+                  icon: Icons.mail_outline,
+                  title: 'Contact us',
+                  subtitle: 'Send feedback or report a bug',
+                  onTap: () => settingsActions.contactUs(context),
+                ),
+                if (SettingsActions.canShowDeveloperPage)
+                  SettingsTile(
+                    icon: Icons.apps_outlined,
+                    title: 'More from developer',
+                    subtitle: 'Other apps by Avenzor House',
+                    onTap: () => settingsActions.openDeveloperPage(context),
+                  ),
                 SettingsTile(
                   icon: Icons.privacy_tip_outlined,
                   title: 'Privacy policy',

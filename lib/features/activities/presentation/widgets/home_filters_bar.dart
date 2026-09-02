@@ -13,6 +13,8 @@ class HomeFiltersBar extends ConsumerStatefulWidget {
 }
 
 class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
+  static const double _filterControlHeight = 48;
+
   late final TextEditingController _searchController;
 
   @override
@@ -42,24 +44,102 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        TextField(
-          controller: _searchController,
-          decoration: InputDecoration(
-            hintText: 'Search activities...',
-            prefixIcon: const Icon(Icons.search),
-            suffixIcon: filter.searchQuery.isNotEmpty
-                ? IconButton(
-                    icon: const Icon(Icons.clear),
-                    onPressed: () {
-                      _searchController.clear();
-                      ref.read(activityFilterProvider.notifier).setSearch('');
-                    },
-                  )
-                : null,
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-          ),
-          onChanged: (value) =>
-              ref.read(activityFilterProvider.notifier).setSearch(value),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: SizedBox(
+                height: _filterControlHeight,
+                child: TextField(
+                  controller: _searchController,
+                  textAlignVertical: TextAlignVertical.center,
+                  onTapOutside: (_) =>
+                      FocusManager.instance.primaryFocus?.unfocus(),
+                  decoration: InputDecoration(
+                    hintText: 'Search activities...',
+                    isDense: true,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 10,
+                    ),
+                    prefixIcon: const Icon(Icons.search),
+                    suffixIcon: filter.searchQuery.isNotEmpty
+                        ? IconButton(
+                            icon: const Icon(Icons.clear),
+                            onPressed: () {
+                              _searchController.clear();
+                              ref
+                                  .read(activityFilterProvider.notifier)
+                                  .setSearch('');
+                            },
+                          )
+                        : null,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                  ),
+                  onChanged: (value) => ref
+                      .read(activityFilterProvider.notifier)
+                      .setSearch(value),
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            PopupMenuButton<ActivitySort>(
+              tooltip: 'Sort: ${_sortLabel(filter.sort)}',
+              onSelected: (sort) =>
+                  ref.read(activityFilterProvider.notifier).setSort(sort),
+              itemBuilder: (context) => [
+                _sortMenuItem(
+                  value: ActivitySort.recentlyDone,
+                  label: 'Recently done',
+                  selected: filter.sort == ActivitySort.recentlyDone,
+                ),
+                _sortMenuItem(
+                  value: ActivitySort.overdue,
+                  label: 'Overdue first',
+                  selected: filter.sort == ActivitySort.overdue,
+                ),
+                _sortMenuItem(
+                  value: ActivitySort.alphabetical,
+                  label: 'A–Z',
+                  selected: filter.sort == ActivitySort.alphabetical,
+                ),
+              ],
+              // Finite-width outlined control (InputDecorator needs bounded width).
+              child: SizedBox(
+                height: _filterControlHeight,
+                child: Material(
+                  color: Colors.transparent,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                    side: BorderSide(
+                      color: Theme.of(context).colorScheme.outline,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Center(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(Icons.sort, size: 22),
+                          const SizedBox(width: 2),
+                          Icon(
+                            Icons.arrow_drop_down,
+                            size: 22,
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.onSurfaceVariant,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 12),
         categoriesAsync.when(
@@ -99,6 +179,32 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
       ],
     );
   }
+
+  PopupMenuItem<ActivitySort> _sortMenuItem({
+    required ActivitySort value,
+    required String label,
+    required bool selected,
+  }) {
+    return PopupMenuItem(
+      value: value,
+      child: Row(
+        children: [
+          if (selected)
+            const Icon(Icons.check, size: 18)
+          else
+            const SizedBox(width: 18),
+          const SizedBox(width: 8),
+          Text(label),
+        ],
+      ),
+    );
+  }
+
+  String _sortLabel(ActivitySort sort) => switch (sort) {
+    ActivitySort.recentlyDone => 'Recently done',
+    ActivitySort.overdue => 'Overdue first',
+    ActivitySort.alphabetical => 'A–Z',
+  };
 }
 
 class _CategoryChip extends StatelessWidget {
