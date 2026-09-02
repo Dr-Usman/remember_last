@@ -10,6 +10,62 @@ final managedCategoryRowsProvider = StreamProvider((ref) {
   return ref.watch(databaseProvider).watchCategories();
 });
 
+class _CategoryNameDialog extends StatefulWidget {
+  const _CategoryNameDialog({
+    required this.title,
+    required this.confirmLabel,
+    this.initialValue,
+    this.hintText,
+  });
+
+  final String title;
+  final String confirmLabel;
+  final String? initialValue;
+  final String? hintText;
+
+  @override
+  State<_CategoryNameDialog> createState() => _CategoryNameDialogState();
+}
+
+class _CategoryNameDialogState extends State<_CategoryNameDialog> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(text: widget.initialValue);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _submit() => Navigator.pop(context, _controller.text.trim());
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text(widget.title),
+      content: TextField(
+        controller: _controller,
+        autofocus: true,
+        textCapitalization: TextCapitalization.words,
+        decoration: InputDecoration(hintText: widget.hintText),
+        onSubmitted: (_) => _submit(),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        FilledButton(onPressed: _submit, child: Text(widget.confirmLabel)),
+      ],
+    );
+  }
+}
+
 /// Screen for adding, renaming, and deleting custom categories.
 class CategoriesManagementScreen extends ConsumerWidget {
   const CategoriesManagementScreen({super.key});
@@ -114,27 +170,12 @@ class CategoriesManagementScreen extends ConsumerWidget {
   }
 
   Future<void> _showAddDialog(BuildContext context, WidgetRef ref) async {
-    final controller = TextEditingController();
     final result = await showDialog<String>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('New category'),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          textCapitalization: TextCapitalization.words,
-          decoration: const InputDecoration(hintText: 'e.g. Fitness'),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(context, controller.text.trim()),
-            child: const Text('Add'),
-          ),
-        ],
+      builder: (context) => const _CategoryNameDialog(
+        title: 'New category',
+        confirmLabel: 'Add',
+        hintText: 'e.g. Fitness',
       ),
     );
     if (result != null && result.isNotEmpty) {
@@ -148,7 +189,6 @@ class CategoriesManagementScreen extends ConsumerWidget {
         }
       }
     }
-    controller.dispose();
   }
 
   Future<void> _showRenameDialog(
@@ -157,31 +197,16 @@ class CategoriesManagementScreen extends ConsumerWidget {
     int id,
     String currentName,
   ) async {
-    final controller = TextEditingController(text: currentName);
     final result = await showDialog<String>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Rename category'),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          textCapitalization: TextCapitalization.words,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(context, controller.text.trim()),
-            child: const Text('Save'),
-          ),
-        ],
+      builder: (context) => _CategoryNameDialog(
+        title: 'Rename category',
+        confirmLabel: 'Save',
+        initialValue: currentName,
       ),
     );
     if (result != null && result.isNotEmpty && result != currentName) {
       await ref.read(categoryRepositoryProvider).renameCategory(id, result);
     }
-    controller.dispose();
   }
 }

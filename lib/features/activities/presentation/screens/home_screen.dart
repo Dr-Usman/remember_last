@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/database/database_provider.dart';
+import '../../../../core/providers/analytics_provider.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/widgets/activity_card.dart';
 import '../../../../core/widgets/app_brand_title.dart';
@@ -234,10 +235,16 @@ class _ActivityList extends ConsumerWidget {
     int activityId,
     String title,
   ) async {
+    final doneAt = DateTime.now();
     await ref
         .read(occurrenceRepositoryProvider)
-        .insert(
-          Occurrence(id: 0, activityId: activityId, doneAt: DateTime.now()),
+        .insert(Occurrence(id: 0, activityId: activityId, doneAt: doneAt));
+    await ref
+        .read(analyticsServiceProvider)
+        .trackOccurrenceLogged(
+          source: 'quick_log',
+          hasNote: false,
+          doneAt: doneAt,
         );
     if (context.mounted) {
       ScaffoldMessenger.of(

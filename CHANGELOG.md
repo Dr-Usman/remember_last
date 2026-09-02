@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Optional Mixpanel usage analytics with first-launch consent dialog and Settings toggle.
+- Screen view and occurrence logging (anonymous; no activity titles, notes, or personal content).
+
+### Changed
+
+- Privacy policy updated to disclose optional Mixpanel analytics and how to opt out.
+
+### Fixed
+
+- Crash when canceling the category rename or add dialog caused by disposing the text field controller too early.
+
 ## [1.0.0] - 2026-07-21
 
 ### Added
