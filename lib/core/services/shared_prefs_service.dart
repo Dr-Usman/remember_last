@@ -22,6 +22,9 @@ class SharedPrefsService {
 abstract final class PrefsKeys {
   static const themeMode = 'theme_mode';
   static const hasSeededSamples = 'has_seeded_samples';
+  static const analyticsConsent = 'analytics_consent';
+  static const analyticsConsentGranted = 'granted';
+  static const analyticsConsentDenied = 'denied';
 }
 
 final sharedPrefsServiceProvider = Provider<SharedPrefsService>((ref) {

@@ -7,6 +7,7 @@ import 'core/database/database_provider.dart';
 import 'core/providers/theme_mode_provider.dart';
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
+import 'core/widgets/analytics_consent_host.dart';
 
 class RememberLastApp extends ConsumerStatefulWidget {
   const RememberLastApp({super.key});
@@ -37,6 +38,9 @@ class _RememberLastAppState extends ConsumerState<RememberLastApp> {
       darkTheme: AppTheme.dark,
       themeMode: themeMode,
       routerConfig: router,
+      builder: (context, child) {
+        return AnalyticsConsentHost(child: child ?? const SizedBox.shrink());
+      },
     );
   }
 }

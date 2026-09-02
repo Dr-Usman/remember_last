@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/database/database_provider.dart';
+import '../../../../core/providers/analytics_provider.dart';
 import '../../domain/entities/occurrence.dart';
 
 /// Bottom sheet for logging or editing a date/time entry.
@@ -172,6 +173,11 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
           doneAt: _selectedDateTime,
           note: note,
         ),
+      );
+      await ref.read(analyticsServiceProvider).trackOccurrenceLogged(
+        source: 'entry_sheet',
+        hasNote: note != null,
+        doneAt: _selectedDateTime,
       );
     }
     if (mounted) Navigator.pop(context);

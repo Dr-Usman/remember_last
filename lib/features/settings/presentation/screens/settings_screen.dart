@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_constants.dart';
+import '../../../../core/providers/analytics_provider.dart';
 import '../../../../core/providers/package_info_provider.dart';
 import '../../../../core/providers/theme_mode_provider.dart';
 import '../../../../core/router/app_routes.dart';
@@ -10,11 +11,46 @@ import '../../../backup/presentation/backup_actions.dart';
 import '../widgets/settings_tile.dart';
 
 /// Main settings hub for backup, categories, and app info.
-class SettingsScreen extends ConsumerWidget {
+class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends ConsumerState<SettingsScreen> {
+  bool? _analyticsEnabled;
+  bool _loadingAnalytics = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadAnalyticsConsent();
+  }
+
+  Future<void> _loadAnalyticsConsent() async {
+    final consent = await ref.read(analyticsServiceProvider).getConsentStatus();
+    if (!mounted) return;
+    setState(() {
+      _analyticsEnabled = consent ?? false;
+      _loadingAnalytics = false;
+    });
+  }
+
+  Future<void> _setAnalyticsEnabled(bool enabled) async {
+    setState(() => _analyticsEnabled = enabled);
+
+    final analytics = ref.read(analyticsServiceProvider);
+    if (enabled) {
+      final info = await ref.read(packageInfoProvider.future);
+      await analytics.optIn(appVersion: info.version);
+    } else {
+      await analytics.optOut();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final themeMode = ref.watch(themeModeProvider);
     final versionLabel = ref
@@ -63,6 +99,19 @@ class SettingsScreen extends ConsumerWidget {
                           .setThemeMode(selected.single);
                     },
                   ),
+                ),
+                const Divider(height: 1),
+                _SectionHeader(title: 'Privacy', theme: theme),
+                SwitchListTile(
+                  secondary: const Icon(Icons.analytics_outlined),
+                  title: const Text('Usage analytics'),
+                  subtitle: const Text(
+                    'Share anonymous screen and feature usage via Mixpanel',
+                  ),
+                  value: _analyticsEnabled ?? false,
+                  onChanged: _loadingAnalytics
+                      ? null
+                      : (value) => _setAnalyticsEnabled(value),
                 ),
                 const Divider(height: 1),
                 _SectionHeader(title: 'Data', theme: theme),
