@@ -1,0 +1,388 @@
+{
+  "@@locale": "ne",
+  "cancel": "रद्द गर्नुहोस्",
+  "delete": "मेटाउनुहोस्",
+  "save": "सुरक्षित गर्नुहोस्",
+  "add": "थप्नुहोस्",
+  "edit": "सम्पादन गर्नुहोस्",
+  "rename": "नाम परिवर्तन गर्नुहोस्",
+  "merge": "मिलाउनुहोस्",
+  "settings": "सेटिङहरू",
+  "insights": "अन्तर्दृष्टि",
+  "about": "बारेमा",
+  "appearance": "देखावट",
+  "themeSystem": "प्रणाली",
+  "themeLight": "उज्यालो",
+  "themeDark": "अँध्यारो",
+  "language": "भाषा",
+  "languageSystemDefault": "प्रणालीको पूर्वनिर्धारित",
+  "organize": "व्यवस्थित गर्नुहोस्",
+  "manageCategories": "श्रेणीहरू व्यवस्थापन गर्नुहोस्",
+  "manageCategoriesSubtitle": "गतिविधि श्रेणीहरू थप्नुहोस् वा हटाउनुहोस्",
+  "data": "डाटा",
+  "exportBackup": "ब्याकअप निर्यात गर्नुहोस्",
+  "exportBackupSubtitle": "आफ्नो डाटा JSON का रूपमा सुरक्षित गर्नुहोस्",
+  "importBackup": "ब्याकअप आयात गर्नुहोस्",
+  "importBackupSubtitle": "JSON फाइलबाट पुनर्स्थापना गर्नुहोस्",
+  "privacy": "गोपनीयता",
+  "usageAnalytics": "प्रयोग विश्लेषण",
+  "usageAnalyticsSubtitle": "Mixpanel मार्फत गुमनाम स्क्रिन र सुविधा प्रयोग साझा गर्नुहोस्",
+  "aboutApp": "{appName} बारे",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "एप साझा गर्नुहोस्",
+  "shareAppSubtitle": "साथीहरूलाई {appName} बारे बताउनुहोस्",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "एपलाई मूल्याङ्कन गर्नुहोस्",
+  "rateAppSubtitle": "एप स्टोरमा समीक्षा छोड्नुहोस्",
+  "contactUs": "हामीलाई सम्पर्क गर्नुहोस्",
+  "contactUsSubtitle": "प्रतिक्रिया पठाउनुहोस् वा त्रुटि रिपोर्ट गर्नुहोस्",
+  "moreFromDeveloper": "विकासकर्ताबाट थप",
+  "moreFromDeveloperSubtitle": "Avenzor House का अन्य एपहरू",
+  "privacyPolicy": "गोपनीयता नीति",
+  "backupShareSubject": "{appName} ब्याकअप",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "यहाँ अझै केही छैन",
+  "emptyNothingYetMessage": "तपाईंले अन्तिम पटक केही कहिले गर्नुभयो ट्र्याक गर्नुहोस् — बिरुवामा पानी हाल्ने, गाडी धुने, परिवारलाई फोन गर्ने।",
+  "addActivity": "गतिविधि थप्नुहोस्",
+  "addActivityFab": "गतिविधि थप्नुहोस्",
+  "noMatches": "कुनै मिलान छैन",
+  "noMatchesFilter": "तपाईंको खोज वा फिल्टरसँग कुनै गतिविधि मिल्दैन।",
+  "nothingToShow": "अहिले देखाउन केही छैन।",
+  "clearFilters": "फिल्टरहरू हटाउनुहोस्",
+  "errorWithDetails": "त्रुटि: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "गतिविधि मेटाउने?",
+  "deleteActivityMessage": "\"{title}\" र सबै इतिहास मेटाउने?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "\"{title}\" र यसको सबै इतिहास मेटाउने? यो उल्ट्याउन सकिँदैन।",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "\"{title}\" मेटाइयो",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "\"{title}\" अहिले लग गरियो",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "गतिविधिहरू खोज्नुहोस्...",
+  "sortTooltip": "क्रम: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "भर्खर गरिएका",
+  "sortOverdueFirst": "म्याद नाघेका पहिले",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "सबै",
+  "editActivity": "गतिविधि सम्पादन गर्नुहोस्",
+  "newActivity": "नयाँ गतिविधि",
+  "titleLabel": "शीर्षक *",
+  "titleHint": "जस्तै बिरुवामा पानी हाल्नुहोस्",
+  "titleRequired": "शीर्षक आवश्यक छ",
+  "categoryLabel": "श्रेणी",
+  "categoryHint": "घर, सवारी, व्यक्तिगत...",
+  "notes": "नोटहरू",
+  "dueInterval": "नियत अन्तराल",
+  "markDueEveryXDays": "हरेक X दिनमा नियत चिन्ह लगाउनुहोस्",
+  "dueIntervalSubtitle": "चाँडै नियत / म्याद नाघेको अवस्था देखाउँछ",
+  "frequencyPreset": "आवृत्ति प्रिसेट",
+  "daysUntilDue": "नियत हुने दिनहरू",
+  "daysSuffix": "दिन",
+  "fixedByPreset": "{preset} प्रिसेटद्वारा निश्चित",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "दिनहरूको मान्य संख्या प्रविष्ट गर्नुहोस्",
+  "saveChanges": "परिवर्तनहरू सुरक्षित गर्नुहोस्",
+  "createActivity": "गतिविधि सिर्जना गर्नुहोस्",
+  "reminderNone": "कुनै पनि होइन",
+  "reminderDaily": "दैनिक",
+  "reminderWeekly": "साप्ताहिक",
+  "reminderMonthly": "मासिक",
+  "reminderCustom": "अनुकूल",
+  "statusNeverLogged": "कहिल्यै लग गरिएको छैन",
+  "statusLogged": "लग गरियो",
+  "statusRecent": "हालैको",
+  "statusDueSoon": "चाँडै नियत",
+  "statusOverdue": "म्याद नाघेको",
+  "editEntry": "प्रविष्टि सम्पादन गर्नुहोस्",
+  "addEntry": "प्रविष्टि थप्नुहोस्",
+  "date": "मिति",
+  "time": "समय",
+  "noteOptional": "नोट (वैकल्पिक)",
+  "saveEntry": "प्रविष्टि सुरक्षित गर्नुहोस्",
+  "activityNotFound": "गतिविधि फेला परेन",
+  "history": "इतिहास",
+  "noLogsYet": "अझै कुनै लग छैन",
+  "logNow": "अहिले लग गर्नुहोस्",
+  "addCustomEntry": "अनुकूल प्रविष्टि थप्नुहोस्",
+  "lastDone": "अन्तिम पटक गरिएको",
+  "nextDue": "अर्को नियत",
+  "deleteEntryTitle": "प्रविष्टि मेटाउने?",
+  "deleteEntryMessage": "यो लग प्रविष्टि स्थायी रूपमा हटाउने?",
+  "categoriesTitle": "श्रेणीहरू",
+  "noCategoriesYet": "अझै कुनै श्रेणी छैन। एउटा बनाउन थप्नुहोस् ट्याप गर्नुहोस्।",
+  "deleteCategoryTitle": "श्रेणी मेटाउने?",
+  "deleteCategoryMessage": "सुझावहरूबाट \"{name}\" हटाउने? यसलाई प्रयोग गर्ने गतिविधिहरूले आफ्नो श्रेणी राख्नेछन्।",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "नयाँ श्रेणी",
+  "categoryHintExample": "जस्तै फिटनेस",
+  "categoryAlreadyExists": "श्रेणी पहिले नै अवस्थित छ",
+  "renameCategory": "श्रेणीको नाम परिवर्तन गर्नुहोस्",
+  "backupExported": "ब्याकअप सफलतापूर्वक निर्यात भयो",
+  "exportFailed": "निर्यात असफल: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "ब्याकअप आयात गर्नुहोस्",
+  "importBackupMessage": "आयात गरिएको डाटालाई विद्यमान गतिविधिहरूसँग मिलाउने? सबै डाटा प्रतिस्थापन गर्न रद्द गर्नुहोस् छान्नुहोस् र फेरि आयात गर्नुहोस्।",
+  "replaceAllDataTitle": "सबै डाटा प्रतिस्थापन गर्ने?",
+  "replaceAllDataMessage": "आयात गर्नु अघि सबै विद्यमान गतिविधि र घटनाहरू मेटिनेछन्।",
+  "replaceAll": "सबै प्रतिस्थापन गर्नुहोस्",
+  "importedCounts": "{activities} गतिविधि र {occurrences} लग आयात गरियो",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "आयात असफल: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "अझै कुनै डाटा छैन। केही गतिविधि लग गर्नुहोस्!",
+  "activityBreakdown": "गतिविधि विवरण",
+  "overview": "अवलोकन",
+  "statActivities": "गतिविधिहरू",
+  "statTotalLogs": "कुल लगहरू",
+  "mostOverdue": "सबैभन्दा बढी म्याद नाघेको: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "लगबीचको समय — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "प्रत्येक बारले फेरि लग गर्नु अघि तपाईंले कति दिन पर्खनुभयो देखाउँछ (नयाँ पहिले)।",
+  "latestGap": "पछिल्लो अन्तराल",
+  "average": "औसत",
+  "reminder": "स्मरण",
+  "daysValue": "{days} दिन",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "प्रविष्टिहरूबीच अन्तराल देखाउन कम्तीमा २ लग चाहिन्छ",
+  "daysBetweenLogs": "लगबीचका दिनहरू",
+  "reminderTarget": "स्मरण लक्ष्य",
+  "averageDaysShort": "औसत {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "स्मरण {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "अन्तराल {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "पछिल्लो",
+  "logsCount": "{count, plural, =1{1 लग} other{{count} लग}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 लग} other{{count} लग}} • औसत {avg} दिन",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} दिन",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} एउटा सरल, अफलाइन-प्रथम एप हो जसले तपाईंलाई ट्र्याक गर्न मद्दत गर्छ तपाईंले अन्तिम पटक केही कहिले गर्नुभयो — बिरुवामा पानी हाल्ने, गाडी धुने, परिवारलाई फोन गर्ने र थप।",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "कुनै स्ट्रिक छैन। कुनै दबाब छैन। केवल \"मैले त्यो अन्तिम पटक कहिले गरेँ?\" को स्पष्ट उत्तर।",
+  "features": "विशेषताहरू",
+  "featureTrack": "वैकल्पिक नियत अन्तरालसहित असीमित गतिविधि ट्र्याक गर्नुहोस्",
+  "featureElapsed": "अन्तिम पटक गरेपछिको समय हेर्नुहोस्, हालैको / चाँडै नियत / म्याद नाघेको अवस्थासहित",
+  "featureCategories": "अनुकूल श्रेणीहरूले व्यवस्थित गर्नुहोस्",
+  "featureHistory": "अनुकूल पछाडि मिति राखिएका प्रविष्टिहरूसहित पूर्ण इतिहास",
+  "featureInsights": "औसत अन्तराल र चार्टसहित अन्तर्दृष्टि",
+  "featureThemes": "उज्यालो र अँध्यारो ब्रान्ड थिम (प्रणालीअनुसार)",
+  "featureBackup": "JSON निर्यात/आयात ब्याकअप",
+  "featureOffline": "१००% अफलाइन — तपाईंको डाटा तपाईंको यन्त्रमा रहन्छ",
+  "privacyUnableToLoad": "गोपनीयता नीति लोड गर्न सकिएन। तपाईं यसलाई अनलाइन हेर्न सक्नुहुन्छ।",
+  "openOnline": "अनलाइन खोल्नुहोस्",
+  "couldNotOpenPrivacyUrl": "गोपनीयता नीतिको URL खोल्न सकिएन",
+  "analyticsConsentTitle": "RememberLast सुधार्न सहयोग गर्ने?",
+  "analyticsConsentBody": "तपाईं वैकल्पिक रूपमा Mixpanel सँग गुमनाम प्रयोग विश्लेषण साझा गर्न सक्नुहुन्छ (जस्तै कुन स्क्रिन हेर्नुहुन्छ र कहिले गतिविधि लग गर्नुहुन्छ)। हामी कहिल्यै तपाईंका गतिविधि शीर्षक, नोट वा अन्य व्यक्तिगत सामग्री पठाउँदैनौं। तपाईं यो सेटिङमा जुनसुकै बेला परिवर्तन गर्न सक्नुहुन्छ।",
+  "decline": "अस्वीकार गर्नुहोस्",
+  "accept": "स्वीकार गर्नुहोस्",
+  "couldNotShareApp": "एप साझा गर्न सकिएन",
+  "couldNotOpenAppStore": "एप स्टोर खोल्न सकिएन",
+  "couldNotOpenEmail": "इमेल एप खोल्न सकिएन",
+  "couldNotOpenDeveloperPage": "विकासकर्ता पृष्ठ खोल्न सकिएन",
+  "justNow": "भर्खरै",
+  "yearsAgo": "{count, plural, =1{1 वर्षअघि} other{{count} वर्षअघि}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 महिनाअघि} other{{count} महिनाअघि}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 दिनअघि} other{{count} दिनअघि}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 घण्टाअघि} other{{count} घण्टाअघि}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 मिनेटअघि} other{{count} मिनेटअघि}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

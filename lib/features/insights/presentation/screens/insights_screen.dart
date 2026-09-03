@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/activity_status.dart';
 import '../../../../core/widgets/status_indicator.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../providers/insights_providers.dart';
 
 class InsightsScreen extends ConsumerStatefulWidget {
@@ -28,16 +29,15 @@ class _InsightsScreenState extends ConsumerState<InsightsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final insightsAsync = ref.watch(insightsProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Insights')),
+      appBar: AppBar(title: Text(l10n.insights)),
       body: insightsAsync.when(
         data: (insights) {
           if (insights.activityInsights.isEmpty) {
-            return const Center(
-              child: Text('No data yet. Log some activities!'),
-            );
+            return Center(child: Text(l10n.insightsEmpty));
           }
 
           final selected = _selectedActivityId == null
@@ -53,7 +53,7 @@ class _InsightsScreenState extends ConsumerState<InsightsScreen> {
               _GlobalStatsCard(insights: insights),
               const SizedBox(height: 16),
               Text(
-                'Activity breakdown',
+                l10n.activityBreakdown,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 8),
@@ -63,8 +63,12 @@ class _InsightsScreenState extends ConsumerState<InsightsScreen> {
                   child: ListTile(
                     title: Text(item.activity.title),
                     subtitle: Text(
-                      '${item.totalLogs} logs'
-                      '${item.averageIntervalDays != null ? ' • avg ${item.averageIntervalDays!.toStringAsFixed(1)} days' : ''}',
+                      item.averageIntervalDays != null
+                          ? l10n.logsCountWithAverage(
+                              item.totalLogs,
+                              item.averageIntervalDays!.toStringAsFixed(1),
+                            )
+                          : l10n.logsCount(item.totalLogs),
                     ),
                     trailing: StatusIndicator(
                       status: item.status,
@@ -82,7 +86,7 @@ class _InsightsScreenState extends ConsumerState<InsightsScreen> {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Error: $e')),
+        error: (e, _) => Center(child: Text(l10n.errorWithDetails('$e'))),
       ),
     );
   }
@@ -95,28 +99,32 @@ class _GlobalStatsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Overview', style: Theme.of(context).textTheme.titleMedium),
+            Text(l10n.overview, style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 12),
             Row(
               children: [
                 _StatChip(
-                  label: 'Activities',
+                  label: l10n.statActivities,
                   value: '${insights.totalActivities}',
                 ),
                 const SizedBox(width: 12),
-                _StatChip(label: 'Total logs', value: '${insights.totalLogs}'),
+                _StatChip(
+                  label: l10n.statTotalLogs,
+                  value: '${insights.totalLogs}',
+                ),
               ],
             ),
             if (insights.mostOverdue != null) ...[
               const SizedBox(height: 12),
               Text(
-                'Most overdue: ${insights.mostOverdue!.activity.title}',
+                l10n.mostOverdue(insights.mostOverdue!.activity.title),
                 style: TextStyle(color: AppColors.overdue),
               ),
             ],
@@ -168,6 +176,7 @@ class _IntervalsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
     final activity = insight.activity;
     final hasReminder = activityHasActiveReminder(activity);
     final reminderDays = hasReminder ? activity.reminderDays!.toDouble() : null;
@@ -178,12 +187,12 @@ class _IntervalsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Time between logs — ${activity.title}',
+          l10n.timeBetweenLogs(activity.title),
           style: theme.textTheme.titleMedium,
         ),
         const SizedBox(height: 4),
         Text(
-          'Each bar is how many days you waited before logging again (newest first).',
+          l10n.intervalsCaption,
           style: theme.textTheme.bodySmall?.copyWith(
             color: theme.colorScheme.onSurfaceVariant,
           ),
@@ -196,18 +205,18 @@ class _IntervalsSection extends StatelessWidget {
             children: [
               if (lastGap != null)
                 _MetricChip(
-                  label: 'Latest gap',
-                  value: '${lastGap.toStringAsFixed(1)} days',
+                  label: l10n.latestGap,
+                  value: l10n.daysValue(lastGap.toStringAsFixed(1)),
                 ),
               if (avgDays != null)
                 _MetricChip(
-                  label: 'Average',
-                  value: '${avgDays.toStringAsFixed(1)} days',
+                  label: l10n.average,
+                  value: l10n.daysValue(avgDays.toStringAsFixed(1)),
                 ),
               if (reminderDays != null)
                 _MetricChip(
-                  label: 'Reminder',
-                  value: '${reminderDays.toInt()} days',
+                  label: l10n.reminder,
+                  value: l10n.daysValue('${reminderDays.toInt()}'),
                   accent: AppColors.dueSoon,
                 ),
             ],
@@ -215,10 +224,10 @@ class _IntervalsSection extends StatelessWidget {
         ],
         const SizedBox(height: 12),
         if (insight.intervals.isEmpty)
-          const Card(
+          Card(
             child: Padding(
-              padding: EdgeInsets.all(24),
-              child: Text('Need at least 2 logs to show gaps between entries'),
+              padding: const EdgeInsets.all(24),
+              child: Text(l10n.needTwoLogs),
             ),
           )
         else
@@ -236,20 +245,20 @@ class _IntervalsSection extends StatelessWidget {
                     spacing: 16,
                     runSpacing: 4,
                     children: [
-                      const _ChartLegendItem(
+                      _ChartLegendItem(
                         color: AppColors.primary,
-                        label: 'Days between logs',
+                        label: l10n.daysBetweenLogs,
                       ),
                       if (avgDays != null)
-                        const _ChartLegendItem(
+                        _ChartLegendItem(
                           color: AppColors.neutral,
-                          label: 'Average',
+                          label: l10n.average,
                           dashed: true,
                         ),
                       if (reminderDays != null)
-                        const _ChartLegendItem(
+                        _ChartLegendItem(
                           color: AppColors.dueSoon,
-                          label: 'Reminder target',
+                          label: l10n.reminderTarget,
                           dashed: true,
                         ),
                     ],
@@ -264,6 +273,7 @@ class _IntervalsSection extends StatelessWidget {
 
   BarChartData _buildChartData(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
     final activity = insight.activity;
     final hasReminder = activityHasActiveReminder(activity);
     final reminderDays = hasReminder ? activity.reminderDays!.toDouble() : null;
@@ -283,7 +293,8 @@ class _IntervalsSection extends StatelessWidget {
           dashArray: const [6, 4],
           label: HorizontalLineLabel(
             show: true,
-            labelResolver: (_) => 'Average ${avgDays.toStringAsFixed(0)}d',
+            labelResolver: (_) =>
+                l10n.averageDaysShort(avgDays.toStringAsFixed(0)),
             style: theme.textTheme.labelSmall?.copyWith(
               color: AppColors.neutral,
               fontWeight: FontWeight.w600,
@@ -300,7 +311,8 @@ class _IntervalsSection extends StatelessWidget {
           dashArray: const [4, 4],
           label: HorizontalLineLabel(
             show: true,
-            labelResolver: (_) => 'Reminder ${reminderDays.toInt()}d',
+            labelResolver: (_) =>
+                l10n.reminderDaysShort('${reminderDays.toInt()}'),
             style: theme.textTheme.labelSmall?.copyWith(
               color: AppColors.dueSoon,
               fontWeight: FontWeight.w600,
@@ -320,10 +332,10 @@ class _IntervalsSection extends StatelessWidget {
           getTooltipItem: (group, groupIndex, rod, rodIndex) {
             final days = rod.toY;
             final label = groupIndex == 0
-                ? 'Latest gap'
-                : 'Gap ${groupIndex + 1}';
+                ? l10n.latestGap
+                : l10n.gapNumber(groupIndex + 1);
             return BarTooltipItem(
-              '$label\n${days.toStringAsFixed(1)} days',
+              '$label\n${l10n.tooltipDays(days.toStringAsFixed(1))}',
               theme.textTheme.labelSmall!.copyWith(color: AppColors.onAccent),
             );
           },
@@ -339,7 +351,7 @@ class _IntervalsSection extends StatelessWidget {
               if (index < 0 || index >= insight.intervals.length) {
                 return const SizedBox.shrink();
               }
-              final label = index == 0 ? 'Latest' : '${index + 1}';
+              final label = index == 0 ? l10n.latest : '${index + 1}';
               return Padding(
                 padding: const EdgeInsets.only(top: 6),
                 child: Text(label, style: theme.textTheme.labelSmall),

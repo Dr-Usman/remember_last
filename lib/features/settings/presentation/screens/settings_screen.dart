@@ -7,8 +7,10 @@ import '../../../../core/providers/analytics_provider.dart';
 import '../../../../core/providers/package_info_provider.dart';
 import '../../../../core/providers/theme_mode_provider.dart';
 import '../../../../core/router/app_routes.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../backup/presentation/backup_actions.dart';
 import '../settings_actions.dart';
+import '../widgets/language_picker_tile.dart';
 import '../widgets/settings_tile.dart';
 
 /// Main settings hub for backup, categories, and app info.
@@ -53,6 +55,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
     final themeMode = ref.watch(themeModeProvider);
     final versionLabel = ref
         .watch(packageInfoProvider)
@@ -61,37 +64,40 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             version: info.version,
             buildNumber: info.buildNumber,
           ),
-          loading: () => '${AppConstants.appName} …',
+          loading: () => l10n.versionLabelLoading(AppConstants.appName),
           error: (_, _) => AppConstants.appName,
         );
     const settingsActions = SettingsActions();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+      appBar: AppBar(title: Text(l10n.settings)),
       body: Column(
         children: [
           Expanded(
             child: ListView(
               children: [
-                _SectionHeader(title: 'Appearance', theme: theme),
+                _SectionHeader(title: l10n.appearance, theme: theme),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
                   child: SegmentedButton<ThemeMode>(
-                    segments: const [
+                    segments: [
                       ButtonSegment(
                         value: ThemeMode.system,
-                        label: Text('System'),
-                        icon: Icon(Icons.brightness_auto_outlined, size: 18),
+                        label: Text(l10n.themeSystem),
+                        icon: const Icon(
+                          Icons.brightness_auto_outlined,
+                          size: 18,
+                        ),
                       ),
                       ButtonSegment(
                         value: ThemeMode.light,
-                        label: Text('Light'),
-                        icon: Icon(Icons.light_mode_outlined, size: 18),
+                        label: Text(l10n.themeLight),
+                        icon: const Icon(Icons.light_mode_outlined, size: 18),
                       ),
                       ButtonSegment(
                         value: ThemeMode.dark,
-                        label: Text('Dark'),
-                        icon: Icon(Icons.dark_mode_outlined, size: 18),
+                        label: Text(l10n.themeDark),
+                        icon: const Icon(Icons.dark_mode_outlined, size: 18),
                       ),
                     ],
                     selected: {themeMode},
@@ -102,80 +108,79 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     },
                   ),
                 ),
+                const LanguagePickerTile(),
                 const Divider(height: 1),
-                _SectionHeader(title: 'Organize', theme: theme),
+                _SectionHeader(title: l10n.organize, theme: theme),
                 SettingsTile(
                   icon: Icons.category_outlined,
-                  title: 'Manage categories',
-                  subtitle: 'Add or remove activity categories',
+                  title: l10n.manageCategories,
+                  subtitle: l10n.manageCategoriesSubtitle,
                   showChevron: true,
                   onTap: () => context.push(AppRoutes.categories),
                 ),
                 const Divider(height: 1),
-                _SectionHeader(title: 'Data', theme: theme),
+                _SectionHeader(title: l10n.data, theme: theme),
                 SettingsTile(
                   icon: Icons.upload_outlined,
-                  title: 'Export backup',
-                  subtitle: 'Save your data as JSON',
+                  title: l10n.exportBackup,
+                  subtitle: l10n.exportBackupSubtitle,
                   onTap: () => BackupActions(ref).exportBackup(context),
                 ),
                 SettingsTile(
                   icon: Icons.download_outlined,
-                  title: 'Import backup',
-                  subtitle: 'Restore from a JSON file',
+                  title: l10n.importBackup,
+                  subtitle: l10n.importBackupSubtitle,
                   onTap: () => BackupActions(ref).importBackup(context),
                 ),
                 const Divider(height: 1),
-                _SectionHeader(title: 'Privacy', theme: theme),
+                _SectionHeader(title: l10n.privacy, theme: theme),
                 SwitchListTile(
                   secondary: const Icon(Icons.analytics_outlined),
-                  title: const Text('Usage analytics'),
-                  subtitle: const Text(
-                    'Share anonymous screen and feature usage via Mixpanel',
-                  ),
+                  title: Text(l10n.usageAnalytics),
+                  subtitle: Text(l10n.usageAnalyticsSubtitle),
                   value: _analyticsEnabled ?? false,
                   onChanged: _loadingAnalytics
                       ? null
                       : (value) => _setAnalyticsEnabled(value),
                 ),
                 const Divider(height: 1),
-                _SectionHeader(title: 'About', theme: theme),
+                _SectionHeader(title: l10n.about, theme: theme),
                 SettingsTile(
                   icon: Icons.info_outline,
-                  title: 'About ${AppConstants.appName}',
+                  title: l10n.aboutApp(AppConstants.appName),
                   showChevron: true,
                   onTap: () => context.push(AppRoutes.about),
                 ),
                 if (SettingsActions.canShareApp)
                   SettingsTile(
                     icon: Icons.share_outlined,
-                    title: 'Share app',
-                    subtitle: 'Tell friends about ${AppConstants.appName}',
+                    title: l10n.shareApp,
+                    subtitle: l10n.shareAppSubtitle(AppConstants.appName),
                     onTap: () => settingsActions.shareApp(context),
                   ),
                 if (SettingsActions.canRateApp)
                   SettingsTile(
                     icon: Icons.star_outline,
-                    title: 'Rate app',
-                    subtitle: 'Leave a review on the app store',
+                    title: l10n.rateApp,
+                    subtitle: l10n.rateAppSubtitle,
                     onTap: () => settingsActions.rateApp(context),
                   ),
                 SettingsTile(
                   icon: Icons.mail_outline,
-                  title: 'Contact us',
-                  subtitle: 'Send feedback or report a bug',
+                  title: l10n.contactUs,
+                  subtitle: l10n.contactUsSubtitle,
                   onTap: () => settingsActions.contactUs(context),
                 ),
                 if (SettingsActions.canShowDeveloperPage)
                   SettingsTile(
                     icon: Icons.apps_outlined,
-                    title: 'More from developer',
-                    subtitle: 'Other apps by Avenzor House',
+                    title: l10n.moreFromDeveloper,
+                    subtitle: l10n.moreFromDeveloperSubtitle,
                     onTap: () => settingsActions.openDeveloperPage(context),
                   ),
                 SettingsTile(
                   icon: Icons.privacy_tip_outlined,
-                  title: 'Privacy policy',
+                  title: l10n.privacyPolicy,
                   showChevron: true,
                   onTap: () => context.push(AppRoutes.privacy),
                 ),

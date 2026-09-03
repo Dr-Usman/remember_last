@@ -6,6 +6,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/constants/app_constants.dart';
+import '../../../l10n/app_localizations.dart';
 
 /// External About-section actions (share, rate, contact, developer page).
 class SettingsActions {
@@ -37,7 +38,7 @@ class SettingsActions {
       );
     } catch (_) {
       if (context.mounted) {
-        _showSnackBar(context, 'Could not share app');
+        _showSnackBar(context, AppLocalizations.of(context).couldNotShareApp);
       }
     }
   }
@@ -49,7 +50,7 @@ class SettingsActions {
     await _launchExternalUrl(
       context,
       Uri.parse(storeUrl),
-      failureMessage: 'Could not open app store',
+      failureMessage: AppLocalizations.of(context).couldNotOpenAppStore,
     );
   }
 
@@ -60,7 +61,7 @@ class SettingsActions {
         email: AppConstants.contactUsEmail,
         subject: AppConstants.contactFeedbackSubject,
       ),
-      failureMessage: 'Could not open email app',
+      failureMessage: AppLocalizations.of(context).couldNotOpenEmail,
     );
   }
 
@@ -69,7 +70,7 @@ class SettingsActions {
     await _launchExternalUrl(
       context,
       Uri.parse(AppConstants.developerPageUrl),
-      failureMessage: 'Could not open developer page',
+      failureMessage: AppLocalizations.of(context).couldNotOpenDeveloperPage,
     );
   }
 

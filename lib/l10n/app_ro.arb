@@ -1,0 +1,388 @@
+{
+  "@@locale": "ro",
+  "cancel": "Anulează",
+  "delete": "Șterge",
+  "save": "Salvează",
+  "add": "Adaugă",
+  "edit": "Editează",
+  "rename": "Redenumește",
+  "merge": "Unește",
+  "settings": "Setări",
+  "insights": "Statistici",
+  "about": "Despre",
+  "appearance": "Aspect",
+  "themeSystem": "Sistem",
+  "themeLight": "Luminos",
+  "themeDark": "Întunecat",
+  "language": "Limbă",
+  "languageSystemDefault": "Implicit sistem",
+  "organize": "Organizează",
+  "manageCategories": "Gestionează categoriile",
+  "manageCategoriesSubtitle": "Adaugă sau elimină categorii de activități",
+  "data": "Date",
+  "exportBackup": "Exportă copia de rezervă",
+  "exportBackupSubtitle": "Salvează datele ca JSON",
+  "importBackup": "Importă copia de rezervă",
+  "importBackupSubtitle": "Restaurează dintr-un fișier JSON",
+  "privacy": "Confidențialitate",
+  "usageAnalytics": "Analize de utilizare",
+  "usageAnalyticsSubtitle": "Partajează utilizarea anonimă a ecranelor și funcțiilor prin Mixpanel",
+  "aboutApp": "Despre {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "Distribuie aplicația",
+  "shareAppSubtitle": "Spune-le prietenilor despre {appName}",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "Evaluează aplicația",
+  "rateAppSubtitle": "Lasă o recenzie în magazinul de aplicații",
+  "contactUs": "Contactează-ne",
+  "contactUsSubtitle": "Trimite feedback sau raportează o eroare",
+  "moreFromDeveloper": "Mai multe de la dezvoltator",
+  "moreFromDeveloperSubtitle": "Alte aplicații de Avenzor House",
+  "privacyPolicy": "Politica de confidențialitate",
+  "backupShareSubject": "Copie de rezervă {appName}",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "Nimic aici încă",
+  "emptyNothingYetMessage": "Notează când ai făcut ultima dată ceva — udat plantele, spălat mașina, sunat familia.",
+  "addActivity": "Adaugă activitate",
+  "addActivityFab": "Adaugă activitate",
+  "noMatches": "Nicio potrivire",
+  "noMatchesFilter": "Nicio activitate nu corespunde căutării sau filtrului.",
+  "nothingToShow": "Nimic de afișat momentan.",
+  "clearFilters": "Șterge filtrele",
+  "errorWithDetails": "Eroare: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "Ștergi activitatea?",
+  "deleteActivityMessage": "Ștergi „{title}” și tot istoricul?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "Ștergi „{title}” și tot istoricul? Această acțiune nu poate fi anulată.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "„{title}” a fost ștearsă",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "„{title}” înregistrată acum",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "Caută activități...",
+  "sortTooltip": "Sortare: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "Făcute recent",
+  "sortOverdueFirst": "Întârziate primele",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "Toate",
+  "editActivity": "Editează activitatea",
+  "newActivity": "Activitate nouă",
+  "titleLabel": "Titlu *",
+  "titleHint": "ex. Udă plantele",
+  "titleRequired": "Titlul este obligatoriu",
+  "categoryLabel": "Categorie",
+  "categoryHint": "Casă, Vehicul, Personal...",
+  "notes": "Note",
+  "dueInterval": "Interval de scadență",
+  "markDueEveryXDays": "Marchează scadent la fiecare X zile",
+  "dueIntervalSubtitle": "Afișează starea în curând / întârziat",
+  "frequencyPreset": "Presetare de frecvență",
+  "daysUntilDue": "Zile până la scadență",
+  "daysSuffix": "zile",
+  "fixedByPreset": "Fixat de presetarea {preset}",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "Introdu un număr valid de zile",
+  "saveChanges": "Salvează modificările",
+  "createActivity": "Creează activitate",
+  "reminderNone": "Niciuna",
+  "reminderDaily": "Zilnic",
+  "reminderWeekly": "Săptămânal",
+  "reminderMonthly": "Lunar",
+  "reminderCustom": "Personalizat",
+  "statusNeverLogged": "Niciodată înregistrată",
+  "statusLogged": "Înregistrată",
+  "statusRecent": "Recent",
+  "statusDueSoon": "În curând",
+  "statusOverdue": "Întârziat",
+  "editEntry": "Editează înregistrarea",
+  "addEntry": "Adaugă înregistrare",
+  "date": "Dată",
+  "time": "Oră",
+  "noteOptional": "Notă (opțional)",
+  "saveEntry": "Salvează înregistrarea",
+  "activityNotFound": "Activitatea nu a fost găsită",
+  "history": "Istoric",
+  "noLogsYet": "Nicio înregistrare încă",
+  "logNow": "Înregistrează acum",
+  "addCustomEntry": "Adaugă înregistrare personalizată",
+  "lastDone": "Ultima dată",
+  "nextDue": "Următoarea scadență",
+  "deleteEntryTitle": "Ștergi înregistrarea?",
+  "deleteEntryMessage": "Elimini definitiv această înregistrare?",
+  "categoriesTitle": "Categorii",
+  "noCategoriesYet": "Nicio categorie încă. Atinge Adaugă pentru a crea una.",
+  "deleteCategoryTitle": "Ștergi categoria?",
+  "deleteCategoryMessage": "Elimini „{name}” din sugestii? Activitățile care o folosesc își păstrează categoria.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "Categorie nouă",
+  "categoryHintExample": "ex. Fitness",
+  "categoryAlreadyExists": "Categoria există deja",
+  "renameCategory": "Redenumește categoria",
+  "backupExported": "Copia de rezervă a fost exportată cu succes",
+  "exportFailed": "Exportul a eșuat: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "Importă copia de rezervă",
+  "importBackupMessage": "Unești datele importate cu activitățile existente? Alege Anulează și apoi reimportă pentru a înlocui toate datele.",
+  "replaceAllDataTitle": "Înlocuiești toate datele?",
+  "replaceAllDataMessage": "Se vor șterge toate activitățile și aparițiile existente înainte de import.",
+  "replaceAll": "Înlocuiește tot",
+  "importedCounts": "Importate {activities} activități și {occurrences} înregistrări",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "Importul a eșuat: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "Nicio dată încă. Înregistrează câteva activități!",
+  "activityBreakdown": "Defalcarea activităților",
+  "overview": "Prezentare generală",
+  "statActivities": "Activități",
+  "statTotalLogs": "Total înregistrări",
+  "mostOverdue": "Cel mai întârziat: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "Timp între înregistrări — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "Fiecare bară arată câte zile ai așteptat înainte de a înregistra din nou (cele mai noi primele).",
+  "latestGap": "Ultimul interval",
+  "average": "Medie",
+  "reminder": "Memento",
+  "daysValue": "{days} zile",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "Sunt necesare cel puțin 2 înregistrări pentru a arăta intervalele",
+  "daysBetweenLogs": "Zile între înregistrări",
+  "reminderTarget": "Țintă memento",
+  "averageDaysShort": "Medie {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "Memento {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "Interval {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "Cel mai recent",
+  "logsCount": "{count, plural, =1{1 înregistrare} other{{count} înregistrări}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 înregistrare} other{{count} înregistrări}} • medie {avg} zile",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} zile",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} este o aplicație simplă, offline-first, care te ajută să ții evidența când ai făcut ultima dată ceva — udat plantele, spălat mașina, sunat familia și altele.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "Fără serii. Fără presiune. Doar un răspuns clar la „când am făcut ultima dată asta?”",
+  "features": "Funcții",
+  "featureTrack": "Urmărește activități nelimitate cu intervale de scadență opționale",
+  "featureElapsed": "Vezi timpul scurs de la ultima dată, cu starea Recent / În curând / Întârziat",
+  "featureCategories": "Organizează cu categorii personalizate",
+  "featureHistory": "Istoric complet cu înregistrări antedatate",
+  "featureInsights": "Statistici cu intervale medii și diagrame",
+  "featureThemes": "Teme de brand deschise și întunecate (urmează sistemul)",
+  "featureBackup": "Copie de rezervă prin export/import JSON",
+  "featureOffline": "100% offline — datele rămân pe dispozitiv",
+  "privacyUnableToLoad": "Politica de confidențialitate nu a putut fi încărcată. O poți vizualiza online.",
+  "openOnline": "Deschide online",
+  "couldNotOpenPrivacyUrl": "URL-ul politicii de confidențialitate nu a putut fi deschis",
+  "analyticsConsentTitle": "Ajuți la îmbunătățirea RememberLast?",
+  "analyticsConsentBody": "Poți partaja opțional analize anonime de utilizare cu Mixpanel (de exemplu ce ecrane vizitezi și când înregistrezi activități). Nu trimitem niciodată titlurile activităților, notele sau alt conținut personal. Poți schimba oricând acest lucru în Setări.",
+  "decline": "Refuz",
+  "accept": "Accept",
+  "couldNotShareApp": "Aplicația nu a putut fi partajată",
+  "couldNotOpenAppStore": "Magazinul de aplicații nu a putut fi deschis",
+  "couldNotOpenEmail": "Aplicația de e-mail nu a putut fi deschisă",
+  "couldNotOpenDeveloperPage": "Pagina dezvoltatorului nu a putut fi deschisă",
+  "justNow": "Chiar acum",
+  "yearsAgo": "{count, plural, =1{1 an în urmă} other{{count} ani în urmă}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 lună în urmă} other{{count} luni în urmă}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 zi în urmă} other{{count} zile în urmă}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 oră în urmă} other{{count} ore în urmă}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 minut în urmă} other{{count} minute în urmă}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

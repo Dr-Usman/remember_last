@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/providers/package_info_provider.dart';
 import '../../../../core/widgets/app_brand_title.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class AboutScreen extends ConsumerWidget {
   const AboutScreen({super.key});
@@ -11,6 +12,7 @@ class AboutScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
     final versionLabel = ref
         .watch(packageInfoProvider)
         .when(
@@ -18,12 +20,12 @@ class AboutScreen extends ConsumerWidget {
             version: info.version,
             buildNumber: info.buildNumber,
           ),
-          loading: () => '${AppConstants.appName} …',
+          loading: () => l10n.versionLabelLoading(AppConstants.appName),
           error: (_, _) => AppConstants.appName,
         );
 
     return Scaffold(
-      appBar: AppBar(title: const Text('About')),
+      appBar: AppBar(title: Text(l10n.about)),
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
@@ -44,31 +46,22 @@ class AboutScreen extends ConsumerWidget {
           ),
           const SizedBox(height: 24),
           Text(
-            '${AppConstants.appName} is a simple, offline-first app that helps you '
-            'track when you last did anything — water plants, wash your car, '
-            'call family, and more.',
+            l10n.aboutBody(AppConstants.appName),
             style: theme.textTheme.bodyLarge,
           ),
           const SizedBox(height: 16),
-          Text(
-            'No streaks. No pressure. Just a clear answer to "when did I last do that?"',
-            style: theme.textTheme.bodyLarge,
-          ),
+          Text(l10n.aboutTagline, style: theme.textTheme.bodyLarge),
           const SizedBox(height: 24),
-          Text('Features', style: theme.textTheme.titleMedium),
+          Text(l10n.features, style: theme.textTheme.titleMedium),
           const SizedBox(height: 8),
-          const _Bullet(
-            'Track unlimited activities with optional due intervals',
-          ),
-          const _Bullet(
-            'See time elapsed since last done, with Recent / Due soon / Overdue status',
-          ),
-          const _Bullet('Organize with custom categories'),
-          const _Bullet('Full history with custom backdated entries'),
-          const _Bullet('Insights with average intervals and charts'),
-          const _Bullet('Light and dark brand themes (follows system)'),
-          const _Bullet('JSON export/import backup'),
-          const _Bullet('100% offline — your data stays on your device'),
+          _Bullet(l10n.featureTrack),
+          _Bullet(l10n.featureElapsed),
+          _Bullet(l10n.featureCategories),
+          _Bullet(l10n.featureHistory),
+          _Bullet(l10n.featureInsights),
+          _Bullet(l10n.featureThemes),
+          _Bullet(l10n.featureBackup),
+          _Bullet(l10n.featureOffline),
         ],
       ),
     );

@@ -1,0 +1,388 @@
+{
+  "@@locale": "fil",
+  "cancel": "Kanselahin",
+  "delete": "Tanggalin",
+  "save": "I-save",
+  "add": "Magdagdag",
+  "edit": "I-edit",
+  "rename": "Palitan ng pangalan",
+  "merge": "Pagsamahin",
+  "settings": "Mga setting",
+  "insights": "Mga insight",
+  "about": "Tungkol",
+  "appearance": "Hitsura",
+  "themeSystem": "System",
+  "themeLight": "Maliwanag",
+  "themeDark": "Madilim",
+  "language": "Wika",
+  "languageSystemDefault": "Default ng system",
+  "organize": "Ayusin",
+  "manageCategories": "Pamahalaan ang mga kategorya",
+  "manageCategoriesSubtitle": "Magdagdag o magtanggal ng mga kategorya ng aktibidad",
+  "data": "Data",
+  "exportBackup": "I-export ang backup",
+  "exportBackupSubtitle": "I-save ang iyong data bilang JSON",
+  "importBackup": "I-import ang backup",
+  "importBackupSubtitle": "Ibalik mula sa isang JSON file",
+  "privacy": "Privacy",
+  "usageAnalytics": "Analytics ng paggamit",
+  "usageAnalyticsSubtitle": "Ibahagi ang anonymous na paggamit ng screen at feature sa pamamagitan ng Mixpanel",
+  "aboutApp": "Tungkol sa {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "Ibahagi ang app",
+  "shareAppSubtitle": "Sabihin sa mga kaibigan ang tungkol sa {appName}",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "I-rate ang app",
+  "rateAppSubtitle": "Mag-iwan ng review sa app store",
+  "contactUs": "Makipag-ugnayan sa amin",
+  "contactUsSubtitle": "Magpadala ng feedback o mag-ulat ng bug",
+  "moreFromDeveloper": "Higit pa mula sa developer",
+  "moreFromDeveloperSubtitle": "Iba pang app ng Avenzor House",
+  "privacyPolicy": "Patakaran sa privacy",
+  "backupShareSubject": "Backup ng {appName}",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "Wala pa rito",
+  "emptyNothingYetMessage": "Subaybayan kung kailan mo huling ginawa ang kahit ano — diligan ang halaman, maghugas ng kotse, tumawag sa pamilya.",
+  "addActivity": "Magdagdag ng aktibidad",
+  "addActivityFab": "Magdagdag ng Aktibidad",
+  "noMatches": "Walang tugma",
+  "noMatchesFilter": "Walang aktibidad na tumutugma sa iyong paghahanap o filter.",
+  "nothingToShow": "Walang ipapakita sa ngayon.",
+  "clearFilters": "I-clear ang mga filter",
+  "errorWithDetails": "Error: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "Tanggalin ang aktibidad?",
+  "deleteActivityMessage": "Tanggalin ang \"{title}\" at lahat ng history?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "Tanggalin ang \"{title}\" at lahat ng history nito? Hindi ito mababawi.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "Tinanggal ang \"{title}\"",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "Nai-log na ngayon ang \"{title}\"",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "Maghanap ng mga aktibidad...",
+  "sortTooltip": "Ayusin: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "Kamakailang ginawa",
+  "sortOverdueFirst": "Overdue muna",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "Lahat",
+  "editActivity": "I-edit ang Aktibidad",
+  "newActivity": "Bagong Aktibidad",
+  "titleLabel": "Pamagat *",
+  "titleHint": "hal. Diligan ang halaman",
+  "titleRequired": "Kailangan ang pamagat",
+  "categoryLabel": "Kategorya",
+  "categoryHint": "Tahanan, Sasakyan, Personal...",
+  "notes": "Mga tala",
+  "dueInterval": "Interval ng due",
+  "markDueEveryXDays": "Markahan bilang due tuwing X araw",
+  "dueIntervalSubtitle": "Ipinapakita ang due soon / overdue na status",
+  "frequencyPreset": "Preset ng dalas",
+  "daysUntilDue": "Mga araw hanggang due",
+  "daysSuffix": "araw",
+  "fixedByPreset": "Nakapirmi ayon sa {preset} preset",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "Maglagay ng wastong bilang ng araw",
+  "saveChanges": "I-save ang Mga Pagbabago",
+  "createActivity": "Gumawa ng Aktibidad",
+  "reminderNone": "Wala",
+  "reminderDaily": "Araw-araw",
+  "reminderWeekly": "Lingguhan",
+  "reminderMonthly": "Buwanan",
+  "reminderCustom": "Custom",
+  "statusNeverLogged": "Hindi pa nai-log",
+  "statusLogged": "Nai-log",
+  "statusRecent": "Kamakailan",
+  "statusDueSoon": "Malapit nang due",
+  "statusOverdue": "Overdue",
+  "editEntry": "I-edit ang Entry",
+  "addEntry": "Magdagdag ng Entry",
+  "date": "Petsa",
+  "time": "Oras",
+  "noteOptional": "Tala (opsyonal)",
+  "saveEntry": "I-save ang Entry",
+  "activityNotFound": "Hindi nahanap ang aktibidad",
+  "history": "History",
+  "noLogsYet": "Wala pang mga log",
+  "logNow": "I-log Ngayon",
+  "addCustomEntry": "Magdagdag ng Custom na Entry",
+  "lastDone": "Huling ginawa",
+  "nextDue": "Susunod na due",
+  "deleteEntryTitle": "Tanggalin ang entry?",
+  "deleteEntryMessage": "Alisin nang permanente ang log entry na ito?",
+  "categoriesTitle": "Mga kategorya",
+  "noCategoriesYet": "Wala pang kategorya. I-tap ang Magdagdag para gumawa ng isa.",
+  "deleteCategoryTitle": "Tanggalin ang kategorya?",
+  "deleteCategoryMessage": "Alisin ang \"{name}\" sa mga suhestiyon? Pananatilihin ng mga aktibidad na gumagamit nito ang kanilang kategorya.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "Bagong kategorya",
+  "categoryHintExample": "hal. Fitness",
+  "categoryAlreadyExists": "Umiiral na ang kategorya",
+  "renameCategory": "Palitan ng pangalan ang kategorya",
+  "backupExported": "Matagumpay na na-export ang backup",
+  "exportFailed": "Nabigo ang export: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "I-import ang backup",
+  "importBackupMessage": "Pagsamahin ang na-import na data sa umiiral na mga aktibidad? Piliin ang Kanselahin tapos mag-import ulit para palitan ang lahat ng data.",
+  "replaceAllDataTitle": "Palitan ang lahat ng data?",
+  "replaceAllDataMessage": "Tatanggalin nito ang lahat ng umiiral na aktibidad at occurrence bago mag-import.",
+  "replaceAll": "Palitan lahat",
+  "importedCounts": "Na-import ang {activities} na aktibidad at {occurrences} na log",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "Nabigo ang import: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "Wala pang data. Mag-log ng ilang aktibidad!",
+  "activityBreakdown": "Breakdown ng aktibidad",
+  "overview": "Pangkalahatang-ideya",
+  "statActivities": "Mga aktibidad",
+  "statTotalLogs": "Kabuuang log",
+  "mostOverdue": "Pinaka-overdue: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "Oras sa pagitan ng mga log — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "Bawat bar ay kung ilang araw kang naghintay bago mag-log ulit (pinakabago muna).",
+  "latestGap": "Pinakabagong agwat",
+  "average": "Average",
+  "reminder": "Paalala",
+  "daysValue": "{days} araw",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "Kailangan ng hindi bababa sa 2 log para ipakita ang agwat sa pagitan ng mga entry",
+  "daysBetweenLogs": "Mga araw sa pagitan ng mga log",
+  "reminderTarget": "Target ng paalala",
+  "averageDaysShort": "Average {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "Paalala {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "Agwat {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "Pinakabago",
+  "logsCount": "{count, plural, =1{1 log} other{{count} log}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 log} other{{count} log}} • avg {avg} araw",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} araw",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "Ang {appName} ay isang simpleng, offline-first na app na tumutulong sa iyo subaybayan kung kailan mo huling ginawa ang kahit ano — diligan ang halaman, maghugas ng kotse, tumawag sa pamilya, at marami pa.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "Walang streak. Walang pressure. Malinaw lang na sagot sa \"kailan ko huling ginawa iyon?\"",
+  "features": "Mga feature",
+  "featureTrack": "Subaybayan ang walang limitasyong aktibidad na may opsyonal na due interval",
+  "featureElapsed": "Tingnan ang oras mula noong huling gawin, na may status na Kamakailan / Malapit nang due / Overdue",
+  "featureCategories": "Ayusin gamit ang custom na kategorya",
+  "featureHistory": "Buong history na may custom na backdated na entry",
+  "featureInsights": "Mga insight na may average na interval at chart",
+  "featureThemes": "Maliwanag at madilim na brand theme (sumusunod sa system)",
+  "featureBackup": "JSON export/import backup",
+  "featureOffline": "100% offline — nananatili ang data sa iyong device",
+  "privacyUnableToLoad": "Hindi ma-load ang patakaran sa privacy. Maaari mo itong tingnan online.",
+  "openOnline": "Buksan online",
+  "couldNotOpenPrivacyUrl": "Hindi mabuksan ang URL ng patakaran sa privacy",
+  "analyticsConsentTitle": "Tulungan mapabuti ang RememberLast?",
+  "analyticsConsentBody": "Opsyonal mong maibabahagi ang anonymous na usage analytics sa Mixpanel (tulad ng kung aling screen ang binibisita mo at kailan ka mag-log ng aktibidad). Hindi namin kailanman ipinapadala ang mga pamagat ng aktibidad, tala, o iba pang personal na nilalaman. Maaari mo itong baguhin anumang oras sa Mga Setting.",
+  "decline": "Tanggihan",
+  "accept": "Tanggapin",
+  "couldNotShareApp": "Hindi maibahagi ang app",
+  "couldNotOpenAppStore": "Hindi mabuksan ang app store",
+  "couldNotOpenEmail": "Hindi mabuksan ang email app",
+  "couldNotOpenDeveloperPage": "Hindi mabuksan ang pahina ng developer",
+  "justNow": "Ngayon lang",
+  "yearsAgo": "{count, plural, =1{1 taon ang nakalipas} other{{count} taon ang nakalipas}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 buwan ang nakalipas} other{{count} buwan ang nakalipas}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 araw ang nakalipas} other{{count} araw ang nakalipas}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 oras ang nakalipas} other{{count} oras ang nakalipas}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 minuto ang nakalipas} other{{count} minuto ang nakalipas}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

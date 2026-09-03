@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/database/database_provider.dart';
 import '../../../../core/providers/analytics_provider.dart';
 import '../../domain/entities/occurrence.dart';
+import '../../../../l10n/app_localizations.dart';
 
 /// Bottom sheet for logging or editing a date/time entry.
 class LogEntrySheet extends ConsumerStatefulWidget {
@@ -69,6 +70,7 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.all(24),
       child: Column(
@@ -76,12 +78,12 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            widget.isEditing ? 'Edit Entry' : 'Add Entry',
+            widget.isEditing ? l10n.editEntry : l10n.addEntry,
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 16),
           _PickerField(
-            label: 'Date',
+            label: l10n.date,
             icon: Icons.calendar_today,
             value:
                 '${_selectedDateTime.year}-${_selectedDateTime.month.toString().padLeft(2, '0')}-${_selectedDateTime.day.toString().padLeft(2, '0')}',
@@ -89,7 +91,7 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
           ),
           const SizedBox(height: 16),
           _PickerField(
-            label: 'Time',
+            label: l10n.time,
             icon: Icons.access_time,
             value: TimeOfDay.fromDateTime(_selectedDateTime).format(context),
             onTap: _pickTime,
@@ -97,7 +99,7 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
           const SizedBox(height: 16),
           TextField(
             controller: _noteController,
-            decoration: const InputDecoration(labelText: 'Note (optional)'),
+            decoration: InputDecoration(labelText: l10n.noteOptional),
             maxLines: 2,
             onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
           ),
@@ -108,7 +110,7 @@ class _LogEntrySheetState extends ConsumerState<LogEntrySheet> {
               minimumSize: const Size.fromHeight(56),
               padding: const EdgeInsets.symmetric(vertical: 16),
             ),
-            child: Text(widget.isEditing ? 'Save Changes' : 'Save Entry'),
+            child: Text(widget.isEditing ? l10n.saveChanges : l10n.saveEntry),
           ),
         ],
       ),

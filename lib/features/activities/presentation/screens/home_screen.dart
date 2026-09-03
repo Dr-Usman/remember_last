@@ -9,6 +9,7 @@ import '../../../../core/widgets/activity_card.dart';
 import '../../../../core/widgets/app_brand_title.dart';
 import '../../../../core/widgets/confirm_dialog.dart';
 import '../../../../core/widgets/empty_state.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../categories/presentation/providers/categories_providers.dart';
 import '../../../occurrences/domain/entities/occurrence.dart';
 import '../providers/activities_providers.dart';
@@ -23,6 +24,7 @@ class HomeScreen extends ConsumerWidget {
     final allActivitiesAsync = ref.watch(activitiesWithLastDoneProvider);
     final filter = ref.watch(activityFilterProvider);
     final elapsedNow = ref.watch(elapsedTickerProvider).valueOrNull;
+    final l10n = AppLocalizations.of(context);
     final hasActiveFilters =
         filter.searchQuery.isNotEmpty || filter.category != null;
 
@@ -32,12 +34,12 @@ class HomeScreen extends ConsumerWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.insights_outlined),
-            tooltip: 'Insights',
+            tooltip: l10n.insights,
             onPressed: () => context.push(AppRoutes.insights),
           ),
           IconButton(
             icon: const Icon(Icons.settings_outlined),
-            tooltip: 'Settings',
+            tooltip: l10n.settings,
             onPressed: () => context.push(AppRoutes.settings),
           ),
         ],
@@ -60,19 +62,18 @@ class HomeScreen extends ConsumerWidget {
                   data: (all) {
                     if (all.isEmpty) {
                       return EmptyState(
-                        title: 'Nothing here yet',
-                        message:
-                            'Track when you last did anything — water plants, car wash, call family.',
-                        actionLabel: 'Add activity',
+                        title: l10n.emptyNothingYetTitle,
+                        message: l10n.emptyNothingYetMessage,
+                        actionLabel: l10n.addActivity,
                         onAction: () => context.push(AppRoutes.activityNew),
                       );
                     }
                     return EmptyState(
-                      title: 'No matches',
+                      title: l10n.noMatches,
                       message: hasActiveFilters
-                          ? 'No activities match your search or filter.'
-                          : 'Nothing to show right now.',
-                      actionLabel: hasActiveFilters ? 'Clear filters' : null,
+                          ? l10n.noMatchesFilter
+                          : l10n.nothingToShow,
+                      actionLabel: hasActiveFilters ? l10n.clearFilters : null,
                       actionIcon: Icons.filter_alt_off,
                       onAction: hasActiveFilters
                           ? () => ref
@@ -84,11 +85,12 @@ class HomeScreen extends ConsumerWidget {
                   },
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, _) => Center(child: Text('Error: $e')),
+                  error: (e, _) =>
+                      Center(child: Text(l10n.errorWithDetails('$e'))),
                 );
               },
               loading: () => const Center(child: CircularProgressIndicator()),
-              error: (e, _) => Center(child: Text('Error: $e')),
+              error: (e, _) => Center(child: Text(l10n.errorWithDetails('$e'))),
             ),
           ),
         ],
@@ -96,7 +98,7 @@ class HomeScreen extends ConsumerWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.push(AppRoutes.activityNew),
         icon: const Icon(Icons.add),
-        label: const Text('Add Activity'),
+        label: Text(l10n.addActivityFab),
       ),
     );
   }
@@ -185,16 +187,21 @@ class _ActivityList extends ConsumerWidget {
       confirmDismiss: (_) async {
         return showConfirmDialog(
           context,
-          title: 'Delete activity?',
-          message:
-              'Delete "${activity.title}" and all its history? This cannot be undone.',
+          title: AppLocalizations.of(context).deleteActivityTitle,
+          message: AppLocalizations.of(
+            context,
+          ).deleteActivityMessageUndo(activity.title),
         );
       },
       onDismissed: (_) async {
         await ref.read(activityRepositoryProvider).delete(activity.id);
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Deleted "${activity.title}"')),
+            SnackBar(
+              content: Text(
+                AppLocalizations.of(context).deletedActivity(activity.title),
+              ),
+            ),
           );
         }
       },
@@ -227,9 +234,9 @@ class _ActivityList extends ConsumerWidget {
           doneAt: doneAt,
         );
     if (context.mounted) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text('Logged "$title" now')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context).loggedNow(title))),
+      );
     }
   }
 }

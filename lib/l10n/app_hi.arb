@@ -1,0 +1,388 @@
+{
+  "@@locale": "hi",
+  "cancel": "रद्द करें",
+  "delete": "हटाएँ",
+  "save": "सहेजें",
+  "add": "जोड़ें",
+  "edit": "संपादित करें",
+  "rename": "नाम बदलें",
+  "merge": "मिलाएँ",
+  "settings": "सेटिंग्स",
+  "insights": "जानकारियाँ",
+  "about": "परिचय",
+  "appearance": "दिखावट",
+  "themeSystem": "सिस्टम",
+  "themeLight": "हल्का",
+  "themeDark": "गहरा",
+  "language": "भाषा",
+  "languageSystemDefault": "सिस्टम डिफ़ॉल्ट",
+  "organize": "व्यवस्थित करें",
+  "manageCategories": "श्रेणियाँ प्रबंधित करें",
+  "manageCategoriesSubtitle": "गतिविधि श्रेणियाँ जोड़ें या हटाएँ",
+  "data": "डेटा",
+  "exportBackup": "बैकअप निर्यात करें",
+  "exportBackupSubtitle": "अपना डेटा JSON के रूप में सहेजें",
+  "importBackup": "बैकअप आयात करें",
+  "importBackupSubtitle": "JSON फ़ाइल से पुनर्स्थापित करें",
+  "privacy": "गोपनीयता",
+  "usageAnalytics": "उपयोग विश्लेषण",
+  "usageAnalyticsSubtitle": "Mixpanel के माध्यम से गुमनाम स्क्रीन और सुविधा उपयोग साझा करें",
+  "aboutApp": "{appName} के बारे में",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "ऐप साझा करें",
+  "shareAppSubtitle": "दोस्तों को {appName} के बारे में बताएँ",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "ऐप को रेट करें",
+  "rateAppSubtitle": "ऐप स्टोर पर समीक्षा छोड़ें",
+  "contactUs": "संपर्क करें",
+  "contactUsSubtitle": "प्रतिक्रिया भेजें या बग रिपोर्ट करें",
+  "moreFromDeveloper": "डेवलपर से और",
+  "moreFromDeveloperSubtitle": "Avenzor House के अन्य ऐप",
+  "privacyPolicy": "गोपनीयता नीति",
+  "backupShareSubject": "{appName} बैकअप",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "यहाँ अभी कुछ नहीं है",
+  "emptyNothingYetMessage": "ट्रैक करें कि आपने आखिरी बार कुछ कब किया — पौधों को पानी देना, कार धोना, परिवार को कॉल करना।",
+  "addActivity": "गतिविधि जोड़ें",
+  "addActivityFab": "गतिविधि जोड़ें",
+  "noMatches": "कोई मेल नहीं",
+  "noMatchesFilter": "आपकी खोज या फ़िल्टर से कोई गतिविधि मेल नहीं खाती।",
+  "nothingToShow": "अभी दिखाने के लिए कुछ नहीं है।",
+  "clearFilters": "फ़िल्टर साफ़ करें",
+  "errorWithDetails": "त्रुटि: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "गतिविधि हटाएँ?",
+  "deleteActivityMessage": "\"{title}\" और पूरा इतिहास हटाएँ?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "\"{title}\" और उसका पूरा इतिहास हटाएँ? इसे पूर्ववत नहीं किया जा सकता।",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "\"{title}\" हटा दी गई",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "\"{title}\" अभी लॉग की गई",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "गतिविधियाँ खोजें...",
+  "sortTooltip": "क्रम: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "हाल ही में की गई",
+  "sortOverdueFirst": "अतिदेय पहले",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "सभी",
+  "editActivity": "गतिविधि संपादित करें",
+  "newActivity": "नई गतिविधि",
+  "titleLabel": "शीर्षक *",
+  "titleHint": "जैसे पौधे सींचें",
+  "titleRequired": "शीर्षक आवश्यक है",
+  "categoryLabel": "श्रेणी",
+  "categoryHint": "घर, वाहन, व्यक्तिगत...",
+  "notes": "नोट्स",
+  "dueInterval": "नियत अंतराल",
+  "markDueEveryXDays": "हर X दिनों में नियत चिह्नित करें",
+  "dueIntervalSubtitle": "जल्द नियत / अतिदेय स्थिति दिखाता है",
+  "frequencyPreset": "आवृत्ति प्रीसेट",
+  "daysUntilDue": "नियत होने तक दिन",
+  "daysSuffix": "दिन",
+  "fixedByPreset": "{preset} प्रीसेट द्वारा तय",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "दिनों की मान्य संख्या दर्ज करें",
+  "saveChanges": "परिवर्तन सहेजें",
+  "createActivity": "गतिविधि बनाएँ",
+  "reminderNone": "कोई नहीं",
+  "reminderDaily": "दैनिक",
+  "reminderWeekly": "साप्ताहिक",
+  "reminderMonthly": "मासिक",
+  "reminderCustom": "कस्टम",
+  "statusNeverLogged": "कभी लॉग नहीं",
+  "statusLogged": "लॉग किया गया",
+  "statusRecent": "हालिया",
+  "statusDueSoon": "जल्द नियत",
+  "statusOverdue": "अतिदेय",
+  "editEntry": "प्रविष्टि संपादित करें",
+  "addEntry": "प्रविष्टि जोड़ें",
+  "date": "तारीख",
+  "time": "समय",
+  "noteOptional": "नोट (वैकल्पिक)",
+  "saveEntry": "प्रविष्टि सहेजें",
+  "activityNotFound": "गतिविधि नहीं मिली",
+  "history": "इतिहास",
+  "noLogsYet": "अभी कोई लॉग नहीं",
+  "logNow": "अभी लॉग करें",
+  "addCustomEntry": "कस्टम प्रविष्टि जोड़ें",
+  "lastDone": "आखिरी बार किया",
+  "nextDue": "अगली नियत तिथि",
+  "deleteEntryTitle": "प्रविष्टि हटाएँ?",
+  "deleteEntryMessage": "इस लॉग प्रविष्टि को स्थायी रूप से हटाएँ?",
+  "categoriesTitle": "श्रेणियाँ",
+  "noCategoriesYet": "अभी कोई श्रेणी नहीं। बनाने के लिए जोड़ें टैप करें।",
+  "deleteCategoryTitle": "श्रेणी हटाएँ?",
+  "deleteCategoryMessage": "सुझावों से \"{name}\" हटाएँ? इसका उपयोग करने वाली गतिविधियाँ अपनी श्रेणी रखेंगी।",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "नई श्रेणी",
+  "categoryHintExample": "जैसे फिटनेस",
+  "categoryAlreadyExists": "श्रेणी पहले से मौजूद है",
+  "renameCategory": "श्रेणी का नाम बदलें",
+  "backupExported": "बैकअप सफलतापूर्वक निर्यात हुआ",
+  "exportFailed": "निर्यात विफल: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "बैकअप आयात करें",
+  "importBackupMessage": "आयातित डेटा को मौजूदा गतिविधियों के साथ मिलाएँ? सभी डेटा बदलने के लिए रद्द करें चुनें और फिर से आयात करें।",
+  "replaceAllDataTitle": "सारा डेटा बदलें?",
+  "replaceAllDataMessage": "आयात से पहले सभी मौजूदा गतिविधियाँ और घटनाएँ हटा दी जाएँगी।",
+  "replaceAll": "सभी बदलें",
+  "importedCounts": "{activities} गतिविधियाँ और {occurrences} लॉग आयात किए गए",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "आयात विफल: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "अभी कोई डेटा नहीं। कुछ गतिविधियाँ लॉग करें!",
+  "activityBreakdown": "गतिविधि विवरण",
+  "overview": "अवलोकन",
+  "statActivities": "गतिविधियाँ",
+  "statTotalLogs": "कुल लॉग",
+  "mostOverdue": "सबसे अधिक अतिदेय: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "लॉग के बीच समय — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "प्रत्येक बार यह दिखाता है कि फिर से लॉग करने से पहले आपने कितने दिन इंतजार किया (नवीनतम पहले)।",
+  "latestGap": "नवीनतम अंतराल",
+  "average": "औसत",
+  "reminder": "अनुस्मारक",
+  "daysValue": "{days} दिन",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "प्रविष्टियों के बीच अंतराल दिखाने के लिए कम से कम 2 लॉग चाहिए",
+  "daysBetweenLogs": "लॉग के बीच दिन",
+  "reminderTarget": "अनुस्मारक लक्ष्य",
+  "averageDaysShort": "औसत {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "अनुस्मारक {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "अंतराल {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "नवीनतम",
+  "logsCount": "{count, plural, =1{1 लॉग} other{{count} लॉग}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 लॉग} other{{count} लॉग}} • औसत {avg} दिन",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} दिन",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} एक सरल, ऑफ़लाइन-प्रथम ऐप है जो यह ट्रैक करने में मदद करता है कि आपने आखिरी बार कुछ कब किया — पौधे सींचना, कार धोना, परिवार को कॉल करना और अधिक।",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "कोई स्ट्रीक नहीं। कोई दबाव नहीं। बस \"मैंने वह आखिरी बार कब किया?\" का स्पष्ट उत्तर।",
+  "features": "विशेषताएँ",
+  "featureTrack": "वैकल्पिक नियत अंतराल के साथ असीमित गतिविधियाँ ट्रैक करें",
+  "featureElapsed": "आखिरी बार किए जाने के बाद बीता समय देखें, हालिया / जल्द नियत / अतिदेय स्थिति के साथ",
+  "featureCategories": "कस्टम श्रेणियों से व्यवस्थित करें",
+  "featureHistory": "कस्टम पिछली तिथि की प्रविष्टियों के साथ पूरा इतिहास",
+  "featureInsights": "औसत अंतराल और चार्ट के साथ जानकारियाँ",
+  "featureThemes": "हल्के और गहरे ब्रांड थीम (सिस्टम का अनुसरण)",
+  "featureBackup": "JSON निर्यात/आयात बैकअप",
+  "featureOffline": "100% ऑफ़लाइन — आपका डेटा आपके डिवाइस पर रहता है",
+  "privacyUnableToLoad": "गोपनीयता नीति लोड नहीं हो सकी। आप इसे ऑनलाइन देख सकते हैं।",
+  "openOnline": "ऑनलाइन खोलें",
+  "couldNotOpenPrivacyUrl": "गोपनीयता नीति URL नहीं खुल सका",
+  "analyticsConsentTitle": "RememberLast को बेहतर बनाने में मदद करें?",
+  "analyticsConsentBody": "आप वैकल्पिक रूप से Mixpanel के साथ गुमनाम उपयोग विश्लेषण साझा कर सकते हैं (जैसे आप कौन सी स्क्रीन देखते हैं और कब गतिविधियाँ लॉग करते हैं)। हम कभी भी आपकी गतिविधि के शीर्षक, नोट्स या अन्य व्यक्तिगत सामग्री नहीं भेजते। आप इसे सेटिंग्स में कभी भी बदल सकते हैं।",
+  "decline": "अस्वीकार करें",
+  "accept": "स्वीकार करें",
+  "couldNotShareApp": "ऐप साझा नहीं किया जा सका",
+  "couldNotOpenAppStore": "ऐप स्टोर नहीं खुल सका",
+  "couldNotOpenEmail": "ईमेल ऐप नहीं खुल सका",
+  "couldNotOpenDeveloperPage": "डेवलपर पृष्ठ नहीं खुल सका",
+  "justNow": "अभी-अभी",
+  "yearsAgo": "{count, plural, =1{1 साल पहले} other{{count} साल पहले}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 महीना पहले} other{{count} महीने पहले}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 दिन पहले} other{{count} दिन पहले}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 घंटा पहले} other{{count} घंटे पहले}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 मिनट पहले} other{{count} मिनट पहले}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

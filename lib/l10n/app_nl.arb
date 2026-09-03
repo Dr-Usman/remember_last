@@ -1,0 +1,388 @@
+{
+  "@@locale": "nl",
+  "cancel": "Annuleren",
+  "delete": "Verwijderen",
+  "save": "Opslaan",
+  "add": "Toevoegen",
+  "edit": "Bewerken",
+  "rename": "Hernoemen",
+  "merge": "Samenvoegen",
+  "settings": "Instellingen",
+  "insights": "Inzichten",
+  "about": "Over",
+  "appearance": "Weergave",
+  "themeSystem": "Systeem",
+  "themeLight": "Licht",
+  "themeDark": "Donker",
+  "language": "Taal",
+  "languageSystemDefault": "Systeemstandaard",
+  "organize": "Organiseren",
+  "manageCategories": "Categorieën beheren",
+  "manageCategoriesSubtitle": "Activiteitscategorieën toevoegen of verwijderen",
+  "data": "Gegevens",
+  "exportBackup": "Back-up exporteren",
+  "exportBackupSubtitle": "Sla je gegevens op als JSON",
+  "importBackup": "Back-up importeren",
+  "importBackupSubtitle": "Herstellen vanuit een JSON-bestand",
+  "privacy": "Privacy",
+  "usageAnalytics": "Gebruiksanalyse",
+  "usageAnalyticsSubtitle": "Deel anoniem scherm- en functiegebruik via Mixpanel",
+  "aboutApp": "Over {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "App delen",
+  "shareAppSubtitle": "Vertel vrienden over {appName}",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "App beoordelen",
+  "rateAppSubtitle": "Laat een recensie achter in de app store",
+  "contactUs": "Contact",
+  "contactUsSubtitle": "Feedback sturen of een bug melden",
+  "moreFromDeveloper": "Meer van de ontwikkelaar",
+  "moreFromDeveloperSubtitle": "Andere apps van Avenzor House",
+  "privacyPolicy": "Privacybeleid",
+  "backupShareSubject": "{appName}-back-up",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "Nog niets hier",
+  "emptyNothingYetMessage": "Houd bij wanneer je iets voor het laatst deed — planten water geven, auto wassen, familie bellen.",
+  "addActivity": "Activiteit toevoegen",
+  "addActivityFab": "Activiteit toevoegen",
+  "noMatches": "Geen overeenkomsten",
+  "noMatchesFilter": "Geen activiteiten komen overeen met je zoekopdracht of filter.",
+  "nothingToShow": "Momenteel niets om te tonen.",
+  "clearFilters": "Filters wissen",
+  "errorWithDetails": "Fout: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "Activiteit verwijderen?",
+  "deleteActivityMessage": "\"{title}\" en alle geschiedenis verwijderen?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "\"{title}\" en alle geschiedenis verwijderen? Dit kan niet ongedaan worden gemaakt.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "\"{title}\" verwijderd",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "\"{title}\" nu gelogd",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "Activiteiten zoeken...",
+  "sortTooltip": "Sorteren: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "Recent gedaan",
+  "sortOverdueFirst": "Achterstallig eerst",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "Alle",
+  "editActivity": "Activiteit bewerken",
+  "newActivity": "Nieuwe activiteit",
+  "titleLabel": "Titel *",
+  "titleHint": "bijv. Planten water geven",
+  "titleRequired": "Titel is verplicht",
+  "categoryLabel": "Categorie",
+  "categoryHint": "Thuis, Voertuig, Persoonlijk...",
+  "notes": "Notities",
+  "dueInterval": "Vervalinterval",
+  "markDueEveryXDays": "Markeer als vervallen elke X dagen",
+  "dueIntervalSubtitle": "Toont status binnenkort / achterstallig",
+  "frequencyPreset": "Frequentievoorinstelling",
+  "daysUntilDue": "Dagen tot vervaldatum",
+  "daysSuffix": "dagen",
+  "fixedByPreset": "Vastgezet door voorinstelling {preset}",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "Voer een geldig aantal dagen in",
+  "saveChanges": "Wijzigingen opslaan",
+  "createActivity": "Activiteit maken",
+  "reminderNone": "Geen",
+  "reminderDaily": "Dagelijks",
+  "reminderWeekly": "Wekelijks",
+  "reminderMonthly": "Maandelijks",
+  "reminderCustom": "Aangepast",
+  "statusNeverLogged": "Nooit gelogd",
+  "statusLogged": "Gelogd",
+  "statusRecent": "Recent",
+  "statusDueSoon": "Binnenkort",
+  "statusOverdue": "Achterstallig",
+  "editEntry": "Item bewerken",
+  "addEntry": "Item toevoegen",
+  "date": "Datum",
+  "time": "Tijd",
+  "noteOptional": "Notitie (optioneel)",
+  "saveEntry": "Item opslaan",
+  "activityNotFound": "Activiteit niet gevonden",
+  "history": "Geschiedenis",
+  "noLogsYet": "Nog geen logs",
+  "logNow": "Nu loggen",
+  "addCustomEntry": "Aangepast item toevoegen",
+  "lastDone": "Laatst gedaan",
+  "nextDue": "Volgende vervaldatum",
+  "deleteEntryTitle": "Item verwijderen?",
+  "deleteEntryMessage": "Dit logitem permanent verwijderen?",
+  "categoriesTitle": "Categorieën",
+  "noCategoriesYet": "Nog geen categorieën. Tik op Toevoegen om er een te maken.",
+  "deleteCategoryTitle": "Categorie verwijderen?",
+  "deleteCategoryMessage": "\"{name}\" uit suggesties verwijderen? Activiteiten die deze gebruiken behouden hun categorie.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "Nieuwe categorie",
+  "categoryHintExample": "bijv. Fitness",
+  "categoryAlreadyExists": "Categorie bestaat al",
+  "renameCategory": "Categorie hernoemen",
+  "backupExported": "Back-up succesvol geëxporteerd",
+  "exportFailed": "Exporteren mislukt: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "Back-up importeren",
+  "importBackupMessage": "Geïmporteerde gegevens samenvoegen met bestaande activiteiten? Kies Annuleren en importeer opnieuw om alle gegevens te vervangen.",
+  "replaceAllDataTitle": "Alle gegevens vervangen?",
+  "replaceAllDataMessage": "Dit verwijdert alle bestaande activiteiten en gebeurtenissen vóór het importeren.",
+  "replaceAll": "Alles vervangen",
+  "importedCounts": "{activities} activiteiten en {occurrences} logs geïmporteerd",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "Importeren mislukt: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "Nog geen gegevens. Log wat activiteiten!",
+  "activityBreakdown": "Activiteitsverdeling",
+  "overview": "Overzicht",
+  "statActivities": "Activiteiten",
+  "statTotalLogs": "Totaal logs",
+  "mostOverdue": "Meest achterstallig: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "Tijd tussen logs — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "Elke staaf is hoeveel dagen je wachtte voordat je opnieuw logde (nieuwste eerst).",
+  "latestGap": "Laatste gat",
+  "average": "Gemiddelde",
+  "reminder": "Herinnering",
+  "daysValue": "{days} dagen",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "Minimaal 2 logs nodig om gaten tussen items te tonen",
+  "daysBetweenLogs": "Dagen tussen logs",
+  "reminderTarget": "Herinneringsdoel",
+  "averageDaysShort": "Gem. {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "Herinnering {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "Gat {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "Nieuwste",
+  "logsCount": "{count, plural, =1{1 log} other{{count} logs}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 log} other{{count} logs}} • gem. {avg} dagen",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} dagen",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} is een eenvoudige, offline-eerst app die je helpt bijhouden wanneer je iets voor het laatst deed — planten water geven, auto wassen, familie bellen en meer.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "Geen reeksen. Geen druk. Alleen een duidelijk antwoord op \"wanneer deed ik dat voor het laatst?\"",
+  "features": "Functies",
+  "featureTrack": "Onbeperkt activiteiten bijhouden met optionele vervalintervallen",
+  "featureElapsed": "Zie de verstreken tijd sinds de laatste keer, met status Recent / Binnenkort / Achterstallig",
+  "featureCategories": "Organiseer met eigen categorieën",
+  "featureHistory": "Volledige geschiedenis met aangepaste terug gedateerde items",
+  "featureInsights": "Inzichten met gemiddelde intervallen en grafieken",
+  "featureThemes": "Lichte en donkere merkthema's (volgt systeem)",
+  "featureBackup": "JSON-export/importback-up",
+  "featureOffline": "100% offline — je gegevens blijven op je apparaat",
+  "privacyUnableToLoad": "Kan het privacybeleid niet laden. Je kunt het online bekijken.",
+  "openOnline": "Online openen",
+  "couldNotOpenPrivacyUrl": "Kon de URL van het privacybeleid niet openen",
+  "analyticsConsentTitle": "Helpen RememberLast te verbeteren?",
+  "analyticsConsentBody": "Je kunt optioneel anonieme gebruiksanalyses delen met Mixpanel (zoals welke schermen je bezoekt en wanneer je activiteiten logt). We sturen nooit je activiteitstitels, notities of andere persoonlijke inhoud. Je kunt dit altijd wijzigen in Instellingen.",
+  "decline": "Weigeren",
+  "accept": "Accepteren",
+  "couldNotShareApp": "Kon app niet delen",
+  "couldNotOpenAppStore": "Kon app store niet openen",
+  "couldNotOpenEmail": "Kon e-mailapp niet openen",
+  "couldNotOpenDeveloperPage": "Kon ontwikkelaarspagina niet openen",
+  "justNow": "Zojuist",
+  "yearsAgo": "{count, plural, =1{1 jaar geleden} other{{count} jaar geleden}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 maand geleden} other{{count} maanden geleden}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 dag geleden} other{{count} dagen geleden}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 uur geleden} other{{count} uur geleden}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 minuut geleden} other{{count} minuten geleden}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

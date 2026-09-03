@@ -1,0 +1,388 @@
+{
+  "@@locale": "id",
+  "cancel": "Batal",
+  "delete": "Hapus",
+  "save": "Simpan",
+  "add": "Tambah",
+  "edit": "Edit",
+  "rename": "Ganti nama",
+  "merge": "Gabungkan",
+  "settings": "Pengaturan",
+  "insights": "Wawasan",
+  "about": "Tentang",
+  "appearance": "Tampilan",
+  "themeSystem": "Sistem",
+  "themeLight": "Terang",
+  "themeDark": "Gelap",
+  "language": "Bahasa",
+  "languageSystemDefault": "Default sistem",
+  "organize": "Atur",
+  "manageCategories": "Kelola kategori",
+  "manageCategoriesSubtitle": "Tambah atau hapus kategori aktivitas",
+  "data": "Data",
+  "exportBackup": "Ekspor cadangan",
+  "exportBackupSubtitle": "Simpan data Anda sebagai JSON",
+  "importBackup": "Impor cadangan",
+  "importBackupSubtitle": "Pulihkan dari file JSON",
+  "privacy": "Privasi",
+  "usageAnalytics": "Analitik penggunaan",
+  "usageAnalyticsSubtitle": "Bagikan penggunaan layar dan fitur anonim melalui Mixpanel",
+  "aboutApp": "Tentang {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "Bagikan aplikasi",
+  "shareAppSubtitle": "Ceritakan {appName} kepada teman",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "Nilai aplikasi",
+  "rateAppSubtitle": "Tinggalkan ulasan di toko aplikasi",
+  "contactUs": "Hubungi kami",
+  "contactUsSubtitle": "Kirim masukan atau laporkan bug",
+  "moreFromDeveloper": "Lainnya dari pengembang",
+  "moreFromDeveloperSubtitle": "Aplikasi lain oleh Avenzor House",
+  "privacyPolicy": "Kebijakan privasi",
+  "backupShareSubject": "Cadangan {appName}",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "Belum ada apa pun di sini",
+  "emptyNothingYetMessage": "Lacak kapan terakhir kali Anda melakukan sesuatu — menyiram tanaman, cuci mobil, telepon keluarga.",
+  "addActivity": "Tambah aktivitas",
+  "addActivityFab": "Tambah Aktivitas",
+  "noMatches": "Tidak ada yang cocok",
+  "noMatchesFilter": "Tidak ada aktivitas yang cocok dengan pencarian atau filter Anda.",
+  "nothingToShow": "Tidak ada yang ditampilkan saat ini.",
+  "clearFilters": "Hapus filter",
+  "errorWithDetails": "Kesalahan: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "Hapus aktivitas?",
+  "deleteActivityMessage": "Hapus \"{title}\" dan semua riwayat?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "Hapus \"{title}\" dan semua riwayatnya? Ini tidak dapat dibatalkan.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "\"{title}\" dihapus",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "\"{title}\" dicatat sekarang",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "Cari aktivitas...",
+  "sortTooltip": "Urutkan: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "Baru-baru ini dilakukan",
+  "sortOverdueFirst": "Terlambat dulu",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "Semua",
+  "editActivity": "Edit Aktivitas",
+  "newActivity": "Aktivitas Baru",
+  "titleLabel": "Judul *",
+  "titleHint": "mis. Siram tanaman",
+  "titleRequired": "Judul wajib diisi",
+  "categoryLabel": "Kategori",
+  "categoryHint": "Rumah, Kendaraan, Pribadi...",
+  "notes": "Catatan",
+  "dueInterval": "Interval jatuh tempo",
+  "markDueEveryXDays": "Tandai jatuh tempo setiap X hari",
+  "dueIntervalSubtitle": "Menampilkan status segera jatuh tempo / terlambat",
+  "frequencyPreset": "Prasetel frekuensi",
+  "daysUntilDue": "Hari hingga jatuh tempo",
+  "daysSuffix": "hari",
+  "fixedByPreset": "Ditetapkan oleh prasetel {preset}",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "Masukkan jumlah hari yang valid",
+  "saveChanges": "Simpan Perubahan",
+  "createActivity": "Buat Aktivitas",
+  "reminderNone": "Tidak ada",
+  "reminderDaily": "Harian",
+  "reminderWeekly": "Mingguan",
+  "reminderMonthly": "Bulanan",
+  "reminderCustom": "Kustom",
+  "statusNeverLogged": "Belum pernah dicatat",
+  "statusLogged": "Dicatat",
+  "statusRecent": "Baru",
+  "statusDueSoon": "Segera jatuh tempo",
+  "statusOverdue": "Terlambat",
+  "editEntry": "Edit Entri",
+  "addEntry": "Tambah Entri",
+  "date": "Tanggal",
+  "time": "Waktu",
+  "noteOptional": "Catatan (opsional)",
+  "saveEntry": "Simpan Entri",
+  "activityNotFound": "Aktivitas tidak ditemukan",
+  "history": "Riwayat",
+  "noLogsYet": "Belum ada catatan",
+  "logNow": "Catat Sekarang",
+  "addCustomEntry": "Tambah Entri Kustom",
+  "lastDone": "Terakhir dilakukan",
+  "nextDue": "Jatuh tempo berikutnya",
+  "deleteEntryTitle": "Hapus entri?",
+  "deleteEntryMessage": "Hapus entri catatan ini secara permanen?",
+  "categoriesTitle": "Kategori",
+  "noCategoriesYet": "Belum ada kategori. Ketuk Tambah untuk membuat satu.",
+  "deleteCategoryTitle": "Hapus kategori?",
+  "deleteCategoryMessage": "Hapus \"{name}\" dari saran? Aktivitas yang menggunakannya akan tetap menyimpan kategorinya.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "Kategori baru",
+  "categoryHintExample": "mis. Kebugaran",
+  "categoryAlreadyExists": "Kategori sudah ada",
+  "renameCategory": "Ganti nama kategori",
+  "backupExported": "Cadangan berhasil diekspor",
+  "exportFailed": "Ekspor gagal: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "Impor cadangan",
+  "importBackupMessage": "Gabungkan data yang diimpor dengan aktivitas yang ada? Pilih Batal lalu impor ulang untuk mengganti semua data.",
+  "replaceAllDataTitle": "Ganti semua data?",
+  "replaceAllDataMessage": "Ini akan menghapus semua aktivitas dan kejadian yang ada sebelum mengimpor.",
+  "replaceAll": "Ganti semua",
+  "importedCounts": "{activities} aktivitas dan {occurrences} catatan diimpor",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "Impor gagal: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "Belum ada data. Catat beberapa aktivitas!",
+  "activityBreakdown": "Rincian aktivitas",
+  "overview": "Ikhtisar",
+  "statActivities": "Aktivitas",
+  "statTotalLogs": "Total catatan",
+  "mostOverdue": "Paling terlambat: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "Waktu antar catatan — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "Setiap batang adalah berapa hari Anda menunggu sebelum mencatat lagi (terbaru dulu).",
+  "latestGap": "Jeda terbaru",
+  "average": "Rata-rata",
+  "reminder": "Pengingat",
+  "daysValue": "{days} hari",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "Perlu setidaknya 2 catatan untuk menampilkan jeda antar entri",
+  "daysBetweenLogs": "Hari antar catatan",
+  "reminderTarget": "Target pengingat",
+  "averageDaysShort": "Rata-rata {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "Pengingat {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "Jeda {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "Terbaru",
+  "logsCount": "{count, plural, =1{1 catatan} other{{count} catatan}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 catatan} other{{count} catatan}} • rata-rata {avg} hari",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} hari",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} adalah aplikasi sederhana yang mengutamakan luring, membantu Anda melacak kapan terakhir kali melakukan sesuatu — menyiram tanaman, mencuci mobil, menelepon keluarga, dan lainnya.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "Tanpa streak. Tanpa tekanan. Hanya jawaban jelas untuk \"kapan terakhir kali saya melakukan itu?\"",
+  "features": "Fitur",
+  "featureTrack": "Lacak aktivitas tanpa batas dengan interval jatuh tempo opsional",
+  "featureElapsed": "Lihat waktu yang berlalu sejak terakhir dilakukan, dengan status Baru / Segera jatuh tempo / Terlambat",
+  "featureCategories": "Atur dengan kategori kustom",
+  "featureHistory": "Riwayat lengkap dengan entri bertanggal mundur kustom",
+  "featureInsights": "Wawasan dengan interval rata-rata dan grafik",
+  "featureThemes": "Tema merek terang dan gelap (mengikuti sistem)",
+  "featureBackup": "Cadangan ekspor/impor JSON",
+  "featureOffline": "100% luring — data Anda tetap di perangkat Anda",
+  "privacyUnableToLoad": "Tidak dapat memuat kebijakan privasi. Anda dapat melihatnya secara daring.",
+  "openOnline": "Buka daring",
+  "couldNotOpenPrivacyUrl": "Tidak dapat membuka URL kebijakan privasi",
+  "analyticsConsentTitle": "Bantu tingkatkan RememberLast?",
+  "analyticsConsentBody": "Anda dapat secara opsional membagikan analitik penggunaan anonim dengan Mixpanel (seperti layar mana yang Anda kunjungi dan kapan Anda mencatat aktivitas). Kami tidak pernah mengirim judul aktivitas, catatan, atau konten pribadi lainnya. Anda dapat mengubah ini kapan saja di Pengaturan.",
+  "decline": "Tolak",
+  "accept": "Terima",
+  "couldNotShareApp": "Tidak dapat membagikan aplikasi",
+  "couldNotOpenAppStore": "Tidak dapat membuka toko aplikasi",
+  "couldNotOpenEmail": "Tidak dapat membuka aplikasi email",
+  "couldNotOpenDeveloperPage": "Tidak dapat membuka halaman pengembang",
+  "justNow": "Baru saja",
+  "yearsAgo": "{count, plural, =1{1 tahun yang lalu} other{{count} tahun yang lalu}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 bulan yang lalu} other{{count} bulan yang lalu}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 hari yang lalu} other{{count} hari yang lalu}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 jam yang lalu} other{{count} jam yang lalu}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 menit yang lalu} other{{count} menit yang lalu}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

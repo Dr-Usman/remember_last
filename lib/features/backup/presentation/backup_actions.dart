@@ -6,6 +6,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../core/constants/app_constants.dart';
 import '../../../core/widgets/confirm_dialog.dart';
+import '../../../l10n/app_localizations.dart';
 import '../domain/backup_service.dart';
 
 /// UI actions for exporting and importing JSON backups.
@@ -15,12 +16,14 @@ class BackupActions {
   final WidgetRef _ref;
 
   Future<void> exportBackup(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
     try {
       final service = _ref.read(backupServiceProvider);
       final data = await service.exportToJson();
       final json = service.encodeExport(data);
       final timestamp = DateTime.now().toIso8601String().split('T').first;
       final filename = 'remember_last_$timestamp.json';
+      final subject = l10n.backupShareSubject(AppConstants.appName);
 
       if (kIsWeb) {
         await SharePlus.instance.share(
@@ -32,36 +35,36 @@ class BackupActions {
                 mimeType: 'application/json',
               ),
             ],
-            subject: '${AppConstants.appName} Backup',
+            subject: subject,
           ),
         );
       } else {
         await SharePlus.instance.share(
-          ShareParams(text: json, subject: '${AppConstants.appName} Backup'),
+          ShareParams(text: json, subject: subject),
         );
       }
 
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Backup exported successfully')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(l10n.backupExported)));
       }
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Export failed: $e')));
+        ).showSnackBar(SnackBar(content: Text(l10n.exportFailed('$e'))));
       }
     }
   }
 
   Future<void> importBackup(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
     final merge = await showConfirmDialog(
       context,
-      title: 'Import backup',
-      message:
-          'Merge imported data with existing activities? Choose Cancel then re-import to replace all data instead.',
-      confirmLabel: 'Merge',
+      title: l10n.importBackupTitle,
+      message: l10n.importBackupMessage,
+      confirmLabel: l10n.merge,
       isDestructive: false,
     );
     if (!context.mounted) return;
@@ -70,10 +73,9 @@ class BackupActions {
     if (!merge) {
       final replace = await showConfirmDialog(
         context,
-        title: 'Replace all data?',
-        message:
-            'This will delete all existing activities and occurrences before importing.',
-        confirmLabel: 'Replace all',
+        title: l10n.replaceAllDataTitle,
+        message: l10n.replaceAllDataMessage,
+        confirmLabel: l10n.replaceAll,
       );
       if (!replace || !context.mounted) return;
       shouldMerge = false;
@@ -98,8 +100,10 @@ class BackupActions {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              'Imported ${importResult.activities} activities and '
-              '${importResult.occurrences} logs',
+              l10n.importedCounts(
+                importResult.activities,
+                importResult.occurrences,
+              ),
             ),
           ),
         );
@@ -108,7 +112,7 @@ class BackupActions {
       if (context.mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Import failed: $e')));
+        ).showSnackBar(SnackBar(content: Text(l10n.importFailed('$e'))));
       }
     }
   }

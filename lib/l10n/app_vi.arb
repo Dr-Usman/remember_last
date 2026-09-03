@@ -1,0 +1,388 @@
+{
+  "@@locale": "vi",
+  "cancel": "Hủy",
+  "delete": "Xóa",
+  "save": "Lưu",
+  "add": "Thêm",
+  "edit": "Sửa",
+  "rename": "Đổi tên",
+  "merge": "Gộp",
+  "settings": "Cài đặt",
+  "insights": "Thống kê",
+  "about": "Giới thiệu",
+  "appearance": "Giao diện",
+  "themeSystem": "Hệ thống",
+  "themeLight": "Sáng",
+  "themeDark": "Tối",
+  "language": "Ngôn ngữ",
+  "languageSystemDefault": "Mặc định hệ thống",
+  "organize": "Sắp xếp",
+  "manageCategories": "Quản lý danh mục",
+  "manageCategoriesSubtitle": "Thêm hoặc xóa danh mục hoạt động",
+  "data": "Dữ liệu",
+  "exportBackup": "Xuất bản sao lưu",
+  "exportBackupSubtitle": "Lưu dữ liệu dưới dạng JSON",
+  "importBackup": "Nhập bản sao lưu",
+  "importBackupSubtitle": "Khôi phục từ tệp JSON",
+  "privacy": "Quyền riêng tư",
+  "usageAnalytics": "Phân tích sử dụng",
+  "usageAnalyticsSubtitle": "Chia sẻ mức sử dụng màn hình và tính năng ẩn danh qua Mixpanel",
+  "aboutApp": "Giới thiệu {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "Chia sẻ ứng dụng",
+  "shareAppSubtitle": "Kể với bạn bè về {appName}",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "Đánh giá ứng dụng",
+  "rateAppSubtitle": "Để lại đánh giá trên cửa hàng ứng dụng",
+  "contactUs": "Liên hệ",
+  "contactUsSubtitle": "Gửi phản hồi hoặc báo lỗi",
+  "moreFromDeveloper": "Thêm từ nhà phát triển",
+  "moreFromDeveloperSubtitle": "Các ứng dụng khác của Avenzor House",
+  "privacyPolicy": "Chính sách quyền riêng tư",
+  "backupShareSubject": "Bản sao lưu {appName}",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "Chưa có gì ở đây",
+  "emptyNothingYetMessage": "Theo dõi lần cuối bạn làm bất cứ việc gì — tưới cây, rửa xe, gọi gia đình.",
+  "addActivity": "Thêm hoạt động",
+  "addActivityFab": "Thêm hoạt động",
+  "noMatches": "Không có kết quả",
+  "noMatchesFilter": "Không có hoạt động nào khớp với tìm kiếm hoặc bộ lọc.",
+  "nothingToShow": "Hiện không có gì để hiển thị.",
+  "clearFilters": "Xóa bộ lọc",
+  "errorWithDetails": "Lỗi: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "Xóa hoạt động?",
+  "deleteActivityMessage": "Xóa \"{title}\" và toàn bộ lịch sử?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "Xóa \"{title}\" và toàn bộ lịch sử? Không thể hoàn tác.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "Đã xóa \"{title}\"",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "Đã ghi \"{title}\" ngay bây giờ",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "Tìm hoạt động...",
+  "sortTooltip": "Sắp xếp: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "Làm gần đây",
+  "sortOverdueFirst": "Quá hạn trước",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "Tất cả",
+  "editActivity": "Sửa hoạt động",
+  "newActivity": "Hoạt động mới",
+  "titleLabel": "Tiêu đề *",
+  "titleHint": "vd. Tưới cây",
+  "titleRequired": "Tiêu đề là bắt buộc",
+  "categoryLabel": "Danh mục",
+  "categoryHint": "Nhà, Xe, Cá nhân...",
+  "notes": "Ghi chú",
+  "dueInterval": "Khoảng đến hạn",
+  "markDueEveryXDays": "Đánh dấu đến hạn mỗi X ngày",
+  "dueIntervalSubtitle": "Hiển thị trạng thái sắp đến hạn / quá hạn",
+  "frequencyPreset": "Cài sẵn tần suất",
+  "daysUntilDue": "Số ngày đến hạn",
+  "daysSuffix": "ngày",
+  "fixedByPreset": "Cố định theo cài sẵn {preset}",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "Nhập số ngày hợp lệ",
+  "saveChanges": "Lưu thay đổi",
+  "createActivity": "Tạo hoạt động",
+  "reminderNone": "Không",
+  "reminderDaily": "Hàng ngày",
+  "reminderWeekly": "Hàng tuần",
+  "reminderMonthly": "Hàng tháng",
+  "reminderCustom": "Tùy chỉnh",
+  "statusNeverLogged": "Chưa từng ghi",
+  "statusLogged": "Đã ghi",
+  "statusRecent": "Gần đây",
+  "statusDueSoon": "Sắp đến hạn",
+  "statusOverdue": "Quá hạn",
+  "editEntry": "Sửa mục",
+  "addEntry": "Thêm mục",
+  "date": "Ngày",
+  "time": "Giờ",
+  "noteOptional": "Ghi chú (tùy chọn)",
+  "saveEntry": "Lưu mục",
+  "activityNotFound": "Không tìm thấy hoạt động",
+  "history": "Lịch sử",
+  "noLogsYet": "Chưa có nhật ký",
+  "logNow": "Ghi ngay",
+  "addCustomEntry": "Thêm mục tùy chỉnh",
+  "lastDone": "Lần cuối làm",
+  "nextDue": "Lần đến hạn tiếp theo",
+  "deleteEntryTitle": "Xóa mục?",
+  "deleteEntryMessage": "Xóa vĩnh viễn mục nhật ký này?",
+  "categoriesTitle": "Danh mục",
+  "noCategoriesYet": "Chưa có danh mục. Nhấn Thêm để tạo.",
+  "deleteCategoryTitle": "Xóa danh mục?",
+  "deleteCategoryMessage": "Gỡ \"{name}\" khỏi gợi ý? Các hoạt động đang dùng vẫn giữ danh mục.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "Danh mục mới",
+  "categoryHintExample": "vd. Thể dục",
+  "categoryAlreadyExists": "Danh mục đã tồn tại",
+  "renameCategory": "Đổi tên danh mục",
+  "backupExported": "Xuất bản sao lưu thành công",
+  "exportFailed": "Xuất thất bại: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "Nhập bản sao lưu",
+  "importBackupMessage": "Gộp dữ liệu đã nhập với các hoạt động hiện có? Chọn Hủy rồi nhập lại để thay thế toàn bộ dữ liệu.",
+  "replaceAllDataTitle": "Thay thế toàn bộ dữ liệu?",
+  "replaceAllDataMessage": "Thao tác này sẽ xóa tất cả hoạt động và lần xảy ra hiện có trước khi nhập.",
+  "replaceAll": "Thay thế tất cả",
+  "importedCounts": "Đã nhập {activities} hoạt động và {occurrences} nhật ký",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "Nhập thất bại: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "Chưa có dữ liệu. Hãy ghi một số hoạt động!",
+  "activityBreakdown": "Phân tích hoạt động",
+  "overview": "Tổng quan",
+  "statActivities": "Hoạt động",
+  "statTotalLogs": "Tổng nhật ký",
+  "mostOverdue": "Quá hạn nhất: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "Thời gian giữa các nhật ký — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "Mỗi cột là số ngày bạn đợi trước khi ghi lại (mới nhất trước).",
+  "latestGap": "Khoảng cách mới nhất",
+  "average": "Trung bình",
+  "reminder": "Nhắc nhở",
+  "daysValue": "{days} ngày",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "Cần ít nhất 2 nhật ký để hiện khoảng cách giữa các mục",
+  "daysBetweenLogs": "Số ngày giữa các nhật ký",
+  "reminderTarget": "Mục tiêu nhắc nhở",
+  "averageDaysShort": "TB {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "Nhắc {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "Khoảng {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "Mới nhất",
+  "logsCount": "{count, plural, =1{1 nhật ký} other{{count} nhật ký}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 nhật ký} other{{count} nhật ký}} • TB {avg} ngày",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} ngày",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} là ứng dụng đơn giản, ưu tiên ngoại tuyến, giúp bạn theo dõi lần cuối làm bất cứ việc gì — tưới cây, rửa xe, gọi gia đình và hơn thế.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "Không chuỗi ngày. Không áp lực. Chỉ một câu trả lời rõ ràng cho \"lần cuối tôi làm việc đó khi nào?\"",
+  "features": "Tính năng",
+  "featureTrack": "Theo dõi hoạt động không giới hạn với khoảng đến hạn tùy chọn",
+  "featureElapsed": "Xem thời gian đã trôi kể từ lần cuối, với trạng thái Gần đây / Sắp đến hạn / Quá hạn",
+  "featureCategories": "Sắp xếp bằng danh mục tùy chỉnh",
+  "featureHistory": "Lịch sử đầy đủ với mục ghi lùi ngày tùy chỉnh",
+  "featureInsights": "Thống kê với khoảng trung bình và biểu đồ",
+  "featureThemes": "Chủ đề thương hiệu sáng và tối (theo hệ thống)",
+  "featureBackup": "Sao lưu xuất/nhập JSON",
+  "featureOffline": "100% ngoại tuyến — dữ liệu ở trên thiết bị của bạn",
+  "privacyUnableToLoad": "Không tải được chính sách quyền riêng tư. Bạn có thể xem trực tuyến.",
+  "openOnline": "Mở trực tuyến",
+  "couldNotOpenPrivacyUrl": "Không mở được URL chính sách quyền riêng tư",
+  "analyticsConsentTitle": "Giúp cải thiện RememberLast?",
+  "analyticsConsentBody": "Bạn có thể tùy chọn chia sẻ phân tích sử dụng ẩn danh với Mixpanel (như màn hình bạn truy cập và khi bạn ghi hoạt động). Chúng tôi không bao giờ gửi tiêu đề hoạt động, ghi chú hay nội dung cá nhân khác. Bạn có thể đổi bất cứ lúc nào trong Cài đặt.",
+  "decline": "Từ chối",
+  "accept": "Chấp nhận",
+  "couldNotShareApp": "Không chia sẻ được ứng dụng",
+  "couldNotOpenAppStore": "Không mở được cửa hàng ứng dụng",
+  "couldNotOpenEmail": "Không mở được ứng dụng email",
+  "couldNotOpenDeveloperPage": "Không mở được trang nhà phát triển",
+  "justNow": "Vừa xong",
+  "yearsAgo": "{count, plural, =1{1 năm trước} other{{count} năm trước}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 tháng trước} other{{count} tháng trước}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 ngày trước} other{{count} ngày trước}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 giờ trước} other{{count} giờ trước}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 phút trước} other{{count} phút trước}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

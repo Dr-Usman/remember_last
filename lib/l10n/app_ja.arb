@@ -1,0 +1,388 @@
+{
+  "@@locale": "ja",
+  "cancel": "キャンセル",
+  "delete": "削除",
+  "save": "保存",
+  "add": "追加",
+  "edit": "編集",
+  "rename": "名前を変更",
+  "merge": "結合",
+  "settings": "設定",
+  "insights": "インサイト",
+  "about": "このアプリについて",
+  "appearance": "外観",
+  "themeSystem": "システム",
+  "themeLight": "ライト",
+  "themeDark": "ダーク",
+  "language": "言語",
+  "languageSystemDefault": "システムのデフォルト",
+  "organize": "整理",
+  "manageCategories": "カテゴリを管理",
+  "manageCategoriesSubtitle": "アクティビティのカテゴリを追加または削除",
+  "data": "データ",
+  "exportBackup": "バックアップを書き出す",
+  "exportBackupSubtitle": "データを JSON として保存",
+  "importBackup": "バックアップを読み込む",
+  "importBackupSubtitle": "JSON ファイルから復元",
+  "privacy": "プライバシー",
+  "usageAnalytics": "使用状況分析",
+  "usageAnalyticsSubtitle": "Mixpanel 経由で匿名の画面・機能の使用状況を共有",
+  "aboutApp": "{appName} について",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "アプリを共有",
+  "shareAppSubtitle": "友達に {appName} を教える",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "アプリを評価",
+  "rateAppSubtitle": "アプリストアにレビューを残す",
+  "contactUs": "お問い合わせ",
+  "contactUsSubtitle": "フィードバックを送るか不具合を報告",
+  "moreFromDeveloper": "開発者のその他のアプリ",
+  "moreFromDeveloperSubtitle": "Avenzor House のその他のアプリ",
+  "privacyPolicy": "プライバシーポリシー",
+  "backupShareSubject": "{appName} のバックアップ",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "まだ何もありません",
+  "emptyNothingYetMessage": "何かを最後にした日時を記録 — 水やり、洗車、家族への電話。",
+  "addActivity": "アクティビティを追加",
+  "addActivityFab": "アクティビティを追加",
+  "noMatches": "一致なし",
+  "noMatchesFilter": "検索またはフィルターに一致するアクティビティはありません。",
+  "nothingToShow": "現在表示するものはありません。",
+  "clearFilters": "フィルターをクリア",
+  "errorWithDetails": "エラー: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "アクティビティを削除しますか？",
+  "deleteActivityMessage": "「{title}」とすべての履歴を削除しますか？",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "「{title}」とすべての履歴を削除しますか？この操作は元に戻せません。",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "「{title}」を削除しました",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "「{title}」を今記録しました",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "アクティビティを検索...",
+  "sortTooltip": "並べ替え: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "最近完了",
+  "sortOverdueFirst": "期限切れ優先",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "すべて",
+  "editActivity": "アクティビティを編集",
+  "newActivity": "新しいアクティビティ",
+  "titleLabel": "タイトル *",
+  "titleHint": "例: 植物に水をやる",
+  "titleRequired": "タイトルは必須です",
+  "categoryLabel": "カテゴリ",
+  "categoryHint": "家庭、車両、個人...",
+  "notes": "メモ",
+  "dueInterval": "期限の間隔",
+  "markDueEveryXDays": "X 日ごとに期限切れにする",
+  "dueIntervalSubtitle": "まもなく期限 / 期限切れの状態を表示",
+  "frequencyPreset": "頻度プリセット",
+  "daysUntilDue": "期限までの日数",
+  "daysSuffix": "日",
+  "fixedByPreset": "{preset} プリセットで固定",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "有効な日数を入力してください",
+  "saveChanges": "変更を保存",
+  "createActivity": "アクティビティを作成",
+  "reminderNone": "なし",
+  "reminderDaily": "毎日",
+  "reminderWeekly": "毎週",
+  "reminderMonthly": "毎月",
+  "reminderCustom": "カスタム",
+  "statusNeverLogged": "未記録",
+  "statusLogged": "記録済み",
+  "statusRecent": "最近",
+  "statusDueSoon": "まもなく期限",
+  "statusOverdue": "期限切れ",
+  "editEntry": "エントリを編集",
+  "addEntry": "エントリを追加",
+  "date": "日付",
+  "time": "時刻",
+  "noteOptional": "メモ（任意）",
+  "saveEntry": "エントリを保存",
+  "activityNotFound": "アクティビティが見つかりません",
+  "history": "履歴",
+  "noLogsYet": "まだ記録がありません",
+  "logNow": "今すぐ記録",
+  "addCustomEntry": "カスタムエントリを追加",
+  "lastDone": "前回完了",
+  "nextDue": "次の期限",
+  "deleteEntryTitle": "エントリを削除しますか？",
+  "deleteEntryMessage": "このログエントリを完全に削除しますか？",
+  "categoriesTitle": "カテゴリ",
+  "noCategoriesYet": "まだカテゴリがありません。追加をタップして作成してください。",
+  "deleteCategoryTitle": "カテゴリを削除しますか？",
+  "deleteCategoryMessage": "候補から「{name}」を削除しますか？使用中のアクティビティはカテゴリを保持します。",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "新しいカテゴリ",
+  "categoryHintExample": "例: フィットネス",
+  "categoryAlreadyExists": "カテゴリは既に存在します",
+  "renameCategory": "カテゴリ名を変更",
+  "backupExported": "バックアップの書き出しに成功しました",
+  "exportFailed": "書き出しに失敗: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "バックアップを読み込む",
+  "importBackupMessage": "読み込んだデータを既存のアクティビティと結合しますか？すべてのデータを置き換えるにはキャンセルしてから再読み込みしてください。",
+  "replaceAllDataTitle": "すべてのデータを置き換えますか？",
+  "replaceAllDataMessage": "読み込む前に既存のすべてのアクティビティと発生記録が削除されます。",
+  "replaceAll": "すべて置き換え",
+  "importedCounts": "{activities} 件のアクティビティと {occurrences} 件のログを読み込みました",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "読み込みに失敗: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "まだデータがありません。アクティビティを記録しましょう！",
+  "activityBreakdown": "アクティビティの内訳",
+  "overview": "概要",
+  "statActivities": "アクティビティ",
+  "statTotalLogs": "合計ログ",
+  "mostOverdue": "最も期限切れ: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "ログ間隔 — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "各バーは再記録までに待った日数です（新しい順）。",
+  "latestGap": "最新の間隔",
+  "average": "平均",
+  "reminder": "リマインダー",
+  "daysValue": "{days} 日",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "エントリ間の間隔を表示するには少なくとも 2 件のログが必要です",
+  "daysBetweenLogs": "ログ間の日数",
+  "reminderTarget": "リマインダー目標",
+  "averageDaysShort": "平均 {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "リマインダー {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "間隔 {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "最新",
+  "logsCount": "{count, plural, =1{1 件のログ} other{{count} 件のログ}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 件のログ} other{{count} 件のログ}} • 平均 {avg} 日",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} 日",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} はシンプルなオフライン優先アプリで、何かを最後にした日時を記録できます — 水やり、洗車、家族への電話など。",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "連続記録もプレッシャーもなし。「あれ、最後にいつやった？」への明確な答えだけ。",
+  "features": "機能",
+  "featureTrack": "任意の期限間隔で無制限のアクティビティを記録",
+  "featureElapsed": "前回からの経過時間を、最近 / まもなく期限 / 期限切れの状態で表示",
+  "featureCategories": "カスタムカテゴリで整理",
+  "featureHistory": "日付を遡ったカスタムエントリ付きの完全な履歴",
+  "featureInsights": "平均間隔とチャートのインサイト",
+  "featureThemes": "ライトとダークのブランドテーマ（システムに従う）",
+  "featureBackup": "JSON の書き出し/読み込みバックアップ",
+  "featureOffline": "100% オフライン — データはデバイスに残ります",
+  "privacyUnableToLoad": "プライバシーポリシーを読み込めません。オンラインでご覧ください。",
+  "openOnline": "オンラインで開く",
+  "couldNotOpenPrivacyUrl": "プライバシーポリシーの URL を開けませんでした",
+  "analyticsConsentTitle": "RememberLast の改善にご協力ください",
+  "analyticsConsentBody": "Mixpanel と匿名の使用状況分析を任意で共有できます（訪問した画面やアクティビティを記録したタイミングなど）。アクティビティのタイトル、メモ、その他の個人コンテンツは一切送信しません。設定からいつでも変更できます。",
+  "decline": "拒否",
+  "accept": "同意",
+  "couldNotShareApp": "アプリを共有できませんでした",
+  "couldNotOpenAppStore": "アプリストアを開けませんでした",
+  "couldNotOpenEmail": "メールアプリを開けませんでした",
+  "couldNotOpenDeveloperPage": "開発者ページを開けませんでした",
+  "justNow": "たった今",
+  "yearsAgo": "{count, plural, =1{1 年前} other{{count} 年前}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 か月前} other{{count} か月前}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 日前} other{{count} 日前}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 時間前} other{{count} 時間前}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 分前} other{{count} 分前}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

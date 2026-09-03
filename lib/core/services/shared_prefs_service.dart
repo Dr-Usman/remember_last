@@ -25,6 +25,7 @@ abstract final class PrefsKeys {
   static const analyticsConsent = 'analytics_consent';
   static const analyticsConsentGranted = 'granted';
   static const analyticsConsentDenied = 'denied';
+  static const locale = 'locale';
 }
 
 final sharedPrefsServiceProvider = Provider<SharedPrefsService>((ref) {

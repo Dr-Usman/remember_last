@@ -27,21 +27,6 @@ enum ReminderType {
 
   bool get hasFixedDays => defaultDays != null;
 
-  String get label {
-    switch (this) {
-      case ReminderType.none:
-        return 'None';
-      case ReminderType.daily:
-        return 'Daily';
-      case ReminderType.weekly:
-        return 'Weekly';
-      case ReminderType.monthly:
-        return 'Monthly';
-      case ReminderType.custom:
-        return 'Custom';
-    }
-  }
-
   static ReminderType fromIndex(int index) {
     if (index < 0 || index >= ReminderType.values.length) {
       return ReminderType.none;

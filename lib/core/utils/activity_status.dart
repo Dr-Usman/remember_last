@@ -5,21 +5,6 @@ import '../../features/activities/domain/enums/reminder_type.dart';
 enum ActivityStatus { neverLogged, noReminder, recent, dueSoon, overdue }
 
 extension ActivityStatusX on ActivityStatus {
-  String get label {
-    switch (this) {
-      case ActivityStatus.neverLogged:
-        return 'Never logged';
-      case ActivityStatus.noReminder:
-        return 'Logged';
-      case ActivityStatus.recent:
-        return 'Recent';
-      case ActivityStatus.dueSoon:
-        return 'Due soon';
-      case ActivityStatus.overdue:
-        return 'Overdue';
-    }
-  }
-
   String get emoji {
     switch (this) {
       case ActivityStatus.neverLogged:
