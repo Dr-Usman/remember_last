@@ -1505,7 +1505,7 @@ class $$ActivitiesTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable(table),
+                  e.readTable<$ActivitiesTable, ActivityRow>(table),
                   $$ActivitiesTableReferences(db, table, e),
                 ),
               )
@@ -1786,7 +1786,7 @@ class $$OccurrencesTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable(table),
+                  e.readTable<$OccurrencesTable, OccurrenceRow>(table),
                   $$OccurrencesTableReferences(db, table, e),
                 ),
               )
@@ -2001,7 +2001,16 @@ class $$CategoriesTableTableManager
                 createdAt: createdAt,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$CategoriesTable, CategoryRow>(table),
+                  BaseReferences<_$AppDatabase, $CategoriesTable, CategoryRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),

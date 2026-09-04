@@ -9,6 +9,7 @@ import '../../../../core/utils/activity_status.dart';
 import '../../../../core/utils/date_formatter.dart';
 import '../../../../core/widgets/confirm_dialog.dart';
 import '../../../../core/widgets/status_indicator.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/occurrence.dart';
 import '../providers/occurrences_providers.dart';
 import '../widgets/log_entry_sheet.dart';
@@ -23,6 +24,7 @@ class ActivityDetailScreen extends ConsumerWidget {
     final activityAsync = ref.watch(activityByIdProvider(activityId));
     final occurrencesAsync = ref.watch(occurrencesProvider(activityId));
     final elapsedNow = ref.watch(elapsedTickerProvider).valueOrNull;
+    final l10n = AppLocalizations.of(context);
     final calculator = ActivityStatusCalculator();
 
     return activityAsync.when(
@@ -30,7 +32,7 @@ class ActivityDetailScreen extends ConsumerWidget {
         if (activity == null) {
           return Scaffold(
             appBar: AppBar(),
-            body: const Center(child: Text('Activity not found')),
+            body: Center(child: Text(l10n.activityNotFound)),
           );
         }
 
@@ -80,7 +82,7 @@ class ActivityDetailScreen extends ConsumerWidget {
                   if (activity.notes != null && activity.notes!.isNotEmpty) ...[
                     const SizedBox(height: 24),
                     Text(
-                      'Notes',
+                      l10n.notes,
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                     const SizedBox(height: 4),
@@ -88,14 +90,14 @@ class ActivityDetailScreen extends ConsumerWidget {
                   ],
                   const SizedBox(height: 24),
                   Text(
-                    'History',
+                    l10n.history,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(height: 8),
                   if (occurrences.isEmpty)
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 24),
-                      child: Center(child: Text('No logs yet')),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 24),
+                      child: Center(child: Text(l10n.noLogsYet)),
                     )
                   else
                     ...occurrences.map(
@@ -112,13 +114,14 @@ class ActivityDetailScreen extends ConsumerWidget {
           ),
           error: (e, _) => Scaffold(
             appBar: AppBar(title: Text(activity.title)),
-            body: Center(child: Text('Error: $e')),
+            body: Center(child: Text(l10n.errorWithDetails('$e'))),
           ),
         );
       },
       loading: () =>
           const Scaffold(body: Center(child: CircularProgressIndicator())),
-      error: (e, _) => Scaffold(body: Center(child: Text('Error: $e'))),
+      error: (e, _) =>
+          Scaffold(body: Center(child: Text(l10n.errorWithDetails('$e')))),
     );
   }
 
@@ -137,8 +140,10 @@ class ActivityDetailScreen extends ConsumerWidget {
   ) async {
     final confirmed = await showConfirmDialog(
       context,
-      title: 'Delete activity?',
-      message: 'Delete "${activity.title}" and all history?',
+      title: AppLocalizations.of(context).deleteActivityTitle,
+      message: AppLocalizations.of(
+        context,
+      ).deleteActivityMessage(activity.title),
     );
     if (!confirmed || !context.mounted) return;
     await ref.read(activityRepositoryProvider).delete(activityId);
@@ -163,14 +168,14 @@ class _ActionButtons extends StatelessWidget {
         final logNowButton = FilledButton.icon(
           onPressed: onLogNow,
           icon: const Icon(Icons.add),
-          label: const Text('Log Now'),
+          label: Text(AppLocalizations.of(context).logNow),
           style: FilledButton.styleFrom(minimumSize: _buttonStyle),
         );
 
         final customEntryButton = OutlinedButton.icon(
           onPressed: () => LogEntrySheet.show(context, activityId: activityId),
           icon: const Icon(Icons.edit_calendar_outlined),
-          label: const Text('Add Custom Entry'),
+          label: Text(AppLocalizations.of(context).addCustomEntry),
           style: OutlinedButton.styleFrom(minimumSize: _buttonStyle),
         );
 
@@ -213,6 +218,8 @@ class _HeaderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
+    final localeName = Localizations.localeOf(context).toString();
 
     return Card(
       child: Padding(
@@ -220,12 +227,16 @@ class _HeaderCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Last done', style: theme.textTheme.labelLarge),
+            Text(l10n.lastDone, style: theme.textTheme.labelLarge),
             const SizedBox(height: 4),
             Text(
               lastDone != null
-                  ? DateFormatter.formatElapsed(lastDone!, now: elapsedNow)
-                  : 'Never logged',
+                  ? DateFormatter.formatElapsed(
+                      lastDone!,
+                      l10n,
+                      now: elapsedNow,
+                    )
+                  : l10n.statusNeverLogged,
               style: theme.textTheme.headlineMedium?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: statusColor(status),
@@ -234,7 +245,7 @@ class _HeaderCard extends StatelessWidget {
             if (lastDone != null) ...[
               const SizedBox(height: 4),
               Text(
-                DateFormatter.formatAbsoluteDateTime(lastDone!),
+                DateFormatter.formatAbsoluteDateTime(lastDone!, localeName),
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.onSurfaceVariant,
                 ),
@@ -244,10 +255,10 @@ class _HeaderCard extends StatelessWidget {
             StatusIndicator(status: status),
             if (nextDue != null) ...[
               const SizedBox(height: 16),
-              Text('Next due', style: theme.textTheme.labelLarge),
+              Text(l10n.nextDue, style: theme.textTheme.labelLarge),
               const SizedBox(height: 4),
               Text(
-                DateFormatter.formatAbsoluteDate(nextDue!),
+                DateFormatter.formatAbsoluteDate(nextDue!, localeName),
                 style: theme.textTheme.titleLarge,
               ),
             ],
@@ -270,6 +281,8 @@ class _HistoryTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final localeName = Localizations.localeOf(context).toString();
     return Dismissible(
       key: ValueKey(occurrence.id),
       direction: DismissDirection.endToStart,
@@ -288,8 +301,8 @@ class _HistoryTile extends ConsumerWidget {
       confirmDismiss: (_) async {
         return showConfirmDialog(
           context,
-          title: 'Delete entry?',
-          message: 'Remove this log entry permanently?',
+          title: l10n.deleteEntryTitle,
+          message: l10n.deleteEntryMessage,
         );
       },
       onDismissed: (_) => _deleteOccurrence(ref),
@@ -302,15 +315,17 @@ class _HistoryTile extends ConsumerWidget {
             Icons.check_circle_outline,
             color: Theme.of(context).colorScheme.primary,
           ),
-          title: Text(DateFormatter.formatAbsoluteDateTime(occurrence.doneAt)),
+          title: Text(
+            DateFormatter.formatAbsoluteDateTime(occurrence.doneAt, localeName),
+          ),
           subtitle: occurrence.note != null ? Text(occurrence.note!) : null,
           trailing: PopupMenuButton<String>(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 40),
             icon: const Icon(Icons.more_vert),
-            itemBuilder: (context) => const [
-              PopupMenuItem(value: 'edit', child: Text('Edit')),
-              PopupMenuItem(value: 'delete', child: Text('Delete')),
+            itemBuilder: (context) => [
+              PopupMenuItem(value: 'edit', child: Text(l10n.edit)),
+              PopupMenuItem(value: 'delete', child: Text(l10n.delete)),
             ],
             onSelected: (value) async {
               if (value == 'edit') {
@@ -322,8 +337,8 @@ class _HistoryTile extends ConsumerWidget {
               } else if (value == 'delete') {
                 final confirmed = await showConfirmDialog(
                   context,
-                  title: 'Delete entry?',
-                  message: 'Remove this log entry permanently?',
+                  title: l10n.deleteEntryTitle,
+                  message: l10n.deleteEntryMessage,
                 );
                 if (confirmed) {
                   await _deleteOccurrence(ref);

@@ -1,0 +1,388 @@
+{
+  "@@locale": "de",
+  "cancel": "Abbrechen",
+  "delete": "Löschen",
+  "save": "Speichern",
+  "add": "Hinzufügen",
+  "edit": "Bearbeiten",
+  "rename": "Umbenennen",
+  "merge": "Zusammenführen",
+  "settings": "Einstellungen",
+  "insights": "Einblicke",
+  "about": "Info",
+  "appearance": "Erscheinungsbild",
+  "themeSystem": "System",
+  "themeLight": "Hell",
+  "themeDark": "Dunkel",
+  "language": "Sprache",
+  "languageSystemDefault": "Systemstandard",
+  "organize": "Organisieren",
+  "manageCategories": "Kategorien verwalten",
+  "manageCategoriesSubtitle": "Aktivitätskategorien hinzufügen oder entfernen",
+  "data": "Daten",
+  "exportBackup": "Backup exportieren",
+  "exportBackupSubtitle": "Daten als JSON speichern",
+  "importBackup": "Backup importieren",
+  "importBackupSubtitle": "Aus einer JSON-Datei wiederherstellen",
+  "privacy": "Datenschutz",
+  "usageAnalytics": "Nutzungsanalysen",
+  "usageAnalyticsSubtitle": "Anonyme Bildschirm- und Funktionsnutzung über Mixpanel teilen",
+  "aboutApp": "Über {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "App teilen",
+  "shareAppSubtitle": "Freunden von {appName} erzählen",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "App bewerten",
+  "rateAppSubtitle": "Eine Bewertung im App Store hinterlassen",
+  "contactUs": "Kontakt",
+  "contactUsSubtitle": "Feedback senden oder einen Fehler melden",
+  "moreFromDeveloper": "Mehr vom Entwickler",
+  "moreFromDeveloperSubtitle": "Weitere Apps von Avenzor House",
+  "privacyPolicy": "Datenschutzerklärung",
+  "backupShareSubject": "{appName} Backup",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "Noch nichts hier",
+  "emptyNothingYetMessage": "Halte fest, wann du etwas zuletzt getan hast — Pflanzen gießen, Auto waschen, Familie anrufen.",
+  "addActivity": "Aktivität hinzufügen",
+  "addActivityFab": "Aktivität hinzufügen",
+  "noMatches": "Keine Treffer",
+  "noMatchesFilter": "Keine Aktivitäten passen zu deiner Suche oder dem Filter.",
+  "nothingToShow": "Derzeit nichts anzuzeigen.",
+  "clearFilters": "Filter zurücksetzen",
+  "errorWithDetails": "Fehler: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "Aktivität löschen?",
+  "deleteActivityMessage": "„{title}“ und den gesamten Verlauf löschen?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "„{title}“ und den gesamten Verlauf löschen? Dies kann nicht rückgängig gemacht werden.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "„{title}“ gelöscht",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "„{title}“ jetzt protokolliert",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "Aktivitäten suchen...",
+  "sortTooltip": "Sortierung: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "Zuletzt erledigt",
+  "sortOverdueFirst": "Überfällig zuerst",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "Alle",
+  "editActivity": "Aktivität bearbeiten",
+  "newActivity": "Neue Aktivität",
+  "titleLabel": "Titel *",
+  "titleHint": "z. B. Pflanzen gießen",
+  "titleRequired": "Titel ist erforderlich",
+  "categoryLabel": "Kategorie",
+  "categoryHint": "Zuhause, Fahrzeug, Persönlich...",
+  "notes": "Notizen",
+  "dueInterval": "Fälligkeitsintervall",
+  "markDueEveryXDays": "Alle X Tage als fällig markieren",
+  "dueIntervalSubtitle": "Zeigt bald fällig / überfällig an",
+  "frequencyPreset": "Häufigkeitsvorgabe",
+  "daysUntilDue": "Tage bis zur Fälligkeit",
+  "daysSuffix": "Tage",
+  "fixedByPreset": "Festgelegt durch Vorgabe {preset}",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "Gib eine gültige Anzahl von Tagen ein",
+  "saveChanges": "Änderungen speichern",
+  "createActivity": "Aktivität erstellen",
+  "reminderNone": "Keine",
+  "reminderDaily": "Täglich",
+  "reminderWeekly": "Wöchentlich",
+  "reminderMonthly": "Monatlich",
+  "reminderCustom": "Benutzerdefiniert",
+  "statusNeverLogged": "Nie protokolliert",
+  "statusLogged": "Protokolliert",
+  "statusRecent": "Kürzlich",
+  "statusDueSoon": "Bald fällig",
+  "statusOverdue": "Überfällig",
+  "editEntry": "Eintrag bearbeiten",
+  "addEntry": "Eintrag hinzufügen",
+  "date": "Datum",
+  "time": "Uhrzeit",
+  "noteOptional": "Notiz (optional)",
+  "saveEntry": "Eintrag speichern",
+  "activityNotFound": "Aktivität nicht gefunden",
+  "history": "Verlauf",
+  "noLogsYet": "Noch keine Einträge",
+  "logNow": "Jetzt protokollieren",
+  "addCustomEntry": "Benutzerdefinierten Eintrag hinzufügen",
+  "lastDone": "Zuletzt erledigt",
+  "nextDue": "Nächste Fälligkeit",
+  "deleteEntryTitle": "Eintrag löschen?",
+  "deleteEntryMessage": "Diesen Protokolleintrag dauerhaft entfernen?",
+  "categoriesTitle": "Kategorien",
+  "noCategoriesYet": "Noch keine Kategorien. Tippe auf Hinzufügen, um eine zu erstellen.",
+  "deleteCategoryTitle": "Kategorie löschen?",
+  "deleteCategoryMessage": "„{name}“ aus den Vorschlägen entfernen? Aktivitäten, die sie verwenden, behalten ihre Kategorie.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "Neue Kategorie",
+  "categoryHintExample": "z. B. Fitness",
+  "categoryAlreadyExists": "Kategorie existiert bereits",
+  "renameCategory": "Kategorie umbenennen",
+  "backupExported": "Backup erfolgreich exportiert",
+  "exportFailed": "Export fehlgeschlagen: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "Backup importieren",
+  "importBackupMessage": "Importierte Daten mit vorhandenen Aktivitäten zusammenführen? Wähle Abbrechen und importiere erneut, um stattdessen alle Daten zu ersetzen.",
+  "replaceAllDataTitle": "Alle Daten ersetzen?",
+  "replaceAllDataMessage": "Dadurch werden alle vorhandenen Aktivitäten und Vorkommen vor dem Import gelöscht.",
+  "replaceAll": "Alle ersetzen",
+  "importedCounts": "{activities} Aktivitäten und {occurrences} Einträge importiert",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "Import fehlgeschlagen: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "Noch keine Daten. Protokolliere einige Aktivitäten!",
+  "activityBreakdown": "Aktivitätsaufschlüsselung",
+  "overview": "Übersicht",
+  "statActivities": "Aktivitäten",
+  "statTotalLogs": "Einträge gesamt",
+  "mostOverdue": "Am längsten überfällig: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "Zeit zwischen Einträgen — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "Jeder Balken zeigt, wie viele Tage du gewartet hast, bevor du erneut protokolliert hast (neueste zuerst).",
+  "latestGap": "Letzter Abstand",
+  "average": "Durchschnitt",
+  "reminder": "Erinnerung",
+  "daysValue": "{days} Tage",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "Mindestens 2 Einträge nötig, um Abstände zwischen Einträgen anzuzeigen",
+  "daysBetweenLogs": "Tage zwischen Einträgen",
+  "reminderTarget": "Erinnerungsziel",
+  "averageDaysShort": "Ø {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "Erinnerung {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "Abstand {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "Neueste",
+  "logsCount": "{count, plural, =1{1 Eintrag} other{{count} Einträge}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 Eintrag} other{{count} Einträge}} • Ø {avg} Tage",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} Tage",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} ist eine einfache Offline-First-App, mit der du festhältst, wann du etwas zuletzt getan hast — Pflanzen gießen, Auto waschen, Familie anrufen und mehr.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "Keine Serien. Kein Druck. Nur eine klare Antwort auf „Wann habe ich das zuletzt gemacht?“",
+  "features": "Funktionen",
+  "featureTrack": "Unbegrenzt Aktivitäten mit optionalen Fälligkeitsintervallen verfolgen",
+  "featureElapsed": "Zeit seit dem letzten Mal anzeigen, mit Status Kürzlich / Bald fällig / Überfällig",
+  "featureCategories": "Mit eigenen Kategorien organisieren",
+  "featureHistory": "Vollständiger Verlauf mit rückdatierten Einträgen",
+  "featureInsights": "Einblicke mit Durchschnittsintervallen und Diagrammen",
+  "featureThemes": "Helle und dunkle Marken-Themes (folgt dem System)",
+  "featureBackup": "JSON-Export/Import-Backup",
+  "featureOffline": "100% offline — deine Daten bleiben auf deinem Gerät",
+  "privacyUnableToLoad": "Datenschutzerklärung konnte nicht geladen werden. Du kannst sie stattdessen online ansehen.",
+  "openOnline": "Online öffnen",
+  "couldNotOpenPrivacyUrl": "URL der Datenschutzerklärung konnte nicht geöffnet werden",
+  "analyticsConsentTitle": "RememberLast verbessern helfen?",
+  "analyticsConsentBody": "Du kannst optional anonyme Nutzungsanalysen mit Mixpanel teilen (z. B. welche Bildschirme du besuchst und wann du Aktivitäten protokollierst). Wir senden niemals deine Aktivitätstitel, Notizen oder andere persönliche Inhalte. Du kannst das jederzeit in den Einstellungen ändern.",
+  "decline": "Ablehnen",
+  "accept": "Akzeptieren",
+  "couldNotShareApp": "App konnte nicht geteilt werden",
+  "couldNotOpenAppStore": "App Store konnte nicht geöffnet werden",
+  "couldNotOpenEmail": "E-Mail-App konnte nicht geöffnet werden",
+  "couldNotOpenDeveloperPage": "Entwicklerseite konnte nicht geöffnet werden",
+  "justNow": "Gerade eben",
+  "yearsAgo": "{count, plural, =1{1 Jahr zuvor} other{{count} Jahre zuvor}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 Monat zuvor} other{{count} Monate zuvor}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 Tag zuvor} other{{count} Tage zuvor}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 Stunde zuvor} other{{count} Stunden zuvor}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 Minute zuvor} other{{count} Minuten zuvor}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

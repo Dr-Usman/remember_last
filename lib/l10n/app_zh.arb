@@ -1,0 +1,388 @@
+{
+  "@@locale": "zh",
+  "cancel": "取消",
+  "delete": "删除",
+  "save": "保存",
+  "add": "添加",
+  "edit": "编辑",
+  "rename": "重命名",
+  "merge": "合并",
+  "settings": "设置",
+  "insights": "洞察",
+  "about": "关于",
+  "appearance": "外观",
+  "themeSystem": "系统",
+  "themeLight": "浅色",
+  "themeDark": "深色",
+  "language": "语言",
+  "languageSystemDefault": "系统默认",
+  "organize": "整理",
+  "manageCategories": "管理分类",
+  "manageCategoriesSubtitle": "添加或删除活动分类",
+  "data": "数据",
+  "exportBackup": "导出备份",
+  "exportBackupSubtitle": "将数据保存为 JSON",
+  "importBackup": "导入备份",
+  "importBackupSubtitle": "从 JSON 文件恢复",
+  "privacy": "隐私",
+  "usageAnalytics": "使用分析",
+  "usageAnalyticsSubtitle": "通过 Mixpanel 分享匿名的屏幕和功能使用情况",
+  "aboutApp": "关于 {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "分享应用",
+  "shareAppSubtitle": "向朋友介绍 {appName}",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "评价应用",
+  "rateAppSubtitle": "在应用商店留下评价",
+  "contactUs": "联系我们",
+  "contactUsSubtitle": "发送反馈或报告问题",
+  "moreFromDeveloper": "开发者的更多应用",
+  "moreFromDeveloperSubtitle": "Avenzor House 的其他应用",
+  "privacyPolicy": "隐私政策",
+  "backupShareSubject": "{appName} 备份",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "这里还没有内容",
+  "emptyNothingYetMessage": "记录你上次做任何事的时间 — 浇花、洗车、给家人打电话。",
+  "addActivity": "添加活动",
+  "addActivityFab": "添加活动",
+  "noMatches": "无匹配项",
+  "noMatchesFilter": "没有活动符合你的搜索或筛选。",
+  "nothingToShow": "目前没有可显示的内容。",
+  "clearFilters": "清除筛选",
+  "errorWithDetails": "错误：{error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "删除活动？",
+  "deleteActivityMessage": "删除“{title}”及其全部历史记录？",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "删除“{title}”及其全部历史记录？此操作无法撤销。",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "已删除“{title}”",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "已记录“{title}”",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "搜索活动...",
+  "sortTooltip": "排序：{sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "最近完成",
+  "sortOverdueFirst": "过期优先",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "全部",
+  "editActivity": "编辑活动",
+  "newActivity": "新活动",
+  "titleLabel": "标题 *",
+  "titleHint": "例如：浇花",
+  "titleRequired": "标题为必填项",
+  "categoryLabel": "分类",
+  "categoryHint": "家居、车辆、个人...",
+  "notes": "备注",
+  "dueInterval": "到期间隔",
+  "markDueEveryXDays": "每 X 天标记到期",
+  "dueIntervalSubtitle": "显示即将到期 / 已过期状态",
+  "frequencyPreset": "频率预设",
+  "daysUntilDue": "距到期天数",
+  "daysSuffix": "天",
+  "fixedByPreset": "由 {preset} 预设固定",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "请输入有效的天数",
+  "saveChanges": "保存更改",
+  "createActivity": "创建活动",
+  "reminderNone": "无",
+  "reminderDaily": "每天",
+  "reminderWeekly": "每周",
+  "reminderMonthly": "每月",
+  "reminderCustom": "自定义",
+  "statusNeverLogged": "从未记录",
+  "statusLogged": "已记录",
+  "statusRecent": "最近",
+  "statusDueSoon": "即将到期",
+  "statusOverdue": "已过期",
+  "editEntry": "编辑记录",
+  "addEntry": "添加记录",
+  "date": "日期",
+  "time": "时间",
+  "noteOptional": "备注（可选）",
+  "saveEntry": "保存记录",
+  "activityNotFound": "未找到活动",
+  "history": "历史",
+  "noLogsYet": "暂无记录",
+  "logNow": "立即记录",
+  "addCustomEntry": "添加自定义记录",
+  "lastDone": "上次完成",
+  "nextDue": "下次到期",
+  "deleteEntryTitle": "删除记录？",
+  "deleteEntryMessage": "永久删除此日志条目？",
+  "categoriesTitle": "分类",
+  "noCategoriesYet": "还没有分类。点按添加来创建一个。",
+  "deleteCategoryTitle": "删除分类？",
+  "deleteCategoryMessage": "从建议中移除“{name}”？使用它的活动仍会保留该分类。",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "新分类",
+  "categoryHintExample": "例如：健身",
+  "categoryAlreadyExists": "分类已存在",
+  "renameCategory": "重命名分类",
+  "backupExported": "备份已成功导出",
+  "exportFailed": "导出失败：{error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "导入备份",
+  "importBackupMessage": "将导入的数据与现有活动合并？选择取消后再重新导入以改为替换全部数据。",
+  "replaceAllDataTitle": "替换全部数据？",
+  "replaceAllDataMessage": "导入前将删除所有现有活动和记录。",
+  "replaceAll": "全部替换",
+  "importedCounts": "已导入 {activities} 个活动和 {occurrences} 条记录",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "导入失败：{error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "还没有数据。先记录一些活动吧！",
+  "activityBreakdown": "活动明细",
+  "overview": "概览",
+  "statActivities": "活动",
+  "statTotalLogs": "总记录数",
+  "mostOverdue": "最过期：{title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "记录间隔 — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "每个柱表示你再次记录前等待的天数（最新在前）。",
+  "latestGap": "最近间隔",
+  "average": "平均",
+  "reminder": "提醒",
+  "daysValue": "{days} 天",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "至少需要 2 条记录才能显示条目之间的间隔",
+  "daysBetweenLogs": "记录间隔天数",
+  "reminderTarget": "提醒目标",
+  "averageDaysShort": "平均 {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "提醒 {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "间隔 {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "最新",
+  "logsCount": "{count, plural, =1{1 条记录} other{{count} 条记录}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 条记录} other{{count} 条记录}} • 平均 {avg} 天",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} 天",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} 是一款简单的离线优先应用，帮你追踪上次做任何事的时间 — 浇花、洗车、给家人打电话等等。",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "没有连续打卡。没有压力。只是清楚地回答“我上次是什么时候做的？”",
+  "features": "功能",
+  "featureTrack": "无限活动追踪，可选到期间隔",
+  "featureElapsed": "查看距上次完成的时间，带有最近 / 即将到期 / 已过期状态",
+  "featureCategories": "用自定义分类整理",
+  "featureHistory": "完整历史，支持自定义补记",
+  "featureInsights": "洞察平均间隔和图表",
+  "featureThemes": "浅色和深色品牌主题（跟随系统）",
+  "featureBackup": "JSON 导出/导入备份",
+  "featureOffline": "100% 离线 — 数据留在你的设备上",
+  "privacyUnableToLoad": "无法加载隐私政策。你可以改为在线查看。",
+  "openOnline": "在线打开",
+  "couldNotOpenPrivacyUrl": "无法打开隐私政策网址",
+  "analyticsConsentTitle": "帮助改进 RememberLast？",
+  "analyticsConsentBody": "你可以选择与 Mixpanel 分享匿名使用分析（例如你访问了哪些屏幕以及何时记录活动）。我们绝不会发送你的活动标题、备注或其他个人内容。你可以随时在设置中更改。",
+  "decline": "拒绝",
+  "accept": "接受",
+  "couldNotShareApp": "无法分享应用",
+  "couldNotOpenAppStore": "无法打开应用商店",
+  "couldNotOpenEmail": "无法打开邮件应用",
+  "couldNotOpenDeveloperPage": "无法打开开发者页面",
+  "justNow": "刚刚",
+  "yearsAgo": "{count, plural, =1{1 年前} other{{count} 年前}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 个月前} other{{count} 个月前}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 天前} other{{count} 天前}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 小时前} other{{count} 小时前}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 分钟前} other{{count} 分钟前}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

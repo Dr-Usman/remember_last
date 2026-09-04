@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/database/database_provider.dart';
 import '../../../../core/theme/category_colors.dart';
 import '../../../../core/widgets/confirm_dialog.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../providers/categories_providers.dart';
 
 final managedCategoryRowsProvider = StreamProvider((ref) {
@@ -59,7 +60,7 @@ class _CategoryNameDialogState extends State<_CategoryNameDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel'),
+          child: Text(AppLocalizations.of(context).cancel),
         ),
         FilledButton(onPressed: _submit, child: Text(widget.confirmLabel)),
       ],
@@ -73,21 +74,20 @@ class CategoriesManagementScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
     final categoriesAsync = ref.watch(managedCategoryRowsProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Categories')),
+      appBar: AppBar(title: Text(l10n.categoriesTitle)),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _showAddDialog(context, ref),
         icon: const Icon(Icons.add),
-        label: const Text('Add'),
+        label: Text(l10n.add),
       ),
       body: categoriesAsync.when(
         data: (categories) {
           if (categories.isEmpty) {
-            return const Center(
-              child: Text('No categories yet. Tap Add to create one.'),
-            );
+            return Center(child: Text(l10n.noCategoriesYet));
           }
           return ListView.separated(
             padding: const EdgeInsets.symmetric(vertical: 8),
@@ -125,9 +125,9 @@ class CategoriesManagementScreen extends ConsumerWidget {
                   title: Text(category.name),
                   trailing: PopupMenuButton<String>(
                     icon: const Icon(Icons.more_vert),
-                    itemBuilder: (context) => const [
-                      PopupMenuItem(value: 'rename', child: Text('Rename')),
-                      PopupMenuItem(value: 'delete', child: Text('Delete')),
+                    itemBuilder: (context) => [
+                      PopupMenuItem(value: 'rename', child: Text(l10n.rename)),
+                      PopupMenuItem(value: 'delete', child: Text(l10n.delete)),
                     ],
                     onSelected: (value) async {
                       if (value == 'rename') {
@@ -156,27 +156,28 @@ class CategoriesManagementScreen extends ConsumerWidget {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Error: $e')),
+        error: (e, _) => Center(child: Text(l10n.errorWithDetails('$e'))),
       ),
     );
   }
 
   Future<bool> _confirmDeleteCategory(BuildContext context, String name) {
+    final l10n = AppLocalizations.of(context);
     return showConfirmDialog(
       context,
-      title: 'Delete category?',
-      message:
-          'Remove "$name" from suggestions? Activities using it will keep their category.',
+      title: l10n.deleteCategoryTitle,
+      message: l10n.deleteCategoryMessage(name),
     );
   }
 
   Future<void> _showAddDialog(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context);
     final result = await showDialog<String>(
       context: context,
-      builder: (context) => const _CategoryNameDialog(
-        title: 'New category',
-        confirmLabel: 'Add',
-        hintText: 'e.g. Fitness',
+      builder: (context) => _CategoryNameDialog(
+        title: l10n.newCategory,
+        confirmLabel: l10n.add,
+        hintText: l10n.categoryHintExample,
       ),
     );
     if (result != null && result.isNotEmpty) {
@@ -184,9 +185,9 @@ class CategoriesManagementScreen extends ConsumerWidget {
         await ref.read(categoryRepositoryProvider).addCategory(result);
       } catch (_) {
         if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Category already exists')),
-          );
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(l10n.categoryAlreadyExists)));
         }
       }
     }
@@ -198,11 +199,12 @@ class CategoriesManagementScreen extends ConsumerWidget {
     int id,
     String currentName,
   ) async {
+    final l10n = AppLocalizations.of(context);
     final result = await showDialog<String>(
       context: context,
       builder: (context) => _CategoryNameDialog(
-        title: 'Rename category',
-        confirmLabel: 'Save',
+        title: l10n.renameCategory,
+        confirmLabel: l10n.save,
         initialValue: currentName,
       ),
     );

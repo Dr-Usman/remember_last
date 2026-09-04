@@ -1,0 +1,388 @@
+{
+  "@@locale": "en",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "save": "Save",
+  "add": "Add",
+  "edit": "Edit",
+  "rename": "Rename",
+  "merge": "Merge",
+  "settings": "Settings",
+  "insights": "Insights",
+  "about": "About",
+  "appearance": "Appearance",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "language": "Language",
+  "languageSystemDefault": "System default",
+  "organize": "Organize",
+  "manageCategories": "Manage categories",
+  "manageCategoriesSubtitle": "Add or remove activity categories",
+  "data": "Data",
+  "exportBackup": "Export backup",
+  "exportBackupSubtitle": "Save your data as JSON",
+  "importBackup": "Import backup",
+  "importBackupSubtitle": "Restore from a JSON file",
+  "privacy": "Privacy",
+  "usageAnalytics": "Usage analytics",
+  "usageAnalyticsSubtitle": "Share anonymous screen and feature usage via Mixpanel",
+  "aboutApp": "About {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "Share app",
+  "shareAppSubtitle": "Tell friends about {appName}",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "Rate app",
+  "rateAppSubtitle": "Leave a review on the app store",
+  "contactUs": "Contact us",
+  "contactUsSubtitle": "Send feedback or report a bug",
+  "moreFromDeveloper": "More from developer",
+  "moreFromDeveloperSubtitle": "Other apps by Avenzor House",
+  "privacyPolicy": "Privacy policy",
+  "backupShareSubject": "{appName} Backup",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "Nothing here yet",
+  "emptyNothingYetMessage": "Track when you last did anything — water plants, car wash, call family.",
+  "addActivity": "Add activity",
+  "addActivityFab": "Add Activity",
+  "noMatches": "No matches",
+  "noMatchesFilter": "No activities match your search or filter.",
+  "nothingToShow": "Nothing to show right now.",
+  "clearFilters": "Clear filters",
+  "errorWithDetails": "Error: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "Delete activity?",
+  "deleteActivityMessage": "Delete \"{title}\" and all history?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "Delete \"{title}\" and all its history? This cannot be undone.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "Deleted \"{title}\"",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "Logged \"{title}\" now",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "Search activities...",
+  "sortTooltip": "Sort: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "Recently done",
+  "sortOverdueFirst": "Overdue first",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "All",
+  "editActivity": "Edit Activity",
+  "newActivity": "New Activity",
+  "titleLabel": "Title *",
+  "titleHint": "e.g. Water plants",
+  "titleRequired": "Title is required",
+  "categoryLabel": "Category",
+  "categoryHint": "Home, Vehicle, Personal...",
+  "notes": "Notes",
+  "dueInterval": "Due interval",
+  "markDueEveryXDays": "Mark due every X days",
+  "dueIntervalSubtitle": "Shows due soon / overdue status",
+  "frequencyPreset": "Frequency preset",
+  "daysUntilDue": "Days until due",
+  "daysSuffix": "days",
+  "fixedByPreset": "Fixed by {preset} preset",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "Enter a valid number of days",
+  "saveChanges": "Save Changes",
+  "createActivity": "Create Activity",
+  "reminderNone": "None",
+  "reminderDaily": "Daily",
+  "reminderWeekly": "Weekly",
+  "reminderMonthly": "Monthly",
+  "reminderCustom": "Custom",
+  "statusNeverLogged": "Never logged",
+  "statusLogged": "Logged",
+  "statusRecent": "Recent",
+  "statusDueSoon": "Due soon",
+  "statusOverdue": "Overdue",
+  "editEntry": "Edit Entry",
+  "addEntry": "Add Entry",
+  "date": "Date",
+  "time": "Time",
+  "noteOptional": "Note (optional)",
+  "saveEntry": "Save Entry",
+  "activityNotFound": "Activity not found",
+  "history": "History",
+  "noLogsYet": "No logs yet",
+  "logNow": "Log Now",
+  "addCustomEntry": "Add Custom Entry",
+  "lastDone": "Last done",
+  "nextDue": "Next due",
+  "deleteEntryTitle": "Delete entry?",
+  "deleteEntryMessage": "Remove this log entry permanently?",
+  "categoriesTitle": "Categories",
+  "noCategoriesYet": "No categories yet. Tap Add to create one.",
+  "deleteCategoryTitle": "Delete category?",
+  "deleteCategoryMessage": "Remove \"{name}\" from suggestions? Activities using it will keep their category.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "New category",
+  "categoryHintExample": "e.g. Fitness",
+  "categoryAlreadyExists": "Category already exists",
+  "renameCategory": "Rename category",
+  "backupExported": "Backup exported successfully",
+  "exportFailed": "Export failed: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "Import backup",
+  "importBackupMessage": "Merge imported data with existing activities? Choose Cancel then re-import to replace all data instead.",
+  "replaceAllDataTitle": "Replace all data?",
+  "replaceAllDataMessage": "This will delete all existing activities and occurrences before importing.",
+  "replaceAll": "Replace all",
+  "importedCounts": "Imported {activities} activities and {occurrences} logs",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "Import failed: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "No data yet. Log some activities!",
+  "activityBreakdown": "Activity breakdown",
+  "overview": "Overview",
+  "statActivities": "Activities",
+  "statTotalLogs": "Total logs",
+  "mostOverdue": "Most overdue: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "Time between logs — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "Each bar is how many days you waited before logging again (newest first).",
+  "latestGap": "Latest gap",
+  "average": "Average",
+  "reminder": "Reminder",
+  "daysValue": "{days} days",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "Need at least 2 logs to show gaps between entries",
+  "daysBetweenLogs": "Days between logs",
+  "reminderTarget": "Reminder target",
+  "averageDaysShort": "Average {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "Reminder {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "Gap {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "Latest",
+  "logsCount": "{count, plural, =1{1 log} other{{count} logs}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 log} other{{count} logs}} • avg {avg} days",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} days",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} is a simple, offline-first app that helps you track when you last did anything — water plants, wash your car, call family, and more.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "No streaks. No pressure. Just a clear answer to \"when did I last do that?\"",
+  "features": "Features",
+  "featureTrack": "Track unlimited activities with optional due intervals",
+  "featureElapsed": "See time elapsed since last done, with Recent / Due soon / Overdue status",
+  "featureCategories": "Organize with custom categories",
+  "featureHistory": "Full history with custom backdated entries",
+  "featureInsights": "Insights with average intervals and charts",
+  "featureThemes": "Light and dark brand themes (follows system)",
+  "featureBackup": "JSON export/import backup",
+  "featureOffline": "100% offline — your data stays on your device",
+  "privacyUnableToLoad": "Unable to load the privacy policy. You can view it online instead.",
+  "openOnline": "Open online",
+  "couldNotOpenPrivacyUrl": "Could not open privacy policy URL",
+  "analyticsConsentTitle": "Help improve RememberLast?",
+  "analyticsConsentBody": "You can optionally share anonymous usage analytics with Mixpanel (such as which screens you visit and when you log activities). We never send your activity titles, notes, or other personal content. You can change this anytime in Settings.",
+  "decline": "Decline",
+  "accept": "Accept",
+  "couldNotShareApp": "Could not share app",
+  "couldNotOpenAppStore": "Could not open app store",
+  "couldNotOpenEmail": "Could not open email app",
+  "couldNotOpenDeveloperPage": "Could not open developer page",
+  "justNow": "Just now",
+  "yearsAgo": "{count, plural, =1{1 year ago} other{{count} years ago}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 month ago} other{{count} months ago}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 day ago} other{{count} days ago}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 hour ago} other{{count} hours ago}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 minute ago} other{{count} minutes ago}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// First-launch dialog asking for optional analytics consent.
 Future<bool?> showAnalyticsConsentDialog(BuildContext context) {
+  final l10n = AppLocalizations.of(context);
   return showDialog<bool>(
     context: context,
     barrierDismissible: false,
     builder: (context) => AlertDialog(
-      title: const Text('Help improve RememberLast?'),
-      content: const Text(
-        'You can optionally share anonymous usage analytics with Mixpanel '
-        '(such as which screens you visit and when you log activities). '
-        'We never send your activity titles, notes, or other personal content. '
-        'You can change this anytime in Settings.',
-      ),
+      title: Text(l10n.analyticsConsentTitle),
+      content: Text(l10n.analyticsConsentBody),
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context, false),
-          child: const Text('Decline'),
+          child: Text(l10n.decline),
         ),
         FilledButton(
           onPressed: () => Navigator.pop(context, true),
-          child: const Text('Accept'),
+          child: Text(l10n.accept),
         ),
       ],
     ),

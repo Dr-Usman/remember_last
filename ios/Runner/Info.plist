@@ -6,6 +6,30 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>de</string>
+		<string>ro</string>
+		<string>th</string>
+		<string>zh</string>
+		<string>es</string>
+		<string>hi</string>
+		<string>bn</string>
+		<string>ne</string>
+		<string>ms</string>
+		<string>fil</string>
+		<string>id</string>
+		<string>fr</string>
+		<string>it</string>
+		<string>pt</string>
+		<string>pl</string>
+		<string>nl</string>
+		<string>vi</string>
+		<string>tr</string>
+		<string>ja</string>
+		<string>ko</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>Remember Last</string>
 	<key>CFBundleExecutable</key>

@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:remember_last/features/activities/presentation/widgets/home_filters_bar.dart';
 import 'package:remember_last/features/categories/presentation/providers/categories_providers.dart';
 
+import 'helpers/l10n_wrap.dart';
+
 void main() {
   testWidgets('HomeFiltersBar pumps without render assertions', (tester) async {
     final errors = <String>[];
@@ -21,8 +23,8 @@ void main() {
             (ref) => Stream.value(const <String>['Work']),
           ),
         ],
-        child: const MaterialApp(
-          home: Scaffold(
+        child: wrapApp(
+          const Scaffold(
             body: Padding(padding: EdgeInsets.all(16), child: HomeFiltersBar()),
           ),
         ),

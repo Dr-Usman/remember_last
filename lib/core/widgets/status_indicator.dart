@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
 import '../utils/activity_status.dart';
+import '../utils/l10n_labels.dart';
+import '../../l10n/app_localizations.dart';
 
 /// Small colored badge showing activity status.
 class StatusIndicator extends StatelessWidget {
@@ -42,7 +44,10 @@ class StatusIndicator extends StatelessWidget {
             decoration: BoxDecoration(color: color, shape: BoxShape.circle),
           ),
           const SizedBox(width: 5),
-          Text(status.label, style: labelStyle),
+          Text(
+            status.l10nLabel(AppLocalizations.of(context)),
+            style: labelStyle,
+          ),
         ],
       ),
     );

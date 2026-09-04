@@ -1,0 +1,388 @@
+{
+  "@@locale": "pl",
+  "cancel": "Anuluj",
+  "delete": "Usuń",
+  "save": "Zapisz",
+  "add": "Dodaj",
+  "edit": "Edytuj",
+  "rename": "Zmień nazwę",
+  "merge": "Scal",
+  "settings": "Ustawienia",
+  "insights": "Statystyki",
+  "about": "Informacje",
+  "appearance": "Wygląd",
+  "themeSystem": "Systemowy",
+  "themeLight": "Jasny",
+  "themeDark": "Ciemny",
+  "language": "Język",
+  "languageSystemDefault": "Domyślny systemowy",
+  "organize": "Organizuj",
+  "manageCategories": "Zarządzaj kategoriami",
+  "manageCategoriesSubtitle": "Dodawaj lub usuwaj kategorie aktywności",
+  "data": "Dane",
+  "exportBackup": "Eksportuj kopię zapasową",
+  "exportBackupSubtitle": "Zapisz dane jako JSON",
+  "importBackup": "Importuj kopię zapasową",
+  "importBackupSubtitle": "Przywróć z pliku JSON",
+  "privacy": "Prywatność",
+  "usageAnalytics": "Analityka użycia",
+  "usageAnalyticsSubtitle": "Udostępniaj anonimowe użycie ekranów i funkcji przez Mixpanel",
+  "aboutApp": "O {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "Udostępnij aplikację",
+  "shareAppSubtitle": "Opowiedz znajomym o {appName}",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "Oceń aplikację",
+  "rateAppSubtitle": "Zostaw recenzję w sklepie z aplikacjami",
+  "contactUs": "Kontakt",
+  "contactUsSubtitle": "Wyślij opinię lub zgłoś błąd",
+  "moreFromDeveloper": "Więcej od dewelopera",
+  "moreFromDeveloperSubtitle": "Inne aplikacje Avenzor House",
+  "privacyPolicy": "Polityka prywatności",
+  "backupShareSubject": "Kopia zapasowa {appName}",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "Nic tu jeszcze nie ma",
+  "emptyNothingYetMessage": "Śledź, kiedy ostatnio coś zrobiłeś — podlewanie roślin, mycie auta, telefon do rodziny.",
+  "addActivity": "Dodaj aktywność",
+  "addActivityFab": "Dodaj aktywność",
+  "noMatches": "Brak wyników",
+  "noMatchesFilter": "Żadne aktywności nie pasują do wyszukiwania lub filtra.",
+  "nothingToShow": "Nie ma teraz nic do pokazania.",
+  "clearFilters": "Wyczyść filtry",
+  "errorWithDetails": "Błąd: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "Usunąć aktywność?",
+  "deleteActivityMessage": "Usunąć „{title}” i całą historię?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "Usunąć „{title}” i całą historię? Tej operacji nie można cofnąć.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "Usunięto „{title}”",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "Zarejestrowano „{title}” teraz",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "Szukaj aktywności...",
+  "sortTooltip": "Sortowanie: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "Ostatnio zrobione",
+  "sortOverdueFirst": "Zaległe najpierw",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "Wszystkie",
+  "editActivity": "Edytuj aktywność",
+  "newActivity": "Nowa aktywność",
+  "titleLabel": "Tytuł *",
+  "titleHint": "np. Podlej rośliny",
+  "titleRequired": "Tytuł jest wymagany",
+  "categoryLabel": "Kategoria",
+  "categoryHint": "Dom, Pojazd, Osobiste...",
+  "notes": "Notatki",
+  "dueInterval": "Interwał terminu",
+  "markDueEveryXDays": "Oznacz jako zaległe co X dni",
+  "dueIntervalSubtitle": "Pokazuje status wkrótce / zaległe",
+  "frequencyPreset": "Preset częstotliwości",
+  "daysUntilDue": "Dni do terminu",
+  "daysSuffix": "dni",
+  "fixedByPreset": "Ustalony przez preset {preset}",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "Podaj prawidłową liczbę dni",
+  "saveChanges": "Zapisz zmiany",
+  "createActivity": "Utwórz aktywność",
+  "reminderNone": "Brak",
+  "reminderDaily": "Codziennie",
+  "reminderWeekly": "Tygodniowo",
+  "reminderMonthly": "Miesięcznie",
+  "reminderCustom": "Niestandardowe",
+  "statusNeverLogged": "Nigdy nie zarejestrowano",
+  "statusLogged": "Zarejestrowano",
+  "statusRecent": "Niedawne",
+  "statusDueSoon": "Wkrótce",
+  "statusOverdue": "Zaległe",
+  "editEntry": "Edytuj wpis",
+  "addEntry": "Dodaj wpis",
+  "date": "Data",
+  "time": "Godzina",
+  "noteOptional": "Notatka (opcjonalnie)",
+  "saveEntry": "Zapisz wpis",
+  "activityNotFound": "Nie znaleziono aktywności",
+  "history": "Historia",
+  "noLogsYet": "Brak wpisów",
+  "logNow": "Zarejestruj teraz",
+  "addCustomEntry": "Dodaj wpis niestandardowy",
+  "lastDone": "Ostatnio zrobione",
+  "nextDue": "Następny termin",
+  "deleteEntryTitle": "Usunąć wpis?",
+  "deleteEntryMessage": "Trwale usunąć ten wpis dziennika?",
+  "categoriesTitle": "Kategorie",
+  "noCategoriesYet": "Brak kategorii. Stuknij Dodaj, aby utworzyć.",
+  "deleteCategoryTitle": "Usunąć kategorię?",
+  "deleteCategoryMessage": "Usunąć „{name}” z podpowiedzi? Aktywności, które jej używają, zachowają kategorię.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "Nowa kategoria",
+  "categoryHintExample": "np. Fitness",
+  "categoryAlreadyExists": "Kategoria już istnieje",
+  "renameCategory": "Zmień nazwę kategorii",
+  "backupExported": "Kopia zapasowa wyeksportowana pomyślnie",
+  "exportFailed": "Eksport nie powiódł się: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "Importuj kopię zapasową",
+  "importBackupMessage": "Scalić zaimportowane dane z istniejącymi aktywnościami? Wybierz Anuluj i zaimportuj ponownie, aby zastąpić wszystkie dane.",
+  "replaceAllDataTitle": "Zastąpić wszystkie dane?",
+  "replaceAllDataMessage": "To usunie wszystkie istniejące aktywności i wystąpienia przed importem.",
+  "replaceAll": "Zastąp wszystko",
+  "importedCounts": "Zaimportowano {activities} aktywności i {occurrences} wpisów",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "Import nie powiódł się: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "Brak danych. Zarejestruj kilka aktywności!",
+  "activityBreakdown": "Podział aktywności",
+  "overview": "Przegląd",
+  "statActivities": "Aktywności",
+  "statTotalLogs": "Łącznie wpisów",
+  "mostOverdue": "Najbardziej zaległe: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "Czas między wpisami — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "Każdy słupek pokazuje, ile dni czekałeś przed kolejnym wpisem (najnowsze najpierw).",
+  "latestGap": "Ostatnia przerwa",
+  "average": "Średnia",
+  "reminder": "Przypomnienie",
+  "daysValue": "{days} dni",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "Potrzeba co najmniej 2 wpisów, aby pokazać przerwy między pozycjami",
+  "daysBetweenLogs": "Dni między wpisami",
+  "reminderTarget": "Cel przypomnienia",
+  "averageDaysShort": "Śr. {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "Przypomnienie {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "Przerwa {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "Najnowsze",
+  "logsCount": "{count, plural, =1{1 wpis} other{{count} wpisów}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 wpis} other{{count} wpisów}} • śr. {avg} dni",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} dni",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} to prosta aplikacja działająca offline, która pomaga śledzić, kiedy ostatnio coś zrobiłeś — podlewanie roślin, mycie auta, telefon do rodziny i więcej.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "Bez serii. Bez presji. Tylko jasna odpowiedź na „kiedy ostatnio to zrobiłem?”",
+  "features": "Funkcje",
+  "featureTrack": "Śledź nieograniczoną liczbę aktywności z opcjonalnymi interwałami terminu",
+  "featureElapsed": "Zobacz czas od ostatniego wykonania, ze statusem Niedawne / Wkrótce / Zaległe",
+  "featureCategories": "Organizuj za pomocą własnych kategorii",
+  "featureHistory": "Pełna historia z wpisami z wsteczną datą",
+  "featureInsights": "Statystyki ze średnimi interwałami i wykresami",
+  "featureThemes": "Jasne i ciemne motywy marki (zgodnie z systemem)",
+  "featureBackup": "Kopia zapasowa przez eksport/import JSON",
+  "featureOffline": "W 100% offline — dane zostają na Twoim urządzeniu",
+  "privacyUnableToLoad": "Nie można wczytać polityki prywatności. Możesz zobaczyć ją online.",
+  "openOnline": "Otwórz online",
+  "couldNotOpenPrivacyUrl": "Nie można otworzyć adresu URL polityki prywatności",
+  "analyticsConsentTitle": "Pomóc ulepszyć RememberLast?",
+  "analyticsConsentBody": "Możesz opcjonalnie udostępniać anonimową analitykę użycia Mixpanel (np. które ekrany odwiedzasz i kiedy rejestrujesz aktywności). Nigdy nie wysyłamy tytułów aktywności, notatek ani innych treści osobistych. Możesz to zmienić w dowolnym momencie w Ustawieniach.",
+  "decline": "Odrzuć",
+  "accept": "Akceptuj",
+  "couldNotShareApp": "Nie można udostępnić aplikacji",
+  "couldNotOpenAppStore": "Nie można otworzyć sklepu z aplikacjami",
+  "couldNotOpenEmail": "Nie można otworzyć aplikacji e-mail",
+  "couldNotOpenDeveloperPage": "Nie można otworzyć strony dewelopera",
+  "justNow": "Przed chwilą",
+  "yearsAgo": "{count, plural, =1{1 rok temu} other{{count} lat temu}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 miesiąc temu} other{{count} mies. temu}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 dzień temu} other{{count} dni temu}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 godz. temu} other{{count} godz. temu}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 min temu} other{{count} min temu}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

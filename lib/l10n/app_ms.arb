@@ -1,0 +1,388 @@
+{
+  "@@locale": "ms",
+  "cancel": "Batal",
+  "delete": "Padam",
+  "save": "Simpan",
+  "add": "Tambah",
+  "edit": "Edit",
+  "rename": "Tukar nama",
+  "merge": "Gabung",
+  "settings": "Tetapan",
+  "insights": "Wawasan",
+  "about": "Perihal",
+  "appearance": "Penampilan",
+  "themeSystem": "Sistem",
+  "themeLight": "Cerah",
+  "themeDark": "Gelap",
+  "language": "Bahasa",
+  "languageSystemDefault": "Lalai sistem",
+  "organize": "Susun",
+  "manageCategories": "Urus kategori",
+  "manageCategoriesSubtitle": "Tambah atau buang kategori aktiviti",
+  "data": "Data",
+  "exportBackup": "Eksport sandaran",
+  "exportBackupSubtitle": "Simpan data anda sebagai JSON",
+  "importBackup": "Import sandaran",
+  "importBackupSubtitle": "Pulihkan daripada fail JSON",
+  "privacy": "Privasi",
+  "usageAnalytics": "Analitik penggunaan",
+  "usageAnalyticsSubtitle": "Kongsi penggunaan skrin dan ciri tanpa nama melalui Mixpanel",
+  "aboutApp": "Perihal {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "Kongsi aplikasi",
+  "shareAppSubtitle": "Beritahu rakan tentang {appName}",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "Nilai aplikasi",
+  "rateAppSubtitle": "Tinggalkan ulasan di gedung aplikasi",
+  "contactUs": "Hubungi kami",
+  "contactUsSubtitle": "Hantar maklum balas atau laporkan pepijat",
+  "moreFromDeveloper": "Lagi daripada pembangun",
+  "moreFromDeveloperSubtitle": "Aplikasi lain oleh Avenzor House",
+  "privacyPolicy": "Dasar privasi",
+  "backupShareSubject": "Sandaran {appName}",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "Belum ada apa-apa di sini",
+  "emptyNothingYetMessage": "Jejaki bila kali terakhir anda melakukan sesuatu — siram tanaman, cuci kereta, telefon keluarga.",
+  "addActivity": "Tambah aktiviti",
+  "addActivityFab": "Tambah aktiviti",
+  "noMatches": "Tiada padanan",
+  "noMatchesFilter": "Tiada aktiviti yang sepadan dengan carian atau penapis anda.",
+  "nothingToShow": "Tiada apa-apa untuk ditunjukkan sekarang.",
+  "clearFilters": "Kosongkan penapis",
+  "errorWithDetails": "Ralat: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "Padam aktiviti?",
+  "deleteActivityMessage": "Padam \"{title}\" dan semua sejarah?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "Padam \"{title}\" dan semua sejarahnya? Ini tidak boleh dibuat asal.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "\"{title}\" dipadam",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "\"{title}\" dilog sekarang",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "Cari aktiviti...",
+  "sortTooltip": "Isih: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "Baru-baru ini dilakukan",
+  "sortOverdueFirst": "Tertunggak dahulu",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "Semua",
+  "editActivity": "Edit aktiviti",
+  "newActivity": "Aktiviti baharu",
+  "titleLabel": "Tajuk *",
+  "titleHint": "cth. Siram tanaman",
+  "titleRequired": "Tajuk diperlukan",
+  "categoryLabel": "Kategori",
+  "categoryHint": "Rumah, Kenderaan, Peribadi...",
+  "notes": "Nota",
+  "dueInterval": "Selang tarikh akhir",
+  "markDueEveryXDays": "Tanda jatuh tempo setiap X hari",
+  "dueIntervalSubtitle": "Menunjukkan status hampir tamat / tertunggak",
+  "frequencyPreset": "Praset kekerapan",
+  "daysUntilDue": "Hari hingga tarikh akhir",
+  "daysSuffix": "hari",
+  "fixedByPreset": "Ditetapkan oleh praset {preset}",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "Masukkan bilangan hari yang sah",
+  "saveChanges": "Simpan perubahan",
+  "createActivity": "Cipta aktiviti",
+  "reminderNone": "Tiada",
+  "reminderDaily": "Harian",
+  "reminderWeekly": "Mingguan",
+  "reminderMonthly": "Bulanan",
+  "reminderCustom": "Tersuai",
+  "statusNeverLogged": "Tidak pernah dilog",
+  "statusLogged": "Dilog",
+  "statusRecent": "Terkini",
+  "statusDueSoon": "Hampir tamat",
+  "statusOverdue": "Tertunggak",
+  "editEntry": "Edit entri",
+  "addEntry": "Tambah entri",
+  "date": "Tarikh",
+  "time": "Masa",
+  "noteOptional": "Nota (pilihan)",
+  "saveEntry": "Simpan entri",
+  "activityNotFound": "Aktiviti tidak dijumpai",
+  "history": "Sejarah",
+  "noLogsYet": "Belum ada log",
+  "logNow": "Log sekarang",
+  "addCustomEntry": "Tambah entri tersuai",
+  "lastDone": "Kali terakhir dilakukan",
+  "nextDue": "Tarikh akhir seterusnya",
+  "deleteEntryTitle": "Padam entri?",
+  "deleteEntryMessage": "Buang entri log ini secara kekal?",
+  "categoriesTitle": "Kategori",
+  "noCategoriesYet": "Belum ada kategori. Ketik Tambah untuk mencipta satu.",
+  "deleteCategoryTitle": "Padam kategori?",
+  "deleteCategoryMessage": "Buang \"{name}\" daripada cadangan? Aktiviti yang menggunakannya akan mengekalkan kategorinya.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "Kategori baharu",
+  "categoryHintExample": "cth. Kecergasan",
+  "categoryAlreadyExists": "Kategori sudah wujud",
+  "renameCategory": "Tukar nama kategori",
+  "backupExported": "Sandaran berjaya dieksport",
+  "exportFailed": "Eksport gagal: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "Import sandaran",
+  "importBackupMessage": "Gabungkan data yang diimport dengan aktiviti sedia ada? Pilih Batal kemudian import semula untuk mengganti semua data.",
+  "replaceAllDataTitle": "Ganti semua data?",
+  "replaceAllDataMessage": "Ini akan memadam semua aktiviti dan kejadian sedia ada sebelum mengimport.",
+  "replaceAll": "Ganti semua",
+  "importedCounts": "{activities} aktiviti dan {occurrences} log diimport",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "Import gagal: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "Belum ada data. Log beberapa aktiviti!",
+  "activityBreakdown": "Pecahan aktiviti",
+  "overview": "Gambaran keseluruhan",
+  "statActivities": "Aktiviti",
+  "statTotalLogs": "Jumlah log",
+  "mostOverdue": "Paling tertunggak: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "Masa antara log — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "Setiap bar ialah berapa hari anda menunggu sebelum log semula (terbaru dahulu).",
+  "latestGap": "Jurang terkini",
+  "average": "Purata",
+  "reminder": "Peringatan",
+  "daysValue": "{days} hari",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "Perlu sekurang-kurangnya 2 log untuk menunjukkan jurang antara entri",
+  "daysBetweenLogs": "Hari antara log",
+  "reminderTarget": "Sasaran peringatan",
+  "averageDaysShort": "Purata {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "Peringatan {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "Jurang {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "Terkini",
+  "logsCount": "{count, plural, =1{1 log} other{{count} log}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 log} other{{count} log}} • purata {avg} hari",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} hari",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} ialah aplikasi mudah, luar talian dahulu, yang membantu anda jejaki bila kali terakhir anda melakukan sesuatu — siram tanaman, cuci kereta, telefon keluarga dan banyak lagi.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "Tiada rentetan. Tiada tekanan. Hanya jawapan jelas kepada \"bila kali terakhir saya buat itu?\"",
+  "features": "Ciri",
+  "featureTrack": "Jejaki aktiviti tanpa had dengan selang tarikh akhir pilihan",
+  "featureElapsed": "Lihat masa berlalu sejak kali terakhir, dengan status Terkini / Hampir tamat / Tertunggak",
+  "featureCategories": "Susun dengan kategori tersuai",
+  "featureHistory": "Sejarah penuh dengan entri bertarikh undur tersuai",
+  "featureInsights": "Wawasan dengan selang purata dan carta",
+  "featureThemes": "Tema jenama cerah dan gelap (mengikut sistem)",
+  "featureBackup": "Sandaran eksport/import JSON",
+  "featureOffline": "100% luar talian — data anda kekal pada peranti anda",
+  "privacyUnableToLoad": "Tidak dapat memuatkan dasar privasi. Anda boleh melihatnya dalam talian.",
+  "openOnline": "Buka dalam talian",
+  "couldNotOpenPrivacyUrl": "Tidak dapat membuka URL dasar privasi",
+  "analyticsConsentTitle": "Bantu menambah baik RememberLast?",
+  "analyticsConsentBody": "Anda boleh secara pilihan berkongsi analitik penggunaan tanpa nama dengan Mixpanel (seperti skrin yang anda lawati dan bila anda log aktiviti). Kami tidak pernah menghantar tajuk aktiviti, nota atau kandungan peribadi lain. Anda boleh menukar ini pada bila-bila masa dalam Tetapan.",
+  "decline": "Tolak",
+  "accept": "Terima",
+  "couldNotShareApp": "Tidak dapat kongsi aplikasi",
+  "couldNotOpenAppStore": "Tidak dapat membuka gedung aplikasi",
+  "couldNotOpenEmail": "Tidak dapat membuka aplikasi e-mel",
+  "couldNotOpenDeveloperPage": "Tidak dapat membuka halaman pembangun",
+  "justNow": "Tadi",
+  "yearsAgo": "{count, plural, =1{1 tahun lalu} other{{count} tahun lalu}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 bulan lalu} other{{count} bulan lalu}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 hari lalu} other{{count} hari lalu}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 jam lalu} other{{count} jam lalu}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 minit lalu} other{{count} minit lalu}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

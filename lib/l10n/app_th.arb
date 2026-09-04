@@ -1,0 +1,388 @@
+{
+  "@@locale": "th",
+  "cancel": "ยกเลิก",
+  "delete": "ลบ",
+  "save": "บันทึก",
+  "add": "เพิ่ม",
+  "edit": "แก้ไข",
+  "rename": "เปลี่ยนชื่อ",
+  "merge": "รวม",
+  "settings": "การตั้งค่า",
+  "insights": "ข้อมูลเชิงลึก",
+  "about": "เกี่ยวกับ",
+  "appearance": "ลักษณะที่ปรากฏ",
+  "themeSystem": "ระบบ",
+  "themeLight": "สว่าง",
+  "themeDark": "มืด",
+  "language": "ภาษา",
+  "languageSystemDefault": "ค่าเริ่มต้นของระบบ",
+  "organize": "จัดระเบียบ",
+  "manageCategories": "จัดการหมวดหมู่",
+  "manageCategoriesSubtitle": "เพิ่มหรือลบหมวดหมู่กิจกรรม",
+  "data": "ข้อมูล",
+  "exportBackup": "ส่งออกข้อมูลสำรอง",
+  "exportBackupSubtitle": "บันทึกข้อมูลเป็น JSON",
+  "importBackup": "นำเข้าข้อมูลสำรอง",
+  "importBackupSubtitle": "กู้คืนจากไฟล์ JSON",
+  "privacy": "ความเป็นส่วนตัว",
+  "usageAnalytics": "การวิเคราะห์การใช้งาน",
+  "usageAnalyticsSubtitle": "แชร์การใช้งานหน้าจอและฟีเจอร์แบบไม่ระบุตัวตนผ่าน Mixpanel",
+  "aboutApp": "เกี่ยวกับ {appName}",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "แชร์แอป",
+  "shareAppSubtitle": "บอกเพื่อนเกี่ยวกับ {appName}",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "ให้คะแนนแอป",
+  "rateAppSubtitle": "เขียนรีวิวในสโตร์แอป",
+  "contactUs": "ติดต่อเรา",
+  "contactUsSubtitle": "ส่งข้อเสนอแนะหรือรายงานข้อผิดพลาด",
+  "moreFromDeveloper": "เพิ่มเติมจากนักพัฒนา",
+  "moreFromDeveloperSubtitle": "แอปอื่นจาก Avenzor House",
+  "privacyPolicy": "นโยบายความเป็นส่วนตัว",
+  "backupShareSubject": "ข้อมูลสำรอง {appName}",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "ยังไม่มีอะไรที่นี่",
+  "emptyNothingYetMessage": "ติดตามว่าคุณทำอะไรครั้งล่าสุดเมื่อใด — รดน้ำต้นไม้ ล้างรถ โทรหาครอบครัว",
+  "addActivity": "เพิ่มกิจกรรม",
+  "addActivityFab": "เพิ่มกิจกรรม",
+  "noMatches": "ไม่พบรายการที่ตรงกัน",
+  "noMatchesFilter": "ไม่มีกิจกรรมที่ตรงกับการค้นหาหรือตัวกรองของคุณ",
+  "nothingToShow": "ยังไม่มีอะไรแสดงในตอนนี้",
+  "clearFilters": "ล้างตัวกรอง",
+  "errorWithDetails": "ข้อผิดพลาด: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "ลบกิจกรรม?",
+  "deleteActivityMessage": "ลบ \"{title}\" และประวัติทั้งหมด?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "ลบ \"{title}\" และประวัติทั้งหมด? การกระทำนี้ไม่สามารถย้อนกลับได้",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "ลบ \"{title}\" แล้ว",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "บันทึก \"{title}\" แล้วตอนนี้",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "ค้นหากิจกรรม...",
+  "sortTooltip": "เรียง: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "ทำล่าสุด",
+  "sortOverdueFirst": "เกินกำหนดก่อน",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "ทั้งหมด",
+  "editActivity": "แก้ไขกิจกรรม",
+  "newActivity": "กิจกรรมใหม่",
+  "titleLabel": "ชื่อเรื่อง *",
+  "titleHint": "เช่น รดน้ำต้นไม้",
+  "titleRequired": "ต้องระบุชื่อเรื่อง",
+  "categoryLabel": "หมวดหมู่",
+  "categoryHint": "บ้าน ยานพาหนะ ส่วนตัว...",
+  "notes": "บันทึกย่อ",
+  "dueInterval": "ช่วงกำหนดครบ",
+  "markDueEveryXDays": "ทำเครื่องหมายครบกำหนดทุก X วัน",
+  "dueIntervalSubtitle": "แสดงสถานะใกล้ครบกำหนด / เกินกำหนด",
+  "frequencyPreset": "ชุดความถี่สำเร็จรูป",
+  "daysUntilDue": "จำนวนวันจนกว่าจะครบกำหนด",
+  "daysSuffix": "วัน",
+  "fixedByPreset": "กำหนดโดยชุด {preset}",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "ใส่จำนวนวันที่ถูกต้อง",
+  "saveChanges": "บันทึกการเปลี่ยนแปลง",
+  "createActivity": "สร้างกิจกรรม",
+  "reminderNone": "ไม่มี",
+  "reminderDaily": "รายวัน",
+  "reminderWeekly": "รายสัปดาห์",
+  "reminderMonthly": "รายเดือน",
+  "reminderCustom": "กำหนดเอง",
+  "statusNeverLogged": "ยังไม่เคยบันทึก",
+  "statusLogged": "บันทึกแล้ว",
+  "statusRecent": "ล่าสุด",
+  "statusDueSoon": "ใกล้ครบกำหนด",
+  "statusOverdue": "เกินกำหนด",
+  "editEntry": "แก้ไขรายการ",
+  "addEntry": "เพิ่มรายการ",
+  "date": "วันที่",
+  "time": "เวลา",
+  "noteOptional": "บันทึกย่อ (ไม่บังคับ)",
+  "saveEntry": "บันทึกรายการ",
+  "activityNotFound": "ไม่พบกิจกรรม",
+  "history": "ประวัติ",
+  "noLogsYet": "ยังไม่มีบันทึก",
+  "logNow": "บันทึกตอนนี้",
+  "addCustomEntry": "เพิ่มรายการกำหนดเอง",
+  "lastDone": "ทำครั้งล่าสุด",
+  "nextDue": "ครบกำหนดถัดไป",
+  "deleteEntryTitle": "ลบรายการ?",
+  "deleteEntryMessage": "ลบรายการบันทึกนี้อย่างถาวร?",
+  "categoriesTitle": "หมวดหมู่",
+  "noCategoriesYet": "ยังไม่มีหมวดหมู่ แตะเพิ่มเพื่อสร้าง",
+  "deleteCategoryTitle": "ลบหมวดหมู่?",
+  "deleteCategoryMessage": "นำ \"{name}\" ออกจากคำแนะนำ? กิจกรรมที่ใช้หมวดหมู่นี้จะยังคงหมวดหมู่อยู่",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "หมวดหมู่ใหม่",
+  "categoryHintExample": "เช่น ฟิตเนส",
+  "categoryAlreadyExists": "มีหมวดหมู่นี้แล้ว",
+  "renameCategory": "เปลี่ยนชื่อหมวดหมู่",
+  "backupExported": "ส่งออกข้อมูลสำรองสำเร็จ",
+  "exportFailed": "ส่งออกล้มเหลว: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "นำเข้าข้อมูลสำรอง",
+  "importBackupMessage": "รวมข้อมูลที่นำเข้ากับกิจกรรมที่มีอยู่หรือไม่ เลือกยกเลิกแล้วนำเข้าอีกครั้งเพื่อแทนที่ข้อมูลทั้งหมดแทน",
+  "replaceAllDataTitle": "แทนที่ข้อมูลทั้งหมด?",
+  "replaceAllDataMessage": "การดำเนินการนี้จะลบกิจกรรมและการเกิดทั้งหมดที่มีอยู่ก่อนนำเข้า",
+  "replaceAll": "แทนที่ทั้งหมด",
+  "importedCounts": "นำเข้ากิจกรรม {activities} รายการ และบันทึก {occurrences} รายการ",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "นำเข้าล้มเหลว: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "ยังไม่มีข้อมูล บันทึกกิจกรรมบางอย่างสิ!",
+  "activityBreakdown": "รายละเอียดกิจกรรม",
+  "overview": "ภาพรวม",
+  "statActivities": "กิจกรรม",
+  "statTotalLogs": "บันทึกทั้งหมด",
+  "mostOverdue": "เกินกำหนดมากที่สุด: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "ระยะเวลาระหว่างบันทึก — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "แต่ละแท่งคือจำนวนวันที่คุณรอคอยก่อนบันทึกอีกครั้ง (ใหม่สุดก่อน)",
+  "latestGap": "ช่องว่างล่าสุด",
+  "average": "ค่าเฉลี่ย",
+  "reminder": "การเตือน",
+  "daysValue": "{days} วัน",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "ต้องมีอย่างน้อย 2 บันทึกเพื่อแสดงช่องว่างระหว่างรายการ",
+  "daysBetweenLogs": "จำนวนวันระหว่างบันทึก",
+  "reminderTarget": "เป้าหมายการเตือน",
+  "averageDaysShort": "เฉลี่ย {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "เตือน {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "ช่องว่าง {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "ล่าสุด",
+  "logsCount": "{count, plural, =1{1 บันทึก} other{{count} บันทึก}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 บันทึก} other{{count} บันทึก}} • เฉลี่ย {avg} วัน",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} วัน",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} เป็นแอปแบบออฟไลน์เป็นหลักที่เรียบง่าย ช่วยให้คุณติดตามว่าทำอะไรครั้งล่าสุดเมื่อใด — รดน้ำต้นไม้ ล้างรถ โทรหาครอบครัว และอื่นๆ",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "ไม่มีสตรีค ไม่มีความกดดัน มีเพียงคำตอบที่ชัดเจนว่า \"ฉันทำสิ่งนั้นครั้งล่าสุดเมื่อไหร่?\"",
+  "features": "ฟีเจอร์",
+  "featureTrack": "ติดตามกิจกรรมไม่จำกัดพร้อมช่วงกำหนดครบแบบเลือกได้",
+  "featureElapsed": "ดูเวลาที่ผ่านไปตั้งแต่ทำครั้งล่าสุด พร้อมสถานะล่าสุด / ใกล้ครบกำหนด / เกินกำหนด",
+  "featureCategories": "จัดระเบียบด้วยหมวดหมู่ที่กำหนดเอง",
+  "featureHistory": "ประวัติเต็มพร้อมรายการย้อนหลังที่กำหนดเอง",
+  "featureInsights": "ข้อมูลเชิงลึกพร้อมช่วงเฉลี่ยและแผนภูมิ",
+  "featureThemes": "ธีมแบรนด์สว่างและมืด (ตามระบบ)",
+  "featureBackup": "สำรองข้อมูลด้วยการส่งออก/นำเข้า JSON",
+  "featureOffline": "ออฟไลน์ 100% — ข้อมูลอยู่บนอุปกรณ์ของคุณ",
+  "privacyUnableToLoad": "ไม่สามารถโหลดนโยบายความเป็นส่วนตัวได้ คุณสามารถดูออนไลน์แทนได้",
+  "openOnline": "เปิดออนไลน์",
+  "couldNotOpenPrivacyUrl": "ไม่สามารถเปิด URL นโยบายความเป็นส่วนตัวได้",
+  "analyticsConsentTitle": "ช่วยปรับปรุง RememberLast?",
+  "analyticsConsentBody": "คุณสามารถเลือกแชร์การวิเคราะห์การใช้งานแบบไม่ระบุตัวตนกับ Mixpanel (เช่น หน้าจอที่คุณเข้าชมและเมื่อคุณบันทึกกิจกรรม) เราไม่ส่งชื่อกิจกรรม บันทึกย่อ หรือเนื้อหาส่วนบุคคลอื่น ๆ คุณสามารถเปลี่ยนได้ตลอดเวลาในการตั้งค่า",
+  "decline": "ปฏิเสธ",
+  "accept": "ยอมรับ",
+  "couldNotShareApp": "ไม่สามารถแชร์แอปได้",
+  "couldNotOpenAppStore": "ไม่สามารถเปิดสโตร์แอปได้",
+  "couldNotOpenEmail": "ไม่สามารถเปิดแอปอีเมลได้",
+  "couldNotOpenDeveloperPage": "ไม่สามารถเปิดหน้านักพัฒนาได้",
+  "justNow": "เมื่อกี้",
+  "yearsAgo": "{count, plural, =1{1 ปีที่แล้ว} other{{count} ปีที่แล้ว}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 เดือนที่แล้ว} other{{count} เดือนที่แล้ว}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 วันที่แล้ว} other{{count} วันที่แล้ว}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 ชั่วโมงที่แล้ว} other{{count} ชั่วโมงที่แล้ว}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 นาทีที่แล้ว} other{{count} นาทีที่แล้ว}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

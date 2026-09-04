@@ -3,6 +3,7 @@ import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/constants/app_constants.dart';
+import '../../../../l10n/app_localizations.dart';
 
 const _privacyPolicyAsset = 'docs/privacy_policy.md';
 
@@ -11,12 +12,13 @@ class PrivacyPolicyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Privacy Policy'),
+        title: Text(l10n.privacyPolicy),
         actions: [
           IconButton(
-            tooltip: 'Open online',
+            tooltip: l10n.openOnline,
             icon: const Icon(Icons.open_in_new),
             onPressed: () => _openOnlinePolicy(context),
           ),
@@ -34,8 +36,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(24),
                 child: Text(
-                  'Unable to load the privacy policy. '
-                  'You can view it online instead.',
+                  l10n.privacyUnableToLoad,
                   style: Theme.of(context).textTheme.bodyLarge,
                   textAlign: TextAlign.center,
                 ),
@@ -71,7 +72,9 @@ class PrivacyPolicyScreen extends StatelessWidget {
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not open privacy policy URL')),
+        SnackBar(
+          content: Text(AppLocalizations.of(context).couldNotOpenPrivacyUrl),
+        ),
       );
     }
   }

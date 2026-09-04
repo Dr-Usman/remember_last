@@ -9,6 +9,8 @@ import '../../../../core/router/app_routes.dart';
 import '../../../categories/presentation/providers/categories_providers.dart';
 import '../../domain/entities/activity.dart';
 import '../../domain/enums/reminder_type.dart';
+import '../../../../core/utils/l10n_labels.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class ActivityFormScreen extends ConsumerStatefulWidget {
   const ActivityFormScreen({super.key, this.activityId});
@@ -79,12 +81,13 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final categoriesAsync = ref.watch(mergedCategoriesProvider);
     final categoryOptions = categoriesAsync.valueOrNull ?? [];
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.isEditing ? 'Edit Activity' : 'New Activity'),
+        title: Text(widget.isEditing ? l10n.editActivity : l10n.newActivity),
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
@@ -95,15 +98,15 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                 children: [
                   TextFormField(
                     controller: _titleController,
-                    decoration: const InputDecoration(
-                      labelText: 'Title *',
-                      hintText: 'e.g. Water plants',
+                    decoration: InputDecoration(
+                      labelText: l10n.titleLabel,
+                      hintText: l10n.titleHint,
                     ),
                     textCapitalization: TextCapitalization.sentences,
                     onTapOutside: (_) =>
                         FocusManager.instance.primaryFocus?.unfocus(),
                     validator: (v) => v == null || v.trim().isEmpty
-                        ? 'Title is required'
+                        ? l10n.titleRequired
                         : null,
                   ),
                   const SizedBox(height: 16),
@@ -132,14 +135,14 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                             controller: controller,
                             focusNode: focusNode,
                             decoration: InputDecoration(
-                              labelText: 'Category',
-                              hintText: 'Home, Vehicle, Personal...',
+                              labelText: l10n.categoryLabel,
+                              hintText: l10n.categoryHint,
                               suffixIcon: IconButton(
                                 icon: const Icon(
                                   Icons.settings_outlined,
                                   size: 20,
                                 ),
-                                tooltip: 'Manage categories',
+                                tooltip: l10n.manageCategories,
                                 onPressed: () =>
                                     context.push(AppRoutes.categories),
                               ),
@@ -153,8 +156,8 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                   const SizedBox(height: 16),
                   TextFormField(
                     controller: _notesController,
-                    decoration: const InputDecoration(
-                      labelText: 'Notes',
+                    decoration: InputDecoration(
+                      labelText: l10n.notes,
                       alignLabelWithHint: true,
                     ),
                     maxLines: 3,
@@ -164,14 +167,14 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                   ),
                   const SizedBox(height: 24),
                   Text(
-                    'Due interval',
+                    l10n.dueInterval,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(height: 8),
                   SwitchListTile(
                     contentPadding: EdgeInsets.zero,
-                    title: const Text('Mark due every X days'),
-                    subtitle: const Text('Shows due soon / overdue status'),
+                    title: Text(l10n.markDueEveryXDays),
+                    subtitle: Text(l10n.dueIntervalSubtitle),
                     value: _reminderEnabled,
                     onChanged: (v) {
                       setState(() {
@@ -189,14 +192,14 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                     const SizedBox(height: 4),
                     DropdownButtonFormField<ReminderType>(
                       initialValue: _reminderType,
-                      decoration: const InputDecoration(
-                        labelText: 'Frequency preset',
+                      decoration: InputDecoration(
+                        labelText: l10n.frequencyPreset,
                       ),
                       items: ReminderType.selectable
                           .map(
                             (t) => DropdownMenuItem(
                               value: t,
-                              child: Text(t.label),
+                              child: Text(t.l10nLabel(l10n)),
                             ),
                           )
                           .toList(),
@@ -213,11 +216,13 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                       controller: _reminderDaysController,
                       enabled: _reminderType == ReminderType.custom,
                       decoration: InputDecoration(
-                        labelText: 'Days until due',
-                        suffixText: 'days',
+                        labelText: l10n.daysUntilDue,
+                        suffixText: l10n.daysSuffix,
                         helperText: _reminderType == ReminderType.custom
                             ? null
-                            : 'Fixed by ${_reminderType.label.toLowerCase()} preset',
+                            : l10n.fixedByPreset(
+                                _reminderType.l10nLabel(l10n).toLowerCase(),
+                              ),
                       ),
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -228,7 +233,7 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                         if (_reminderType.hasFixedDays) return null;
                         final days = int.tryParse(v ?? '');
                         if (days == null || days <= 0) {
-                          return 'Enter a valid number of days';
+                          return l10n.invalidDays;
                         }
                         return null;
                       },
@@ -254,7 +259,9 @@ class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
                       : Text(
-                          widget.isEditing ? 'Save Changes' : 'Create Activity',
+                          widget.isEditing
+                              ? l10n.saveChanges
+                              : l10n.createActivity,
                         ),
                 ),
               ),

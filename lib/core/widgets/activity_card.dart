@@ -4,6 +4,7 @@ import '../../features/activities/domain/entities/activity.dart';
 import '../theme/app_colors.dart';
 import '../utils/activity_status.dart';
 import '../utils/date_formatter.dart';
+import '../../l10n/app_localizations.dart';
 import 'status_indicator.dart';
 
 /// Card displaying an activity summary on the home screen.
@@ -28,6 +29,8 @@ class ActivityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
+    final localeName = Localizations.localeOf(context).toString();
     final scheme = theme.colorScheme;
     final activity = item.activity;
     final lastDone = item.lastDoneAt;
@@ -101,6 +104,7 @@ class ActivityCard extends StatelessWidget {
                             Text(
                               DateFormatter.formatElapsed(
                                 lastDone,
+                                l10n,
                                 now: elapsedNow,
                               ),
                               style: theme.textTheme.titleMedium?.copyWith(
@@ -111,7 +115,7 @@ class ActivityCard extends StatelessWidget {
                             )
                           else
                             Text(
-                              'Never logged',
+                              l10n.statusNeverLogged,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 color: AppColors.neutral,
                                 fontWeight: FontWeight.w600,
@@ -121,7 +125,10 @@ class ActivityCard extends StatelessWidget {
                           if (lastDone != null) ...[
                             const SizedBox(height: 2),
                             Text(
-                              DateFormatter.formatAbsoluteDateTime(lastDone),
+                              DateFormatter.formatAbsoluteDateTime(
+                                lastDone,
+                                localeName,
+                              ),
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: scheme.onSurfaceVariant,
                               ),

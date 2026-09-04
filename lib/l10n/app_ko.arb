@@ -1,0 +1,388 @@
+{
+  "@@locale": "ko",
+  "cancel": "취소",
+  "delete": "삭제",
+  "save": "저장",
+  "add": "추가",
+  "edit": "편집",
+  "rename": "이름 바꾸기",
+  "merge": "병합",
+  "settings": "설정",
+  "insights": "인사이트",
+  "about": "정보",
+  "appearance": "모양",
+  "themeSystem": "시스템",
+  "themeLight": "라이트",
+  "themeDark": "다크",
+  "language": "언어",
+  "languageSystemDefault": "시스템 기본값",
+  "organize": "정리",
+  "manageCategories": "카테고리 관리",
+  "manageCategoriesSubtitle": "활동 카테고리 추가 또는 제거",
+  "data": "데이터",
+  "exportBackup": "백업 내보내기",
+  "exportBackupSubtitle": "데이터를 JSON으로 저장",
+  "importBackup": "백업 가져오기",
+  "importBackupSubtitle": "JSON 파일에서 복원",
+  "privacy": "개인정보",
+  "usageAnalytics": "사용 분석",
+  "usageAnalyticsSubtitle": "Mixpanel을 통해 익명 화면 및 기능 사용을 공유",
+  "aboutApp": "{appName} 정보",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "앱 공유",
+  "shareAppSubtitle": "친구에게 {appName} 소개하기",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "앱 평가",
+  "rateAppSubtitle": "앱 스토어에 리뷰 남기기",
+  "contactUs": "문의하기",
+  "contactUsSubtitle": "피드백 보내기 또는 버그 신고",
+  "moreFromDeveloper": "개발자의 다른 앱",
+  "moreFromDeveloperSubtitle": "Avenzor House의 다른 앱",
+  "privacyPolicy": "개인정보 처리방침",
+  "backupShareSubject": "{appName} 백업",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "아직 아무것도 없습니다",
+  "emptyNothingYetMessage": "마지막으로 무언가를 한 시점을 추적하세요 — 식물에 물 주기, 세차, 가족에게 전화.",
+  "addActivity": "활동 추가",
+  "addActivityFab": "활동 추가",
+  "noMatches": "일치 항목 없음",
+  "noMatchesFilter": "검색 또는 필터와 일치하는 활동이 없습니다.",
+  "nothingToShow": "지금은 표시할 내용이 없습니다.",
+  "clearFilters": "필터 지우기",
+  "errorWithDetails": "오류: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "활동을 삭제할까요?",
+  "deleteActivityMessage": "\"{title}\"과(와) 모든 기록을 삭제할까요?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "\"{title}\"과(와) 모든 기록을 삭제할까요? 이 작업은 되돌릴 수 없습니다.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "\"{title}\"을(를) 삭제했습니다",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "\"{title}\"을(를) 지금 기록했습니다",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "활동 검색...",
+  "sortTooltip": "정렬: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "최근 완료",
+  "sortOverdueFirst": "기한 초과 우선",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "전체",
+  "editActivity": "활동 편집",
+  "newActivity": "새 활동",
+  "titleLabel": "제목 *",
+  "titleHint": "예: 식물에 물 주기",
+  "titleRequired": "제목은 필수입니다",
+  "categoryLabel": "카테고리",
+  "categoryHint": "집, 차량, 개인...",
+  "notes": "메모",
+  "dueInterval": "기한 간격",
+  "markDueEveryXDays": "X일마다 기한으로 표시",
+  "dueIntervalSubtitle": "곧 기한 / 기한 초과 상태를 표시합니다",
+  "frequencyPreset": "빈도 프리셋",
+  "daysUntilDue": "기한까지 남은 일수",
+  "daysSuffix": "일",
+  "fixedByPreset": "{preset} 프리셋으로 고정됨",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "유효한 일수를 입력하세요",
+  "saveChanges": "변경 사항 저장",
+  "createActivity": "활동 만들기",
+  "reminderNone": "없음",
+  "reminderDaily": "매일",
+  "reminderWeekly": "매주",
+  "reminderMonthly": "매월",
+  "reminderCustom": "사용자 지정",
+  "statusNeverLogged": "기록 없음",
+  "statusLogged": "기록됨",
+  "statusRecent": "최근",
+  "statusDueSoon": "곧 기한",
+  "statusOverdue": "기한 초과",
+  "editEntry": "항목 편집",
+  "addEntry": "항목 추가",
+  "date": "날짜",
+  "time": "시간",
+  "noteOptional": "메모(선택)",
+  "saveEntry": "항목 저장",
+  "activityNotFound": "활동을 찾을 수 없음",
+  "history": "기록",
+  "noLogsYet": "아직 로그 없음",
+  "logNow": "지금 기록",
+  "addCustomEntry": "사용자 지정 항목 추가",
+  "lastDone": "마지막 완료",
+  "nextDue": "다음 기한",
+  "deleteEntryTitle": "항목을 삭제할까요?",
+  "deleteEntryMessage": "이 로그 항목을 영구적으로 제거할까요?",
+  "categoriesTitle": "카테고리",
+  "noCategoriesYet": "아직 카테고리가 없습니다. 추가를 눌러 만드세요.",
+  "deleteCategoryTitle": "카테고리를 삭제할까요?",
+  "deleteCategoryMessage": "추천에서 \"{name}\"을(를) 제거할까요? 이를 사용하는 활동은 카테고리를 유지합니다.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "새 카테고리",
+  "categoryHintExample": "예: 피트니스",
+  "categoryAlreadyExists": "카테고리가 이미 있습니다",
+  "renameCategory": "카테고리 이름 바꾸기",
+  "backupExported": "백업을 성공적으로 내보냈습니다",
+  "exportFailed": "내보내기 실패: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "백업 가져오기",
+  "importBackupMessage": "가져온 데이터를 기존 활동과 병합할까요? 모든 데이터를 바꾸려면 취소를 선택한 뒤 다시 가져오세요.",
+  "replaceAllDataTitle": "모든 데이터를 바꿀까요?",
+  "replaceAllDataMessage": "가져오기 전에 기존 활동과 발생 기록이 모두 삭제됩니다.",
+  "replaceAll": "모두 바꾸기",
+  "importedCounts": "활동 {activities}개와 로그 {occurrences}개를 가져왔습니다",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "가져오기 실패: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "아직 데이터가 없습니다. 활동을 기록해 보세요!",
+  "activityBreakdown": "활동 분석",
+  "overview": "개요",
+  "statActivities": "활동",
+  "statTotalLogs": "총 로그",
+  "mostOverdue": "가장 기한 초과: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "로그 간격 — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "각 막대는 다시 기록하기 전에 기다린 일수입니다(최신 순).",
+  "latestGap": "최근 간격",
+  "average": "평균",
+  "reminder": "알림",
+  "daysValue": "{days}일",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "항목 사이 간격을 보려면 로그가 최소 2개 필요합니다",
+  "daysBetweenLogs": "로그 사이 일수",
+  "reminderTarget": "알림 목표",
+  "averageDaysShort": "평균 {days}d",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "알림 {days}d",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "간격 {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "최신",
+  "logsCount": "{count, plural, =1{로그 1개} other{로그 {count}개}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{로그 1개} other{로그 {count}개}} • 평균 {avg}일",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days}일",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName}은 간단하고 오프라인 우선인 앱으로, 마지막으로 무언가를 한 시점을 추적하도록 도와줍니다 — 식물에 물 주기, 세차, 가족에게 전화 등.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "연속 기록도, 압박도 없습니다. \"그걸 마지막에 언제 했지?\"에 대한 분명한 답만 있습니다.",
+  "features": "기능",
+  "featureTrack": "선택적 기한 간격으로 무제한 활동 추적",
+  "featureElapsed": "마지막 완료 이후 경과 시간을 최근 / 곧 기한 / 기한 초과 상태와 함께 확인",
+  "featureCategories": "사용자 지정 카테고리로 정리",
+  "featureHistory": "사용자 지정 과거 날짜 항목이 있는 전체 기록",
+  "featureInsights": "평균 간격과 차트가 있는 인사이트",
+  "featureThemes": "라이트 및 다크 브랜드 테마(시스템 따름)",
+  "featureBackup": "JSON 내보내기/가져오기 백업",
+  "featureOffline": "100% 오프라인 — 데이터는 기기에 남습니다",
+  "privacyUnableToLoad": "개인정보 처리방침을 불러올 수 없습니다. 온라인에서 볼 수 있습니다.",
+  "openOnline": "온라인으로 열기",
+  "couldNotOpenPrivacyUrl": "개인정보 처리방침 URL을 열 수 없습니다",
+  "analyticsConsentTitle": "RememberLast 개선에 도움을 주시겠어요?",
+  "analyticsConsentBody": "Mixpanel과 익명 사용 분석을 선택적으로 공유할 수 있습니다(방문한 화면과 활동을 기록한 시점 등). 활동 제목, 메모 또는 기타 개인 콘텐츠는 절대 보내지 않습니다. 설정에서 언제든지 변경할 수 있습니다.",
+  "decline": "거부",
+  "accept": "동의",
+  "couldNotShareApp": "앱을 공유할 수 없습니다",
+  "couldNotOpenAppStore": "앱 스토어를 열 수 없습니다",
+  "couldNotOpenEmail": "이메일 앱을 열 수 없습니다",
+  "couldNotOpenDeveloperPage": "개발자 페이지를 열 수 없습니다",
+  "justNow": "방금",
+  "yearsAgo": "{count, plural, =1{1년 전} other{{count}년 전}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1개월 전} other{{count}개월 전}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1일 전} other{{count}일 전}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1시간 전} other{{count}시간 전}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1분 전} other{{count}분 전}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../categories/presentation/providers/categories_providers.dart';
 import '../providers/activities_providers.dart';
+import '../../../../l10n/app_localizations.dart';
 
 /// Search, category filter chips, and sort controls for the home screen.
 class HomeFiltersBar extends ConsumerStatefulWidget {
@@ -33,6 +34,7 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final filter = ref.watch(activityFilterProvider);
     final categoriesAsync = ref.watch(mergedCategoriesProvider);
 
@@ -56,7 +58,7 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
                   onTapOutside: (_) =>
                       FocusManager.instance.primaryFocus?.unfocus(),
                   decoration: InputDecoration(
-                    hintText: 'Search activities...',
+                    hintText: l10n.searchHint,
                     isDense: true,
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: 12,
@@ -86,23 +88,23 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
             ),
             const SizedBox(width: 8),
             PopupMenuButton<ActivitySort>(
-              tooltip: 'Sort: ${_sortLabel(filter.sort)}',
+              tooltip: l10n.sortTooltip(_sortLabel(l10n, filter.sort)),
               onSelected: (sort) =>
                   ref.read(activityFilterProvider.notifier).setSort(sort),
               itemBuilder: (context) => [
                 _sortMenuItem(
                   value: ActivitySort.recentlyDone,
-                  label: 'Recently done',
+                  label: l10n.sortRecentlyDone,
                   selected: filter.sort == ActivitySort.recentlyDone,
                 ),
                 _sortMenuItem(
                   value: ActivitySort.overdue,
-                  label: 'Overdue first',
+                  label: l10n.sortOverdueFirst,
                   selected: filter.sort == ActivitySort.overdue,
                 ),
                 _sortMenuItem(
                   value: ActivitySort.alphabetical,
-                  label: 'A–Z',
+                  label: l10n.sortAlphabetical,
                   selected: filter.sort == ActivitySort.alphabetical,
                 ),
               ],
@@ -150,7 +152,7 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
               child: Row(
                 children: [
                   _CategoryChip(
-                    label: 'All',
+                    label: l10n.categoryAll,
                     selected: filter.category == null,
                     onSelected: () => ref
                         .read(activityFilterProvider.notifier)
@@ -200,10 +202,10 @@ class _HomeFiltersBarState extends ConsumerState<HomeFiltersBar> {
     );
   }
 
-  String _sortLabel(ActivitySort sort) => switch (sort) {
-    ActivitySort.recentlyDone => 'Recently done',
-    ActivitySort.overdue => 'Overdue first',
-    ActivitySort.alphabetical => 'A–Z',
+  String _sortLabel(AppLocalizations l10n, ActivitySort sort) => switch (sort) {
+    ActivitySort.recentlyDone => l10n.sortRecentlyDone,
+    ActivitySort.overdue => l10n.sortOverdueFirst,
+    ActivitySort.alphabetical => l10n.sortAlphabetical,
   };
 }
 

@@ -1,0 +1,388 @@
+{
+  "@@locale": "tr",
+  "cancel": "İptal",
+  "delete": "Sil",
+  "save": "Kaydet",
+  "add": "Ekle",
+  "edit": "Düzenle",
+  "rename": "Yeniden adlandır",
+  "merge": "Birleştir",
+  "settings": "Ayarlar",
+  "insights": "İçgörüler",
+  "about": "Hakkında",
+  "appearance": "Görünüm",
+  "themeSystem": "Sistem",
+  "themeLight": "Açık",
+  "themeDark": "Koyu",
+  "language": "Dil",
+  "languageSystemDefault": "Sistem varsayılanı",
+  "organize": "Düzenle",
+  "manageCategories": "Kategorileri yönet",
+  "manageCategoriesSubtitle": "Etkinlik kategorileri ekle veya kaldır",
+  "data": "Veri",
+  "exportBackup": "Yedeği dışa aktar",
+  "exportBackupSubtitle": "Verilerinizi JSON olarak kaydedin",
+  "importBackup": "Yedeği içe aktar",
+  "importBackupSubtitle": "Bir JSON dosyasından geri yükleyin",
+  "privacy": "Gizlilik",
+  "usageAnalytics": "Kullanım analitiği",
+  "usageAnalyticsSubtitle": "Anonim ekran ve özellik kullanımını Mixpanel üzerinden paylaş",
+  "aboutApp": "{appName} hakkında",
+  "@aboutApp": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "shareApp": "Uygulamayı paylaş",
+  "shareAppSubtitle": "Arkadaşlarına {appName} uygulamasını anlat",
+  "@shareAppSubtitle": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "Uygulamayı puanla",
+  "rateAppSubtitle": "Uygulama mağazasında inceleme bırak",
+  "contactUs": "Bize ulaşın",
+  "contactUsSubtitle": "Geri bildirim gönder veya hata bildir",
+  "moreFromDeveloper": "Geliştiriciden daha fazlası",
+  "moreFromDeveloperSubtitle": "Avenzor House’un diğer uygulamaları",
+  "privacyPolicy": "Gizlilik politikası",
+  "backupShareSubject": "{appName} yedeği",
+  "@backupShareSubject": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "versionLabelLoading": "{appName} …",
+  "@versionLabelLoading": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNothingYetTitle": "Henüz burada bir şey yok",
+  "emptyNothingYetMessage": "Bir şeyi en son ne zaman yaptığını takip et — bitki sulamak, araba yıkamak, aileyi aramak.",
+  "addActivity": "Etkinlik ekle",
+  "addActivityFab": "Etkinlik ekle",
+  "noMatches": "Eşleşme yok",
+  "noMatchesFilter": "Aramanız veya filtrenizle eşleşen etkinlik yok.",
+  "nothingToShow": "Şu anda gösterilecek bir şey yok.",
+  "clearFilters": "Filtreleri temizle",
+  "errorWithDetails": "Hata: {error}",
+  "@errorWithDetails": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityTitle": "Etkinlik silinsin mi?",
+  "deleteActivityMessage": "\"{title}\" ve tüm geçmiş silinsin mi?",
+  "@deleteActivityMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteActivityMessageUndo": "\"{title}\" ve tüm geçmişi silinsin mi? Bu geri alınamaz.",
+  "@deleteActivityMessageUndo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedActivity": "\"{title}\" silindi",
+  "@deletedActivity": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "loggedNow": "\"{title}\" şimdi kaydedildi",
+  "@loggedNow": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchHint": "Etkinlik ara...",
+  "sortTooltip": "Sırala: {sort}",
+  "@sortTooltip": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "sortRecentlyDone": "Yakın zamanda yapılanlar",
+  "sortOverdueFirst": "Gecikenler önce",
+  "sortAlphabetical": "A–Z",
+  "categoryAll": "Tümü",
+  "editActivity": "Etkinliği düzenle",
+  "newActivity": "Yeni etkinlik",
+  "titleLabel": "Başlık *",
+  "titleHint": "örn. Bitkileri sula",
+  "titleRequired": "Başlık gerekli",
+  "categoryLabel": "Kategori",
+  "categoryHint": "Ev, Araç, Kişisel...",
+  "notes": "Notlar",
+  "dueInterval": "Vade aralığı",
+  "markDueEveryXDays": "Her X günde vadesi gelmiş işaretle",
+  "dueIntervalSubtitle": "Yakında / gecikmiş durumunu gösterir",
+  "frequencyPreset": "Sıklık ön ayarı",
+  "daysUntilDue": "Vadeye kalan gün",
+  "daysSuffix": "gün",
+  "fixedByPreset": "{preset} ön ayarıyla sabit",
+  "@fixedByPreset": {
+    "placeholders": {
+      "preset": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidDays": "Geçerli bir gün sayısı girin",
+  "saveChanges": "Değişiklikleri kaydet",
+  "createActivity": "Etkinlik oluştur",
+  "reminderNone": "Yok",
+  "reminderDaily": "Günlük",
+  "reminderWeekly": "Haftalık",
+  "reminderMonthly": "Aylık",
+  "reminderCustom": "Özel",
+  "statusNeverLogged": "Hiç kaydedilmedi",
+  "statusLogged": "Kaydedildi",
+  "statusRecent": "Yakın",
+  "statusDueSoon": "Yakında",
+  "statusOverdue": "Gecikmiş",
+  "editEntry": "Kaydı düzenle",
+  "addEntry": "Kayıt ekle",
+  "date": "Tarih",
+  "time": "Saat",
+  "noteOptional": "Not (isteğe bağlı)",
+  "saveEntry": "Kaydı kaydet",
+  "activityNotFound": "Etkinlik bulunamadı",
+  "history": "Geçmiş",
+  "noLogsYet": "Henüz kayıt yok",
+  "logNow": "Şimdi kaydet",
+  "addCustomEntry": "Özel kayıt ekle",
+  "lastDone": "Son yapılış",
+  "nextDue": "Sonraki vade",
+  "deleteEntryTitle": "Kayıt silinsin mi?",
+  "deleteEntryMessage": "Bu günlük kaydı kalıcı olarak kaldırılsın mı?",
+  "categoriesTitle": "Kategoriler",
+  "noCategoriesYet": "Henüz kategori yok. Oluşturmak için Ekle’ye dokunun.",
+  "deleteCategoryTitle": "Kategori silinsin mi?",
+  "deleteCategoryMessage": "\"{name}\" önerilerden kaldırılsın mı? Bunu kullanan etkinlikler kategorilerini korur.",
+  "@deleteCategoryMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCategory": "Yeni kategori",
+  "categoryHintExample": "örn. Fitness",
+  "categoryAlreadyExists": "Kategori zaten var",
+  "renameCategory": "Kategoriyi yeniden adlandır",
+  "backupExported": "Yedek başarıyla dışa aktarıldı",
+  "exportFailed": "Dışa aktarma başarısız: {error}",
+  "@exportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importBackupTitle": "Yedeği içe aktar",
+  "importBackupMessage": "İçe aktarılan veriler mevcut etkinliklerle birleştirilsin mi? Tüm verileri değiştirmek için İptal’i seçip yeniden içe aktarın.",
+  "replaceAllDataTitle": "Tüm veriler değiştirilsin mi?",
+  "replaceAllDataMessage": "İçe aktarmadan önce mevcut tüm etkinlikler ve oluşumlar silinir.",
+  "replaceAll": "Tümünü değiştir",
+  "importedCounts": "{activities} etkinlik ve {occurrences} kayıt içe aktarıldı",
+  "@importedCounts": {
+    "placeholders": {
+      "activities": {
+        "type": "int"
+      },
+      "occurrences": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "İçe aktarma başarısız: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsEmpty": "Henüz veri yok. Birkaç etkinlik kaydedin!",
+  "activityBreakdown": "Etkinlik dökümü",
+  "overview": "Genel bakış",
+  "statActivities": "Etkinlikler",
+  "statTotalLogs": "Toplam kayıt",
+  "mostOverdue": "En gecikmiş: {title}",
+  "@mostOverdue": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "timeBetweenLogs": "Kayıtlar arası süre — {title}",
+  "@timeBetweenLogs": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "intervalsCaption": "Her çubuk, yeniden kaydetmeden önce kaç gün beklediğinizi gösterir (en yeniler önce).",
+  "latestGap": "Son boşluk",
+  "average": "Ortalama",
+  "reminder": "Hatırlatıcı",
+  "daysValue": "{days} gün",
+  "@daysValue": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "needTwoLogs": "Kayıtlar arası boşlukları göstermek için en az 2 kayıt gerekir",
+  "daysBetweenLogs": "Kayıtlar arası gün",
+  "reminderTarget": "Hatırlatıcı hedefi",
+  "averageDaysShort": "Ort. {days}g",
+  "@averageDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDaysShort": "Hatırlatıcı {days}g",
+  "@reminderDaysShort": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "gapNumber": "Boşluk {number}",
+  "@gapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "latest": "En son",
+  "logsCount": "{count, plural, =1{1 kayıt} other{{count} kayıt}}",
+  "@logsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "logsCountWithAverage": "{count, plural, =1{1 kayıt} other{{count} kayıt}} • ort. {avg} gün",
+  "@logsCountWithAverage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "avg": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipDays": "{days} gün",
+  "@tooltipDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutBody": "{appName} basit, çevrimdışı öncelikli bir uygulamadır; bir şeyi en son ne zaman yaptığınızı takip etmenize yardımcı olur — bitki sulamak, araba yıkamak, aileyi aramak ve daha fazlası.",
+  "@aboutBody": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutTagline": "Seri yok. Baskı yok. Sadece \"bunu en son ne zaman yaptım?\" sorusuna net bir yanıt.",
+  "features": "Özellikler",
+  "featureTrack": "İsteğe bağlı vade aralıklarıyla sınırsız etkinlik takip edin",
+  "featureElapsed": "Son yapılıştan bu yana geçen süreyi Yakın / Yakında / Gecikmiş durumuyla görün",
+  "featureCategories": "Özel kategorilerle düzenleyin",
+  "featureHistory": "Özel geri tarihli kayıtlarla tam geçmiş",
+  "featureInsights": "Ortalama aralıklar ve grafiklerle içgörüler",
+  "featureThemes": "Açık ve koyu marka temaları (sistemi izler)",
+  "featureBackup": "JSON dışa/içe aktarma yedeği",
+  "featureOffline": "%100 çevrimdışı — verileriniz cihazınızda kalır",
+  "privacyUnableToLoad": "Gizlilik politikası yüklenemedi. Çevrimiçi görüntüleyebilirsiniz.",
+  "openOnline": "Çevrimiçi aç",
+  "couldNotOpenPrivacyUrl": "Gizlilik politikası URL’si açılamadı",
+  "analyticsConsentTitle": "RememberLast’i geliştirmeye yardımcı olun?",
+  "analyticsConsentBody": "İsteğe bağlı olarak Mixpanel ile anonim kullanım analitiği paylaşabilirsiniz (hangi ekranları ziyaret ettiğiniz ve etkinlikleri ne zaman kaydettiğiniz gibi). Etkinlik başlıklarınızı, notlarınızı veya diğer kişisel içeriği asla göndermeyiz. Bunu Ayarlar’dan istediğiniz zaman değiştirebilirsiniz.",
+  "decline": "Reddet",
+  "accept": "Kabul et",
+  "couldNotShareApp": "Uygulama paylaşılamadı",
+  "couldNotOpenAppStore": "Uygulama mağazası açılamadı",
+  "couldNotOpenEmail": "E-posta uygulaması açılamadı",
+  "couldNotOpenDeveloperPage": "Geliştirici sayfası açılamadı",
+  "justNow": "Az önce",
+  "yearsAgo": "{count, plural, =1{1 yıl önce} other{{count} yıl önce}}",
+  "@yearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{count, plural, =1{1 ay önce} other{{count} ay önce}}",
+  "@monthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count, plural, =1{1 gün önce} other{{count} gün önce}}",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count, plural, =1{1 saat önce} other{{count} saat önce}}",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesAgo": "{count, plural, =1{1 dakika önce} other{{count} dakika önce}}",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}
