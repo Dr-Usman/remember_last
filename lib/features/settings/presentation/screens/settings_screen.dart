@@ -80,6 +80,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
                   child: SegmentedButton<ThemeMode>(
+                    style: SegmentedButton.styleFrom(
+                      selectedBackgroundColor:
+                          theme.colorScheme.primaryContainer,
+                      selectedForegroundColor:
+                          theme.colorScheme.onPrimaryContainer,
+                    ),
                     segments: [
                       ButtonSegment(
                         value: ThemeMode.system,

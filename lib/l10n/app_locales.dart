@@ -51,8 +51,36 @@ abstract final class AppLocales {
     'ko': '한국어',
   };
 
+  /// English language names shown as secondary labels in the picker.
+  static const englishNames = <String, String>{
+    'en': 'English',
+    'de': 'German',
+    'ro': 'Romanian',
+    'th': 'Thai',
+    'zh': 'Chinese (Simplified)',
+    'es': 'Spanish',
+    'hi': 'Hindi',
+    'bn': 'Bengali',
+    'ne': 'Nepali',
+    'ms': 'Malay',
+    'fil': 'Filipino',
+    'id': 'Indonesian',
+    'fr': 'French',
+    'it': 'Italian',
+    'pt': 'Portuguese',
+    'pl': 'Polish',
+    'nl': 'Dutch',
+    'vi': 'Vietnamese',
+    'tr': 'Turkish',
+    'ja': 'Japanese',
+    'ko': 'Korean',
+  };
+
   static String nativeName(Locale locale) =>
       nativeNames[locale.languageCode] ?? locale.languageCode;
+
+  static String englishName(Locale locale) =>
+      englishNames[locale.languageCode] ?? locale.languageCode;
 
   static Locale? parse(String? tag) {
     if (tag == null || tag == PrefsLocale.system) return null;
