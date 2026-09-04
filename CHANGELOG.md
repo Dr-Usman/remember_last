@@ -7,9 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-09-04
+
 ### Added
 
 - In-app language picker (system default or override) with Flutter gen_l10n support for 21 locales. Non-English copy is machine-translated for a first pass.
+
+### Changed
+
+- Language picker redesigned as a bottom-sheet grid; theme selection aligned to primary blue.
+- Dependencies and tooling bumps (Flutter CI 3.47.2, file_picker 12.2 API, Drift codegen refresh).
 
 ## [1.1.0] - 2026-09-02
 
