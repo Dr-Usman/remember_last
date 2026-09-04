@@ -27,7 +27,7 @@ jobs:
 
       - name: Verify Drift codegen is up to date
         run: |
-          dart run build_runner build --delete-conflicting-outputs
+          dart run build_runner build
           git diff --exit-code lib/core/database/app_database.g.dart
 
       - name: Run tests
