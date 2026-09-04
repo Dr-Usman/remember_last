@@ -82,13 +82,13 @@ class BackupActions {
     }
 
     try {
-      final result = await FilePicker.pickFiles(
+      final file = await FilePicker.pickFile(
         type: FileType.custom,
         allowedExtensions: ['json'],
       );
-      if (result == null || result.files.isEmpty) return;
+      if (file == null) return;
 
-      final bytes = await result.files.single.readAsBytes();
+      final bytes = await file.readAsBytes();
       final json = String.fromCharCodes(bytes);
       final service = _ref.read(backupServiceProvider);
       final importResult = await service.importFromJson(
