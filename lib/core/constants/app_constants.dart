@@ -12,9 +12,11 @@ abstract final class AppConstants {
   /// Full display name used in titles, share subjects, and copy.
   static const appName = '$brandPrefix$brandSuffix';
 
-  /// Light (and current default) app logo mark asset.
-  /// Use for both themes until a dedicated dark logo ships.
+  /// Light theme app logo mark asset.
   static const appLogoLight = 'assets/images/app_logo_light.png';
+
+  /// Dark theme app logo mark asset with white hands and tick marks.
+  static const appLogoDark = 'assets/images/app_logo_dark.png';
 
   /// Short tagline for About / marketing.
   static const tagline =

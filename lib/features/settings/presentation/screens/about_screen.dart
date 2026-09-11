@@ -78,7 +78,9 @@ class _AppLogoIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final isDark = theme.brightness == Brightness.dark;
 
     return Material(
       elevation: 6,
@@ -90,7 +92,10 @@ class _AppLogoIcon extends StatelessWidget {
         width: _size,
         height: _size,
         padding: const EdgeInsets.all(8),
-        child: Image.asset(AppConstants.appLogoLight, fit: BoxFit.cover),
+        child: Image.asset(
+          isDark ? AppConstants.appLogoDark : AppConstants.appLogoLight,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

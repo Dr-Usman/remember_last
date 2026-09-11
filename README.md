@@ -1,7 +1,10 @@
 # RememberLast
 
-<p style="text-align: center;">
-  <img src="assets/images/app_logo_light.png" alt="RememberLast logo" width="160" />
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/images/app_logo_dark.png">
+    <img src="assets/images/app_logo_light.png" alt="RememberLast logo" width="160" />
+  </picture>
 </p>
 
 Offline-first **Last Done Tracker** — remember when you last did anything.

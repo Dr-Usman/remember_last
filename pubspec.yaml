@@ -43,4 +43,5 @@ flutter:
 
   assets:
     - assets/images/app_logo_light.png
+    - assets/images/app_logo_dark.png
     - docs/privacy_policy.md
