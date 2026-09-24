@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-09-24
+
+### Added
+
+- Theme-adaptive app logo: added high-contrast dark theme brand logo (`app_logo_dark.png`) and dynamic brightness-based switching in About screen.
+- Multilingual Google Play Store listings for Dutch (`nl-NL`) and French (`fr-FR`) markets.
+- Japanese promotional mockups generated from real device screenshots (`store_assets/raw/ja/`) with authentic localized seed activities.
+- Automated promotional mockup pipeline (`tool/generate_mockups.py`) with support for locale-specific screenshot directories and 4x supersampled typography.
+
+### Changed
+
+- README updated with theme-adaptive picture elements.
+- Optimized asset sizes across light and dark branding marks.
+- Excluded SwiftPM Package.resolved files in `.gitignore`.
+
 ## [1.2.0] - 2026-09-04
 
 ### Added
