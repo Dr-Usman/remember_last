@@ -13,6 +13,8 @@ This folder contains localized store listings ready to copy-paste directly into 
 | **Romanian (Română)** | `ro` | [store_listing_romanian.md](file:///Users/usman/Development/Projects/Others/remember_last/docs/store_listings/store_listing_romanian.md) | 26 chars | 76 chars | 2,748 chars |
 | **Thai (ภาษาไทย)** | `th` | [store_listing_thai.md](file:///Users/usman/Development/Projects/Others/remember_last/docs/store_listings/store_listing_thai.md) | 29 chars | 61 chars | 2,425 chars |
 | **Lithuanian (Lietuvių)** | `lt` | [store_listing_lithuanian.md](file:///Users/usman/Development/Projects/Others/remember_last/docs/store_listings/store_listing_lithuanian.md) | 29 chars | 77 chars | 2,750 chars |
+| **Dutch (Nederlands)** | `nl-NL` | [store_listing_dutch.md](file:///Users/usman/Development/Projects/Others/remember_last/docs/store_listings/store_listing_dutch.md) | 27 chars | 76 chars | 2,680 chars |
+| **French (Français)** | `fr-FR` | [store_listing_french.md](file:///Users/usman/Development/Projects/Others/remember_last/docs/store_listings/store_listing_french.md) | 27 chars | 74 chars | 2,720 chars |
 | **Japanese (日本語)** | `ja-JP` | [store_listing_japanese.md](file:///Users/usman/Development/Projects/Others/remember_last/docs/store_listings/store_listing_japanese.md) | 23 chars | 43 chars | 1,448 chars |
 
 ---
@@ -22,7 +24,7 @@ This folder contains localized store listings ready to copy-paste directly into 
 1. Go to **Google Play Console** ➔ **RememberLast**.
 2. Navigate to **Grow** ➔ **Store presence** ➔ **Main store listing**.
 3. In the language dropdown at the top, click **Manage languages**.
-4. Select the languages you want to enable (German, Spanish, Lithuanian, Hindi, Romanian, Thai, Japanese) and click **Save**.
+4. Select the languages you want to enable (German, Spanish, Lithuanian, Dutch, French, Hindi, Romanian, Thai, Japanese) and click **Save**.
 5. Switch to each language from the dropdown:
    - Copy the **App name**, **Short description**, and **Full description** from the corresponding file above.
    - In the **Phone screenshots** section, upload the 4 corresponding localized mockups from `store_assets/play_store/<country_name>/`.
@@ -36,6 +38,8 @@ Pre-rendered high-resolution mockups with localized headlines, 4x supersampled t
 
 - 🇺🇸 **English**: `store_assets/play_store/english/`
 - 🇩🇪 **Germany**: `store_assets/play_store/germany/`
+- 🇳🇱 **Netherlands & Belgium (Dutch)**: `store_assets/play_store/netherlands/`
+- 🇫🇷 **France & Belgium (French)**: `store_assets/play_store/france/`
 - 🇯🇵 **Japan**: `store_assets/play_store/japan/`
 - 🇪🇸 **Spain & Mexico**: `store_assets/play_store/spain/`
 - 🇱🇹 **Lithuania**: `store_assets/play_store/lithuania/`
